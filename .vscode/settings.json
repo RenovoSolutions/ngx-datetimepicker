@@ -1,0 +1,19 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"files.trimTrailingWhitespace": true,
+	"editor.tabSize": 4,
+	"editor.formatOnType": true,
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/tests/": true,
+		"source/**/*.js": true,
+		"source/**/*.js.map": true,
+		"source/**/*.d.ts": true,
+		"bootstrapper/**/*.js": true,
+		"bootstrapper/**/*.js.map": true,
+		"bootstrapper/**/*.d.ts": true
+	}
+,
+"typescript.check.workspaceVersion": false
+}

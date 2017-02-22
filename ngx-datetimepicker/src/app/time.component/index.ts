@@ -1,0 +1,1 @@
+export { TimeComponent } from './time.component';

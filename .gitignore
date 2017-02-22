@@ -1,0 +1,7 @@
+*.js
+*.js.map
+*.log
+demo/app/*.js
+demo/*.d.ts
+demo/node_modules
+ngx-datetimepicker/node_modules

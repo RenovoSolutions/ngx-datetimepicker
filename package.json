@@ -1,0 +1,15 @@
+{
+  "name": "ngx-datetimepicker",
+  "version": "0.0.1",
+  "description": "A simple datetime picker built for Angular 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ngx-datetimepicker && ng serve",
+    "test": "cd ngx-datetimepicker && npm test"
+  },
+  "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
+  "license": "ISC",
+  "dependencies": {
+    "ismobilejs": "^0.4.0"
+  }
+}
