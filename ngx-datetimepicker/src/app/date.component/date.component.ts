@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild  } from '@angular/core';
 
 import { isMobile } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
@@ -11,9 +11,13 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 export class DateComponent implements OnInit {
     @Input() selectedDate: Date;
-    @Output() selectedDateChange: EventEmitter<Date>;
+    @Output() selectedDateChange = new EventEmitter<Date>();
+    @ViewChild('yearSelect') yearSelect: ElementRef;
+    @ViewChild('monthSelect') monthSelect: ElementRef;
 
     public availableDays: dayOfTheMonth[];
+    public months: string[];
+    public years: number[];
 
     get selectedMonth(): number {
         //increment by one since getMonth is zero based
@@ -29,33 +33,100 @@ export class DateComponent implements OnInit {
     }
 
     set selectedMonth(month: number) {
-        this.selectedDate.setMonth(month - 1);
+        let newDate = new Date(this.selectedDate);
+
+        newDate.setMonth(month - 1);
+        this.setSelectedDate(newDate);
     }
 
     set selectedDay(day: number) {
-        this.selectedDate.setDate(day);
+        let newDate = new Date(this.selectedDate);
+
+        newDate.setDate(day);
+        this.setSelectedDate(newDate);
     }
     set selectedYear(year: number) {
-        this.selectedDate.setFullYear(year);
+        let newDate = new Date(this.selectedDate);
+
+        newDate.setFullYear(year);
+        this.setSelectedDate(newDate);
     }
 
-    get selectedMonthText(): string{
+    get selectedMonthText(): string {
         return this.dateService.getMonthText(this.selectedDate);
     }
 
     constructor(private dateService: DateService) { }
 
+    setSelectedDate(date: Date): void {
+        if(!date){
+            date = new Date();
+        }
+
+        const shouldReloadCalendar = (this.selectedMonth != (date.getMonth() + 1) || this.selectedYear != date.getFullYear());
+
+        if (shouldReloadCalendar) {
+            this.selectedDate = date;
+            this.loadAvailableDays();
+        }else{
+            this.selectedDate = date;
+        }
+        this.selectedDateChange.emit(this.selectedDate);
+
+    }
+
     ngOnInit() {
+        this.months = this.dateService.getMonths();
+        this.years = this.dateService.getAvailableYears();
+
+        // subscribing to it's own event emitter to set the selected year position
+        this.selectedDateChange.subscribe(date => {
+            this.scrollToMonth();
+            this.scrollToYear();
+        });
+
         //If no date is selected then default to today's date.
         if (!this.selectedDate) {
             this.selectedDate = new Date();
         }
-        if (typeof this.selectedDate == 'string'){
+        if (typeof this.selectedDate == 'string') {
             this.selectedDate = new Date(this.selectedDate);
         }
-
-        this.availableDays = this.dateService.getDateList(this.selectedMonth, this.selectedYear);
+        this.loadAvailableDays();
 
     }
 
+    private loadAvailableDays(): void {
+        this.availableDays = [...this.dateService.getDateList(this.selectedMonth, this.selectedYear)];
+    }
+
+    public scrollToYear():void{
+        setTimeout(()=>{
+            const selectContainer = this.yearSelect.nativeElement;
+            const selectedYear = selectContainer.querySelector('.calendar--year__current');
+            selectContainer.scrollTop = selectedYear.offsetTop - (selectContainer.clientHeight / 2) - (selectedYear.clientHeight);
+        });
+    }
+
+    public scrollToMonth():void{
+        setTimeout(()=>{
+            const selectContainer = this.monthSelect.nativeElement;
+            const selectedMonth = selectContainer.querySelector('.calendar--month__current');
+            selectContainer.scrollTop = selectedMonth.offsetTop - (selectContainer.clientHeight / 2)- (selectedMonth.clientHeight)  ;
+        });
+    }
+
+    public previousMonth():void{
+        let previousMonth = new Date(this.selectedDate);
+        //because javascript sets months based on a 0 index need to jump back 2 to go to the previous month.
+        previousMonth.setMonth(this.selectedMonth - 2)
+        this.setSelectedDate(previousMonth)
+    }
+
+    public nextMonth():void{
+        let nextMonth = new Date(this.selectedDate);
+        /// same as above but since selected month is 1-12 the index is already the next month.
+        nextMonth.setMonth(this.selectedMonth)
+        this.setSelectedDate(nextMonth)
+    }
 }
