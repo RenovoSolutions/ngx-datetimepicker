@@ -19,6 +19,19 @@
   cursor: pointer;
 }
 
+.calendar--previous-and-next {
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-height: 3.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .calendar--footer {
   background-color: #222651;
   padding: 0;
