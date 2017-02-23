@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { DateComponent } from './date.component/date.component';
 import { IS_MOBILE_PROVIDER } from './services/isMobile.service';
 import { DateService } from './services/date.service';
+import { DatePickerComponent } from './datePicker.component/datePicker.component';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        DateComponent
+        DateComponent,
+        DatePickerComponent
       ],
       providers: [
         IS_MOBILE_PROVIDER,
