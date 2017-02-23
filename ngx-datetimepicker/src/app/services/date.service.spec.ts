@@ -27,6 +27,7 @@ describe('AppComponent', () => {
 
     expect(response.length).toBe(3);
     expect(response[0].day).toBe(29);
+    expect(response[0].month).toBe(2);
     expect(response[1].day).toBe(30);
     expect(response[2].day).toBe(31);
   });
@@ -40,4 +41,7 @@ describe('AppComponent', () => {
     expect(response[3].day).toBe(4);
   });
 
+  it('should return "May" when givin 5/1/2017',()=>{
+    expect(dateService.getMonthText(new Date('5/1/2017'))).toEqual('May');
+  });
 });
