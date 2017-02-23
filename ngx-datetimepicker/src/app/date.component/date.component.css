@@ -1,14 +1,15 @@
 .calendar {
-  background-color: #313775;
-  max-width: 22.75em;
-  min-width: 22.75em;
+  position: absolute;
+  background-color: #222651;
+  max-width: 16em;
+  min-width: 16em;
 }
 
 .btn__calendar {
   color: #fff;
   background-color: transparent;
   border: none;
-  padding: 1em 1.25em;
+  padding: 1em;
 }
 .btn__calendar:hover {
   -webkit-transition: .25s ease;
@@ -19,7 +20,7 @@
 }
 
 .calendar--footer {
-  background-color: #313775;
+  background-color: #222651;
   padding: 0;
 }
 
@@ -36,8 +37,8 @@
 .calendar--years-select {
   opacity: 0;
   display: none;
-  max-height: 16em;
-  overflow-y: scroll;
+  max-height: 14.85em;
+  overflow-y: auto;
 }
 
 .calendar--years-select,
@@ -73,7 +74,7 @@
 
 .calendar--label {
   display: inline-block;
-  padding: 1em;
+  padding: 1em .85em;
   color: #fff;
 }
 .calendar--label:hover {
@@ -115,6 +116,7 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  background-color: #313775;
 }
 
 .calendar--day-of-week {
@@ -135,17 +137,14 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: .1em;
   background-color: #fff;
 }
 
 .calendar--day {
-  position: relative;
   text-align: center;
-  width: 2em;
+  width: 1.285em;
   padding: .5em;
-  margin: .1em .1em;
-  font-weight: 00;
+  font-weight: 500;
 }
 .calendar--day__current {
   background-color: #aeb2dd;
