@@ -3,6 +3,8 @@
   background-color: #222651;
   max-width: 16em;
   min-width: 16em;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
 }
 
 .btn__calendar {
@@ -10,6 +12,7 @@
   background-color: transparent;
   border: none;
   padding: 1em;
+  font-size: 1em;
 }
 .btn__calendar:hover {
   -webkit-transition: .25s ease;
