@@ -1,10 +1,11 @@
 .calendar {
-  background-color: #fff;
-  max-width: 25em;
-  min-width: 25em;
+  background-color: #313775;
+  max-width: 22.75em;
+  min-width: 22.75em;
 }
 
 .btn__calendar {
+  color: #fff;
   background-color: transparent;
   border: none;
   padding: 1em 1.25em;
@@ -12,11 +13,13 @@
 .btn__calendar:hover {
   -webkit-transition: .25s ease;
   transition: .25s ease;
+  background-color: #f41875;
   box-shadow: none;
   cursor: pointer;
 }
 
 .calendar--footer {
+  background-color: #313775;
   padding: 0;
 }
 
@@ -24,29 +27,106 @@
   float: right;
 }
 
-.calendar--month-and-year {
+.calendar--month-and-year-toggle {
   text-align: left;
+  background-color: #313775;
+}
+
+.calendar--months-select,
+.calendar--years-select {
+  opacity: 0;
+  display: none;
+  max-height: 16em;
+  overflow-y: scroll;
+}
+
+.calendar--years-select,
+.calendar--months-select {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #fff;
+  width: 100%;
+}
+
+.calendar--year,
+.calendar--month {
+  padding: .5em 1em;
+  width: 100%;
+}
+.calendar--year__current,
+.calendar--month__current {
+  color: #313775;
+  font-weight: bold;
+  background-color: #aeb2dd;
+}
+.calendar--year:hover,
+.calendar--month:hover {
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+  cursor: pointer;
+  background-color: #313775;
+  color: #fff;
+}
+
+.calendar--label {
+  display: inline-block;
+  padding: 1em;
+  color: #fff;
+}
+.calendar--label:hover {
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+  cursor: pointer;
+  background-color: #f41875;
+}
+
+.calendar--toggle__month:checked + .calendar--label__month, .calendar--toggle__year:checked + .calendar--label__year {
+  background-color: #f41875;
+}
+.calendar--toggle__month:checked ~ .calendar--days-and-weeks, .calendar--toggle__year:checked ~ .calendar--days-and-weeks {
+  display: none;
+}
+.calendar--toggle__month:checked ~ .calendar--months-select, .calendar--toggle__year:checked ~ .calendar--years-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+}
+
+.calendar--toggles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.calendar--toggle {
+  display: none;
 }
 
 .calendar--days-of-week {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .calendar--day-of-week {
   position: relative;
-  width: 100%;
   padding: .5em;
   text-align: center;
   text-transform: uppercase;
+  color: #fff;
   font-size: .9em;
 }
 
-.calendar--day-select {
+.calendar--days-select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,7 +135,8 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: .1em;
+  padding: .1em;
+  background-color: #fff;
 }
 
 .calendar--day {
@@ -66,15 +147,36 @@
   margin: .1em .1em;
   font-weight: 00;
 }
+.calendar--day__current {
+  background-color: #aeb2dd;
+  color: #313775;
+  font-weight: bold;
+}
 .calendar--day__muted {
   color: #999;
 }
 .calendar--day__selected {
-  font-weight: 600;
+  background-color: #313775;
+  color: #fff;
 }
 .calendar--day:hover {
   -webkit-transition: .25s ease;
   transition: .25s ease;
-  border-radius: .2em;
   cursor: pointer;
+  background-color: #313775;
+  color: #fff;
+}
+
+body {
+  background-color: #1d1f20;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: relative;
+  top: 25vh;
 }
