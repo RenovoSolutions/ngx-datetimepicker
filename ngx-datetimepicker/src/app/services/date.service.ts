@@ -23,7 +23,7 @@ export class DateService {
 			returnedDays.push({
 				day: dayOfTheMonth.getDate(),
 				dayOfTheWeek: dayOfTheMonth.getDay(),
-				month: dayOfTheMonth.getMonth()
+				month: dayOfTheMonth.getMonth() + 1
 			});
 			dayOfTheMonth.setDate(dayOfTheMonth.getDate() + 1);
 		}
@@ -45,7 +45,7 @@ export class DateService {
 			returnedDays = [{
 				day: day.getDate(),
 				dayOfTheWeek: day.getDay(),
-				month: day.getMonth()
+				month: day.getMonth() + 1
 
 			}, ...returnedDays];
 			dayOfTheWeek = day.getDay();
@@ -70,11 +70,17 @@ export class DateService {
 			returnedDays = [...returnedDays, {
 				day: day.getDate(),
 				dayOfTheWeek: day.getDay(),
-				month: day.getMonth()
+				month: day.getMonth() + 1
 			}];
 			dayOfTheWeek = day.getDay();
 		}
 
 		return returnedDays;
+	}
+
+
+	getMonthText(date: Date): string{
+		const monthTextList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		return monthTextList[date.getMonth()];
 	}
 }
