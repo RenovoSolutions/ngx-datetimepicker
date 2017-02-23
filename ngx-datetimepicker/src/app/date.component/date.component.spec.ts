@@ -1,11 +1,19 @@
 import { DateComponent } from './date.component';
 
+import { DateService } from '../services/date.service';
+
 describe('a date component', () => {
-	let dateComponent : DateComponent;
+	let dateComponent: DateComponent;
+	let mockDateService:any;
+
 
 	// register all needed dependencies
 	beforeEach(() => {
-		dateComponent = new DateComponent(<any>{});
+		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
+
+		mockDateService.getDateList.and.returnValue([]);
+
+		dateComponent = new DateComponent(mockDateService);
 	});
 
 	it('should have an instance', () => {
@@ -13,7 +21,11 @@ describe('a date component', () => {
 	});
 
 	it('should set the selected date to today when no date is set', () => {
-		expect(dateComponent.selectedDate).toEqual(new Date());
+		dateComponent.ngOnInit();
+
+		expect(dateComponent.selectedMonth).toEqual(new Date().getMonth() + 1);
+		expect(dateComponent.selectedDay).toEqual(new Date().getDate());
+		expect(dateComponent.selectedYear).toEqual(new Date().getFullYear());
 	});
 
 
@@ -33,6 +45,7 @@ describe('a date component', () => {
 
 		expect(dateComponent.selectedDate).toEqual(new Date('3/23/2007'));
 		expect(dateComponent.selectedMonth).toEqual(3);
+		expect(mockDateService.getDateList).toHaveBeenCalled();
 	});
 
 	it('should change the selected date to 2/24/2007', () => {
@@ -43,6 +56,7 @@ describe('a date component', () => {
 
 		expect(dateComponent.selectedDate).toEqual(new Date('2/24/2007'));
 		expect(dateComponent.selectedDay).toEqual(24);
+		expect(mockDateService.getDateList).toHaveBeenCalledTimes(0);
 	});
 
 
@@ -54,5 +68,19 @@ describe('a date component', () => {
 
 		expect(dateComponent.selectedDate).toEqual(new Date('2/23/2017'));
 		expect(dateComponent.selectedYear).toEqual(2017);
+		expect(mockDateService.getDateList).toHaveBeenCalled();
+	});
+
+	it('should change the selected date to 3/3/2017 and reload the available days', () => {
+		dateComponent.selectedDate = new Date('2/23/2007');
+
+		expect(dateComponent.selectedMonth).toEqual(2);
+
+		dateComponent.setSelectedDate(new Date('3/3/2017'));
+
+		expect(dateComponent.selectedMonth).toEqual(3);
+		expect(dateComponent.selectedDay).toEqual(3);
+		expect(dateComponent.selectedYear).toEqual(2017);
+		expect(mockDateService.getDateList).toHaveBeenCalled();
 	});
 });

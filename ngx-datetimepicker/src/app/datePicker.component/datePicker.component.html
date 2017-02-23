@@ -1,0 +1,9 @@
+<div [ngSwitch]="isMobile.any">
+  <div *ngSwitchCase="true">
+    <input type="date" />
+  </div>
+  <div *ngSwitchDefault>
+    <input type="text" [value]="formattedDate" />
+    <ngx-date [(selectedDate)]="selectedDate"> </ngx-date>
+  </div>
+</div>

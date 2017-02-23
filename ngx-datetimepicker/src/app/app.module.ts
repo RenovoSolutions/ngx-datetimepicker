@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DateComponent } from './date.component/date.component';
+import { DatePickerComponent } from './datePicker.component/datePicker.component';
 
 import { IS_MOBILE_PROVIDER } from './services/isMobile.service';
 import { DateService } from './services/date.service';
@@ -13,7 +14,8 @@ import { DateService } from './services/date.service';
 @NgModule({
   declarations: [
     AppComponent,
-    DateComponent
+    DateComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
