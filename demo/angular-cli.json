@@ -1,11 +1,12 @@
 {
   "project": {
     "version": "1.0.0-beta.28.3",
-    "name": "ngx-datetimepicker"
+    "name": "demo"
   },
   "apps": [
     {
       "root": "src",
+      "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico"

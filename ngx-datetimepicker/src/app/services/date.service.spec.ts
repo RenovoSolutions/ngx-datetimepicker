@@ -81,7 +81,7 @@ describe('AppComponent', () => {
   });
 
   it('should return an empty string when the supplied a string',()=>{
-    const formattedDate = dateService.formateMMDDYYYY('warrior cats');
+    const formattedDate = dateService.formateMMDDYYYY(<any>'warrior cats');
 
     expect(formattedDate).toBe('');
   });

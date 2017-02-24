@@ -10,9 +10,10 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-    "typeRoots": [
-      "../node_modules/@types",
-      "./typings/isMobile.d.ts"
-    ]
-  }
+	"noEmitOnError": false,
+	"noEmit": false
+  },
+  "files": [
+		"index.ts"
+  ]
 }
