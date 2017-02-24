@@ -39,7 +39,7 @@
 				<div class="calendar--days-select">
 					<span class="calendar--day"
 					[class.calendar--day__muted]="day.month != selectedMonth"
-					[class.calendar--day__selected]="day.day == selectedDay && day.month == selectedMonth"
+					[class.calendar--day__selected]="day.date.getDate() == highlightedDate?.getDate() && day.date.getFullYear() == highlightedDate?.getFullYear() && day.date.getMonth() == highlightedDate?.getMonth() "
 					(click)="setSelectedDate(day.date)"
 					*ngFor="let day of availableDays">
 				{{ day.day}}

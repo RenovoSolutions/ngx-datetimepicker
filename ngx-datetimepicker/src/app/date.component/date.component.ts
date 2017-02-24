@@ -19,6 +19,8 @@ export class DateComponent implements OnInit {
     public months: string[];
     public years: number[];
 
+    public highlightedDate:Date;
+
     get selectedMonth(): number {
         //increment by one since getMonth is zero based
         return this.selectedDate.getMonth() + 1;
@@ -36,20 +38,21 @@ export class DateComponent implements OnInit {
         let newDate = new Date(this.selectedDate);
 
         newDate.setMonth(month - 1);
-        this.setSelectedDate(newDate);
+        this.loadCalendarMonth(newDate);
     }
 
     set selectedDay(day: number) {
         let newDate = new Date(this.selectedDate);
 
         newDate.setDate(day);
-        this.setSelectedDate(newDate);
+        this.loadCalendarMonth(newDate);
+
     }
     set selectedYear(year: number) {
         let newDate = new Date(this.selectedDate);
 
         newDate.setFullYear(year);
-        this.setSelectedDate(newDate);
+        this.loadCalendarMonth(newDate);
     }
 
     get selectedMonthText(): string {
@@ -59,6 +62,13 @@ export class DateComponent implements OnInit {
     constructor(private dateService: DateService) { }
 
     setSelectedDate(date: Date): void {
+        //load calendarMonth will set the selected date;
+        this.loadCalendarMonth(date);
+        this.selectedDateChange.emit(this.selectedDate);
+        this.highlightedDate = this.selectedDate;
+    }
+
+    private loadCalendarMonth(date: Date) {
         if(!date){
             date = new Date();
         }
@@ -71,8 +81,6 @@ export class DateComponent implements OnInit {
         }else{
             this.selectedDate = date;
         }
-        this.selectedDateChange.emit(this.selectedDate);
-
     }
 
     ngOnInit() {
@@ -92,6 +100,7 @@ export class DateComponent implements OnInit {
         if (typeof this.selectedDate == 'string') {
             this.selectedDate = new Date(this.selectedDate);
         }
+        this.highlightedDate = this.selectedDate;
         this.loadAvailableDays();
 
     }
@@ -120,13 +129,13 @@ export class DateComponent implements OnInit {
         let previousMonth = new Date(this.selectedDate);
         //because javascript sets months based on a 0 index need to jump back 2 to go to the previous month.
         previousMonth.setMonth(this.selectedMonth - 2)
-        this.setSelectedDate(previousMonth)
+        this.loadCalendarMonth(previousMonth)
     }
 
     public nextMonth():void{
         let nextMonth = new Date(this.selectedDate);
         /// same as above but since selected month is 1-12 the index is already the next month.
         nextMonth.setMonth(this.selectedMonth)
-        this.setSelectedDate(nextMonth)
+        this.loadCalendarMonth(nextMonth)
     }
 }
