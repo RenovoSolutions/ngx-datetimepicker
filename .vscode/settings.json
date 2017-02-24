@@ -7,13 +7,8 @@
 		"**/.git": true,
 		"**/.DS_Store": true,
 		"**/tests/": true,
-		"source/**/*.js": true,
-		"source/**/*.js.map": true,
-		"source/**/*.d.ts": true,
-		"bootstrapper/**/*.js": true,
-		"bootstrapper/**/*.js.map": true,
-		"bootstrapper/**/*.d.ts": true
+		"ngx-datetimepicker/src/**/*.js": true,
+		"ngx-datetimepicker/src/**/*.js.map": true,
+		"ngx-datetimepicker/src/**/*.d.ts": true
 	}
-,
-"typescript.check.workspaceVersion": false
 }
