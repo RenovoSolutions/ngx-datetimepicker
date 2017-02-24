@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cd ngx-datetimepicker && ng serve",
     "test": "cd ngx-datetimepicker && npm test",
-    "setup": "cd ngx-datetimepicker && npm install"
+    "setup": "cd ngx-datetimepicker && npm install",
+    "dist": "cd ngx-datetimepicker/src/ && tsc",
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
