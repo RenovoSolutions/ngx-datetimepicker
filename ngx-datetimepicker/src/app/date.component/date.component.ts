@@ -112,7 +112,7 @@ export class DateComponent implements OnInit {
     public scrollToYear():void{
         setTimeout(()=>{
             const selectContainer = this.yearSelect.nativeElement;
-            const selectedYear = selectContainer.querySelector('.calendar--year__current');
+            const selectedYear = selectContainer.querySelector('.calendar--year__selected');
             selectContainer.scrollTop = selectedYear.offsetTop - (selectContainer.clientHeight / 2) - (selectedYear.clientHeight);
         });
     }
@@ -120,7 +120,7 @@ export class DateComponent implements OnInit {
     public scrollToMonth():void{
         setTimeout(()=>{
             const selectContainer = this.monthSelect.nativeElement;
-            const selectedMonth = selectContainer.querySelector('.calendar--month__current');
+            const selectedMonth = selectContainer.querySelector('.calendar--month__selected');
             selectContainer.scrollTop = selectedMonth.offsetTop - (selectContainer.clientHeight / 2)- (selectedMonth.clientHeight)  ;
         });
     }

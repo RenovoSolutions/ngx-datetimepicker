@@ -13,14 +13,14 @@
 		</span>
 		<div class="calendar--months-select" #monthSelect >
 			<span class="calendar--month"
-				[class.calendar--month__current]="i+ 1 == selectedMonth"
+				[class.calendar--month__selected]="i+ 1 == selectedMonth"
 				(click)="selectedMonth = i+ 1; toggleMonth = false;"
 			*ngFor="let month of months; let i = index ;">{{ month }}</span>
 
 		</div>
 		<div class="calendar--years-select" #yearSelect>
 			<span class="calendar--year"
-				[class.calendar--year__current]="selectedYear == year"
+				[class.calendar--year__selected]="selectedYear == year"
 				(click)="selectedYear = year; toggleMonth = true; toggleYear = false;"
 				*ngFor="let year of years">
 				{{ year }}
