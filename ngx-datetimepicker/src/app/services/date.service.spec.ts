@@ -75,13 +75,13 @@ describe('AppComponent', () => {
   });
 
   it('should format the supplied date to MM/DD/YYYY',()=>{
-    const formattedDate = dateService.formateMMDDYYYY(new Date('2/23/2017'));
+    const formattedDate = dateService.formatMMDDYYYY(new Date('2/23/2017'));
 
     expect(formattedDate).toBe('2/23/2017');
   });
 
   it('should return an empty string when the supplied a string',()=>{
-    const formattedDate = dateService.formateMMDDYYYY(<any>'warrior cats');
+    const formattedDate = dateService.formatMMDDYYYY(<any>'warrior cats');
 
     expect(formattedDate).toBe('');
   });
