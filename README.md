@@ -22,6 +22,6 @@
 
 ### Contributers
 
-[<img alt="TheOriginalJosh" src="https://avatars.githubusercontent.com/u/1486275?v=3&s=117" width="117">](https://github.com/TheOriginalJosh) | [<img alt="BrentWMiller" src="https://avatars.githubusercontent.com/u/13574057?v=3&s=117" width="117">](https://github.com/BrentWMiller)
-:---: |:---: |
-[Josh Sommer](https://github.com/TheOriginalJosh) |[Brent Miller](https://github.com/BrentWMiller)
+[<img alt="TheOriginalJosh" src="https://avatars.githubusercontent.com/u/1486275?v=3&s=117" width="117">](https://github.com/TheOriginalJosh) | [<img alt="BrentWMiller" src="https://avatars.githubusercontent.com/u/13574057?v=3&s=117" width="117">](https://github.com/BrentWMiller)| [<img alt="SFarageNIS" src="https://avatars.githubusercontent.com/u/1518056?v=3&s=117" width="117">](https://github.com/SFarageNIS)
+:---: |:---: |:---: |
+[Josh Sommer](https://github.com/TheOriginalJosh) |[Brent Miller](https://github.com/BrentWMiller) |[Steven Farage](https://github.com/SFarageNIS)
