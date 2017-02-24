@@ -38,8 +38,8 @@
 				</div>
 				<div class="calendar--days-select">
 					<span class="calendar--day"
-					[class.day__muted]="day.month != selectedMonth"
-					[class.day__selected]="day.day == selectedDay && day.month == selectedMonth"
+					[class.calendar--day__muted]="day.month != selectedMonth"
+					[class.calendar--day__selected]="day.day == selectedDay && day.month == selectedMonth"
 					(click)="setSelectedDate(day.date)"
 					*ngFor="let day of availableDays">
 				{{ day.day}}
