@@ -8,6 +8,7 @@
     "test": "cd ngx-datetimepicker && npm test",
     "setup": "cd ngx-datetimepicker && npm install",
     "dist": "cd ngx-datetimepicker/src/ && tsc",
+    "demo": "npm run dist && cd demo && npm remove ngx-datetimepicker && npm install ../ && ng serve"
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
