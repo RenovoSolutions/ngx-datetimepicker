@@ -4,6 +4,6 @@
   </div>
   <div *ngSwitchDefault>
     <input type="text" [value]="formattedDate" />
-    <ngx-date [(selectedDate)]="selectedDate"> </ngx-date>
+    <ngx-date (selectedDateChange)="selectedDateChange.emit($event)" [selectedDate]="selectedDate"> </ngx-date>
   </div>
 </div>

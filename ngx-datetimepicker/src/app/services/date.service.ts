@@ -14,7 +14,7 @@ export class DateService {
 
 	constructor() { }
 
-	formateMMDDYYYY(date:Date):string{
+	formatMMDDYYYY(date:Date):string{
 		if(!date|| typeof date == 'string'){
 			return '';
 		}
