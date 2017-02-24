@@ -5,3 +5,5 @@ demo/app/*.js
 demo/*.d.ts
 demo/node_modules
 ngx-datetimepicker/node_modules
+ngx-datetimepickerdemo/**/*.js
+ngx-datetimepicker/**/*.d.ts
