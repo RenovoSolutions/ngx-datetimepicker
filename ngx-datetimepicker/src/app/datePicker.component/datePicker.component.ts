@@ -12,10 +12,7 @@ export class DatePickerComponent implements OnInit {
     @Output() selectedDateChange = new EventEmitter<Date>();
 
 	get formattedDate(){
-		if(!this.selectedDate){
-			return '';
-		}
-		return (this.selectedDate.getMonth() + 1) + '/' + this.selectedDate.getDate() + '/' + this.selectedDate.getFullYear();
+        return this.dateService.formateMMDDYYYY(this.selectedDate);
 	}
 
 	constructor(public isMobile: isMobile, public dateService: DateService) { }

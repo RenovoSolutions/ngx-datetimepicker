@@ -14,6 +14,13 @@ export class DateService {
 
 	constructor() { }
 
+	formateMMDDYYYY(date:Date):string{
+		if(!date|| typeof date == 'string'){
+			return '';
+		}
+		return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+	}
+
 	getCurrentMonthDays(Month: number, Year: number): dayOfTheMonth[] {
 		let dayOfTheMonth = new Date(Month + '/1/' + Year);
 		let nextMonth = new Date(Month + '/1/' + Year);
