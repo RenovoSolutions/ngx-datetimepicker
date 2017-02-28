@@ -1,6 +1,6 @@
 <div [ngSwitch]="isMobile.any">
   <div *ngSwitchCase="true">
-    <input type="date" />
+    <input type="datetime-local" />
   </div>
   <div *ngSwitchDefault>
     <input type="text" [value]="formattedDate" (onBlur)="formattedDate" />

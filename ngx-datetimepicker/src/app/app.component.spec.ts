@@ -8,6 +8,7 @@ import { DateService } from './services/date.service';
 import { DatePickerComponent } from './datePicker.component/datePicker.component';
 import { TimeComponent } from './time.component/time.component';
 import { DateTimePickerComponent } from './dateTimePicker.component/dateTimePicker.component';
+import { TimePickerComponent } from './timePicker.component/timePicker.component';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
         DateComponent,
         DatePickerComponent,
         TimeComponent,
-        DateTimePickerComponent
+        DateTimePickerComponent,
+        TimePickerComponent
       ],
       providers: [
         IS_MOBILE_PROVIDER,
