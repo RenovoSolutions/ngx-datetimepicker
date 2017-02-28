@@ -45,7 +45,13 @@
 				{{ day.day}}
 				</span>
 				</div>
-			</div>
+		</div>
+		<ngx-time *ngIf="includeTime"
+				[selectedHour]="selectedHour"
+				[selectedMinute]="selectedMinute"
+				(selectedHourChange)="setSelectedDate(highlightedDate,$event)"
+				(selectedMinuteChange)="setSelectedDate(highlightedDate,null,$event)"
+				></ngx-time>
 		<div class="calendar--footer">
 			<button class="calendar--btn calendar--btn__now" (click)="setSelectedDate(null); toggleYear =false; toggleMonth = false">Now</button>
 			<button class="calendar--btn calendar--btn__done">Done</button>

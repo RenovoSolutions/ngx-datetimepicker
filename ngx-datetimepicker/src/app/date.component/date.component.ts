@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 
 import { isMobile } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
@@ -11,7 +11,10 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 export class DateComponent implements OnInit {
     @Input() selectedDate: Date;
+    @Input() includeTime: boolean;
+
     @Output() selectedDateChange = new EventEmitter<Date>();
+
     @ViewChild('yearSelect') yearSelect: ElementRef;
     @ViewChild('monthSelect') monthSelect: ElementRef;
 
@@ -19,7 +22,10 @@ export class DateComponent implements OnInit {
     public months: string[];
     public years: number[];
 
-    public highlightedDate:Date;
+    public highlightedDate: Date;
+
+    public selectedHour: number;
+    public selectedMinute: number;
 
     get selectedMonth(): number {
         //increment by one since getMonth is zero based
@@ -61,25 +67,38 @@ export class DateComponent implements OnInit {
 
     constructor(private dateService: DateService) { }
 
-    setSelectedDate(date: Date): void {
-        //load calendarMonth will set the selected date;
-        this.loadCalendarMonth(date);
-        this.selectedDateChange.emit(this.selectedDate);
-        this.highlightedDate = this.selectedDate;
-    }
-
-    private loadCalendarMonth(date: Date) {
-        if(!date){
+    setSelectedDate(date: Date, hour?: number, minutes?: number): void {
+        if (this.includeTime && !!date) {
+            date.setHours(this.selectedDate.getHours(), this.selectedDate.getMinutes());
+        }
+        if (!date) {
             date = new Date();
         }
 
+        //load calendarMonth will set the selected date;
+        this.loadCalendarMonth(date);
+
+        if (hour) {
+            this.selectedDate.setHours(hour);
+        }
+
+        if (minutes) {
+            this.selectedDate.setMinutes(minutes);
+        }
+
+        this.selectedDateChange.emit(this.selectedDate);
+        this.highlightedDate = this.selectedDate;
+        this.selectedHour = date.getHours();
+        this.selectedMinute = date.getMinutes();
+    }
+
+    private loadCalendarMonth(date: Date) {
+
         const shouldReloadCalendar = (this.selectedMonth != (date.getMonth() + 1) || this.selectedYear != date.getFullYear());
+        this.selectedDate = date;
 
         if (shouldReloadCalendar) {
-            this.selectedDate = date;
-            this.loadAvailableDays();
-        }else{
-            this.selectedDate = date;
+            this.availableDays = [...this.dateService.getDateList(this.selectedMonth, this.selectedYear)];
         }
     }
 
@@ -93,6 +112,7 @@ export class DateComponent implements OnInit {
             this.scrollToYear();
         });
 
+
         //If no date is selected then default to today's date.
         if (!this.selectedDate) {
             this.selectedDate = new Date();
@@ -100,39 +120,49 @@ export class DateComponent implements OnInit {
         if (typeof this.selectedDate == 'string') {
             this.selectedDate = new Date(this.selectedDate);
         }
+
+        if (this.includeTime) {
+            this.selectedHour = this.selectedDate.getHours();
+        }
+
+        if (this.includeTime) {
+            this.selectedMinute = this.selectedDate.getMinutes();
+        }
         this.highlightedDate = this.selectedDate;
-        this.loadAvailableDays();
-
-    }
-
-    private loadAvailableDays(): void {
         this.availableDays = [...this.dateService.getDateList(this.selectedMonth, this.selectedYear)];
+
     }
 
-    public scrollToYear():void{
-        setTimeout(()=>{
-            const selectContainer = this.yearSelect.nativeElement;
+    public scrollToYear(): void {
+        // setTime out is being used since I need this code to excute next, if not the change won't be visible until the second click
+        setTimeout(() => {
+            if (this.yearSelect && this.yearSelect.nativeElement) {
+                const selectContainer = this.yearSelect.nativeElement;
             const selectedYear = selectContainer.querySelector('.calendar--year__selected');
-            selectContainer.scrollTop = selectedYear.offsetTop - (selectContainer.clientHeight / 2) - (selectedYear.clientHeight);
+                selectContainer.scrollTop = selectedYear.offsetTop - (selectContainer.clientHeight / 2) - (selectedYear.clientHeight);
+            }
         });
     }
 
-    public scrollToMonth():void{
-        setTimeout(()=>{
-            const selectContainer = this.monthSelect.nativeElement;
+    public scrollToMonth(): void {
+        // setTime out is being used since I need this code to excute next, if not the change won't be visible until the second click
+        setTimeout(() => {
+            if (this.monthSelect && this.monthSelect.nativeElement) {
+                const selectContainer = this.monthSelect.nativeElement;
             const selectedMonth = selectContainer.querySelector('.calendar--month__selected');
-            selectContainer.scrollTop = selectedMonth.offsetTop - (selectContainer.clientHeight / 2)- (selectedMonth.clientHeight)  ;
+                selectContainer.scrollTop = selectedMonth.offsetTop - (selectContainer.clientHeight / 2) - (selectedMonth.clientHeight);
+            }
         });
     }
 
-    public previousMonth():void{
+    public previousMonth(): void {
         let previousMonth = new Date(this.selectedDate);
         //because javascript sets months based on a 0 index need to jump back 2 to go to the previous month.
         previousMonth.setMonth(this.selectedMonth - 2)
         this.loadCalendarMonth(previousMonth)
     }
 
-    public nextMonth():void{
+    public nextMonth(): void {
         let nextMonth = new Date(this.selectedDate);
         /// same as above but since selected month is 1-12 the index is already the next month.
         nextMonth.setMonth(this.selectedMonth)
