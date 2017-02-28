@@ -5,7 +5,7 @@
   min-width: 16em;
   font-size: 18px;
   font-family: 'Arial', sans-serif;
-  border-radius: .2em; }
+  border-radius: 0.2em; }
 
 .calendar--btn {
   color: #fff;
@@ -28,20 +28,20 @@
   justify-content: flex-end; }
 
 .calendar--footer {
+  display: flex;
+  justify-content: space-between;
   background-color: #222651;
   padding: 0;
-  border-radius: .2em; }
+  border-radius: 0.2em; }
 
-.calendar--btn__done {
-  float: right; }
-  .calendar--btn__done:hover {
-    border-bottom-right-radius: .2em; }
+.calendar--btn__done:hover {
+  border-bottom-right-radius: 0.2em; }
 
 .calendar--btn__now:hover {
-  border-bottom-left-radius: .2em; }
+  border-bottom-left-radius: 0.2em; }
 
 .calendar--btn__next:hover {
-  border-top-right-radius: .2em; }
+  border-top-right-radius: 0.2em; }
 
 .calendar--month-and-year-toggle {
   text-align: left;
@@ -50,7 +50,8 @@
 .calendar--months-select,
 .calendar--years-select {
   opacity: 0;
-  display: none;
+  visibility: hidden;
+  position: absolute;
   max-height: 14.85em;
   overflow-y: auto; }
 
@@ -83,7 +84,7 @@
   padding: 1em .85em;
   color: #fff; }
   .calendar--label__month:hover {
-    border-top-left-radius: .2em; }
+    border-top-left-radius: 0.2em; }
   .calendar--label:hover {
     transition: .25s ease;
     cursor: pointer;
@@ -94,6 +95,8 @@
 .calendar--toggle__month:checked ~ .calendar--days-and-weeks, .calendar--toggle__year:checked ~ .calendar--days-and-weeks {
   display: none; }
 .calendar--toggle__month:checked ~ .calendar--months-select, .calendar--toggle__year:checked ~ .calendar--years-select {
+  visibility: visible;
+  position: relative;
   display: flex;
   opacity: 1; }
 
