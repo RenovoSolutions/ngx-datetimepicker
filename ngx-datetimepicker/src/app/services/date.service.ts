@@ -10,20 +10,42 @@ export interface dayOfTheMonth {
 
 @Injectable()
 export class DateService {
-	private months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	private months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 	constructor() { }
 
-	formatMMDDYYYY(date:Date):string{
+	formatMMDDYYYY(date: Date): string {
+		if (!date || typeof date == 'string') {
+			return '';
+		}
+		return `${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()}`;
+	}
+
+
+	formatMMDDYYYY_HHMM_AMPM(date:Date):string{
 		if(!date|| typeof date == 'string'){
 			return '';
 		}
-		return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+		const minutes = (!date.getMinutes() ? '00' : (date.getMinutes() <= 9 ? `0${date.getMinutes()}` : date.getMinutes()));
+		const hours = date.getHours();
+
+		if (hours > 12) {
+			return `${this.formatMMDDYYYY(date)} ${hours -12}:${minutes} pm`;
+		}
+		if (hours == 12) {
+			return `${this.formatMMDDYYYY(date)} ${hours}:${minutes} pm`;
+		}
+
+		if (hours == 0) {
+			return `${this.formatMMDDYYYY(date)} 12:${minutes} am`;
+		}
+
+		return `${this.formatMMDDYYYY(date)} ${hours}:${minutes} am`;
 	}
 
-	getCurrentMonthDays(Month: number, Year: number): dayOfTheMonth[] {
-		let dayOfTheMonth = new Date(Month + '/1/' + Year);
-		let nextMonth = new Date(Month + '/1/' + Year);
+	getCurrentMonthDays(month: number, year: number): dayOfTheMonth[] {
+		let dayOfTheMonth = new Date(year,month -1,1);
+		let nextMonth = new Date(year,month - 1,1);
 
 		let returnedDays: dayOfTheMonth[] = [];
 
