@@ -1,0 +1,13 @@
+<div [ngSwitch]="isMobile.any">
+  <div *ngSwitchCase="true">
+    <input type="time" />
+  </div>
+  <div *ngSwitchDefault>
+    <input type="text" [value]="formattedtime" />
+
+	<ngx-time *ngIf="includeTime"
+			[selectedHour]="selectedHour"
+			[selectedMinute]="selectedMinute"
+			></ngx-time>
+  </div>
+</div>
