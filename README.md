@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/ngx-datetimepicker.svg)](https://www.npmjs.com/package/ngx-datetimepicker)
 [![npm](https://img.shields.io/npm/dt/ngx-datetimepicker.svg?label=npm%20downloads)](https://www.npmjs.com/package/ngx-datetimepicker)
 
-
+## [Codepen Demo](http://codepen.io/BrentWMiller/pen/gmOGmz)
 
 ## Development:
 
