@@ -3,11 +3,13 @@
     <input type="time" />
   </div>
   <div *ngSwitchDefault>
-    <input type="text" [value]="formattedtime" />
+    <input type="text" [value]="formattedTime" />
 
-	<ngx-time *ngIf="includeTime"
+	<ngx-time
 			[selectedHour]="selectedHour"
 			[selectedMinute]="selectedMinute"
+			(selectedHourChange)="selectedHour = $event"
+			(selectedMinuteChange)="selectedMinute = $event"
 			></ngx-time>
   </div>
 </div>
