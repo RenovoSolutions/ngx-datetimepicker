@@ -1,0 +1,131 @@
+
+.time-picker {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 16em;
+  min-width: 16em;
+  background-color: #222651;
+}
+
+.time--colon {
+  font-weight: bold;
+  color: #fff;
+}
+
+.time--value:hover {
+  cursor: pointer;
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+  background-color: #f41875;
+}
+
+.btn__time {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  padding: 1em .75em;
+  margin: 0;
+}
+.btn__time__selected {
+  background-color: #f41875;
+  font-weight: 600;
+}
+.btn__time:hover {
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+  background-color: #f41875;
+}
+
+.time--selection__minutes,
+.time--selection__hours {
+  display: none;
+}
+
+.time--values {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 16em;
+  min-width: 16em;
+  background-color: #313775;
+}
+
+.time--value {
+  width: 2.66em;
+  font-size: 1em;
+  padding: .5em 0;
+  text-align: center;
+  color: #fff;
+}
+.time--value__current {
+  background-color: #aeb2dd;
+  color: #313775;
+  font-weight: 600;
+}
+.time--value__selected {
+  background-color: #222651;
+}
+.time--value:hover {
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+  cursor: pointer;
+  background-color: #222651;
+  color: #fff;
+}
+
+.time--label {
+  display: inline-block;
+  padding: 1em .85em;
+  color: #fff;
+}
+.time--label:hover {
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+  cursor: pointer;
+  background-color: #f41875;
+}
+
+.time--toggle__hour:checked + .time--label__hour, .time--toggle__minute:checked + .time--label__minute, .time--toggle__AM:checked + .time--label__AM, .time--toggle__PM:checked + .time--label__PM {
+  background-color: #f41875;
+}
+.time--toggle__hour:checked ~ .time--selection__hours, .time--toggle__minute:checked ~ .time--selection__minutes {
+  display: inline-block;
+  opacity: 1;
+}
+
+.time--toggle {
+  display: none;
+}
+
+body {
+  background-color: #1d1f20;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: relative;
+  top: 25vh;
+}

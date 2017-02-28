@@ -4,7 +4,7 @@ import { DateService } from '../services/date.service';
 
 describe('a date component', () => {
 	let dateComponent: DateComponent;
-	let mockDateService:any;
+	let mockDateService: any;
 
 
 	// register all needed dependencies
@@ -82,5 +82,31 @@ describe('a date component', () => {
 		expect(dateComponent.selectedDay).toEqual(3);
 		expect(dateComponent.selectedYear).toEqual(2017);
 		expect(mockDateService.getDateList).toHaveBeenCalled();
+	});
+
+	describe('time component', () => {
+		it('should change the selected time to 8pm', (done) => {
+			dateComponent.ngOnInit();
+
+			dateComponent.selectedDateChange.subscribe((selectedDate:Date) => {
+				expect(selectedDate.getHours()).toBe(8);
+				done();
+			});
+
+			dateComponent.setSelectedDate(dateComponent.highlightedDate,8);
+
+		});
+
+		it('should change the selected time to 45 mins', (done) => {
+			dateComponent.ngOnInit();
+
+			dateComponent.selectedDateChange.subscribe((selectedDate:Date) => {
+				expect(selectedDate.getMinutes()).toBe(45);
+				done();
+			});
+
+			dateComponent.setSelectedDate(dateComponent.highlightedDate,null,45);
+		});
+
 	});
 });
