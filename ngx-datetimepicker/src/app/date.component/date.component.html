@@ -5,22 +5,22 @@
 		<input type="checkbox" id="year" (click)="toggleMonth = false; toggleYear = true" [checked]="toggleYear" class="calendar--toggle calendar--toggle__year" />
 		<label class="calendar--label calendar--label__year" (click)="scrollToYear()" for="year">{{ selectedYear }}</label>
 		<span class="calendar--previous-and-next">
-			<button class="btn__calendar btn__calendar__previous"
+			<button class="calendar--btn calendar--btn__previous"
 				(click)="previousMonth()">&lt;</button>
-			<button class="btn__calendar btn__calendar__next"
+			<button class="calendar--btn calendar--btn__next"
 			(click)="nextMonth()"
 			>&gt;</button>
 		</span>
 		<div class="calendar--months-select" #monthSelect >
 			<span class="calendar--month"
-				[class.calendar--month__current]="i+ 1 == selectedMonth"
+				[class.calendar--month__selected]="i+ 1 == selectedMonth"
 				(click)="selectedMonth = i+ 1; toggleMonth = false;"
 			*ngFor="let month of months; let i = index ;">{{ month }}</span>
 
 		</div>
 		<div class="calendar--years-select" #yearSelect>
 			<span class="calendar--year"
-				[class.calendar--year__current]="selectedYear == year"
+				[class.calendar--year__selected]="selectedYear == year"
 				(click)="selectedYear = year; toggleMonth = true; toggleYear = false;"
 				*ngFor="let year of years">
 				{{ year }}
@@ -53,8 +53,8 @@
 				(selectedMinuteChange)="setSelectedDate(highlightedDate,null,$event)"
 				></ngx-time>
 		<div class="calendar--footer">
-			<button class="btn__calendar btn__calendar__now" (click)="setSelectedDate(null); toggleYear =false; toggleMonth = false">Now</button>
-			<button class="btn__calendar btn__calendar__done">Done</button>
+			<button class="calendar--btn calendar--btn__now" (click)="setSelectedDate(null); toggleYear =false; toggleMonth = false">Now</button>
+			<button class="calendar--btn calendar--btn__done">Done</button>
 		</div>
 	</div>
 
