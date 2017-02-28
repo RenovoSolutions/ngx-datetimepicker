@@ -22,30 +22,34 @@ export class DateService {
 	}
 
 
-	formatMMDDYYYY_HHMM_AMPM(date:Date):string{
-		if(!date|| typeof date == 'string'){
+	formatMMDDYYYY_HHMM_AMPM(date: Date): string {
+		if (!date || typeof date == 'string') {
 			return '';
 		}
-		const minutes = (!date.getMinutes() ? '00' : (date.getMinutes() <= 9 ? `0${date.getMinutes()}` : date.getMinutes()));
 		const hours = date.getHours();
+		const minutes = date.getMinutes();
 
-		if (hours > 12) {
-			return `${this.formatMMDDYYYY(date)} ${hours -12}:${minutes} pm`;
-		}
-		if (hours == 12) {
-			return `${this.formatMMDDYYYY(date)} ${hours}:${minutes} pm`;
-		}
+		return `${this.formatMMDDYYYY(date)} ${this.formatHHMM_AMPM(hours, minutes)}`;
+	}
 
-		if (hours == 0) {
-			return `${this.formatMMDDYYYY(date)} 12:${minutes} am`;
-		}
+	formatHHMM_AMPM(hour: number, minute: number): string {
+		let formattedMinute = (!minute ? '00' : (minute <= 9 ? `0${minute}` : minute));
 
-		return `${this.formatMMDDYYYY(date)} ${hours}:${minutes} am`;
+		if (hour > 12) {
+			return `${hour - 12}:${formattedMinute} pm`;
+		}
+		if (hour == 12) {
+			return `12:${formattedMinute} pm`;
+		}
+		if (hour == 0) {
+			return `12:${formattedMinute} am`;
+		}
+		return `${hour}:${formattedMinute} am`;
 	}
 
 	getCurrentMonthDays(month: number, year: number): dayOfTheMonth[] {
-		let dayOfTheMonth = new Date(year,month -1,1);
-		let nextMonth = new Date(year,month - 1,1);
+		let dayOfTheMonth = new Date(year, month - 1, 1);
+		let nextMonth = new Date(year, month - 1, 1);
 
 		let returnedDays: dayOfTheMonth[] = [];
 
@@ -56,7 +60,7 @@ export class DateService {
 				day: dayOfTheMonth.getDate(),
 				dayOfTheWeek: dayOfTheMonth.getDay(),
 				month: dayOfTheMonth.getMonth() + 1,
-				date: new Date((dayOfTheMonth.getMonth() + 1) + '/' +  dayOfTheMonth.getDate() + '/' + dayOfTheMonth.getFullYear())
+				date: new Date((dayOfTheMonth.getMonth() + 1) + '/' + dayOfTheMonth.getDate() + '/' + dayOfTheMonth.getFullYear())
 
 			};
 			returnedDays.push(dayToAdd);
@@ -65,7 +69,7 @@ export class DateService {
 		return returnedDays;
 	}
 
-	getDateList(Month: number, Year: number){
+	getDateList(Month: number, Year: number) {
 		return [...this.getPreviousMonthDays(Month, Year),
 		...this.getCurrentMonthDays(Month, Year),
 		...this.getNextMonthDays(Month, Year)];
@@ -84,7 +88,7 @@ export class DateService {
 				day: day.getDate(),
 				dayOfTheWeek: day.getDay(),
 				month: day.getMonth() + 1,
-				date: new Date((day.getMonth() + 1) + '/' +  day.getDate() + '/' + day.getFullYear())
+				date: new Date((day.getMonth() + 1) + '/' + day.getDate() + '/' + day.getFullYear())
 			}, ...returnedDays];
 			dayOfTheWeek = day.getDay();
 		}
@@ -108,7 +112,7 @@ export class DateService {
 				day: day.getDate(),
 				dayOfTheWeek: day.getDay(),
 				month: day.getMonth() + 1,
-				date: new Date((day.getMonth() + 1) + '/' +  day.getDate() + '/' + day.getFullYear())
+				date: new Date((day.getMonth() + 1) + '/' + day.getDate() + '/' + day.getFullYear())
 			}];
 			dayOfTheWeek = day.getDay();
 		}
@@ -116,11 +120,11 @@ export class DateService {
 		return returnedDays;
 	}
 
-	getMonths():string[]{
+	getMonths(): string[] {
 		return this.months;
 	}
 
-	getMonthText(date: Date): string{
+	getMonthText(date: Date): string {
 		return this.months[date.getMonth()];
 	}
 
@@ -129,7 +133,7 @@ export class DateService {
 		let startYear = currentYear - 80;
 		let returnYears: number[] = [];
 
-		while(startYear <= (currentYear+5)){
+		while (startYear <= (currentYear + 5)) {
 			returnYears.push(startYear);
 			startYear = startYear + 1;
 		}
