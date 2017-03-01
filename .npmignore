@@ -11,8 +11,9 @@ ngx-datetimepicker/src/**.*
 ngx-datetimepicker/**.*
 ngx-datetimepicker/src/typings/
 ngx-datetimepicker/src/environments/
-ngx-datetimepicker/src/assets/
+!ngx-datetimepicker/src/assets/
 ngx-datetimepicker/src/**.json
 ngx-datetimepicker/src/**.md
 ngx-datetimepicker/demo/**.*
 ngx-datetimepicker/demo/
+sass
