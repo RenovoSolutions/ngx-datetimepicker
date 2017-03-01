@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 
 import { isMobile } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
@@ -6,7 +6,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 @Component({
     selector: 'ngx-date',
     template: require('./date.component.html'),
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ['./date.component.css']
 })
 
 export class DateComponent implements OnInit {
@@ -133,12 +133,27 @@ export class DateComponent implements OnInit {
 
     }
 
+<<<<<<< HEAD
+    public scrollToYear():void{
+        setTimeout(()=>{
+            const selectContainer = this.yearSelect.nativeElement;
+            const selectedYear = selectContainer.querySelector('.calendar--year__selected');
+            selectContainer.scrollTop = selectedYear.offsetTop - (selectContainer.clientHeight / 2) - (selectedYear.clientHeight);
+        });
+    }
+
+    public scrollToMonth():void{
+        setTimeout(()=>{
+            const selectContainer = this.monthSelect.nativeElement;
+            const selectedMonth = selectContainer.querySelector('.calendar--month__selected');
+            selectContainer.scrollTop = selectedMonth.offsetTop - (selectContainer.clientHeight / 2)- (selectedMonth.clientHeight)  ;
+=======
     public scrollToYear(): void {
         // setTime out is being used since I need this code to excute next, if not the change won't be visible until the second click
         setTimeout(() => {
             if (this.yearSelect && this.yearSelect.nativeElement) {
                 const selectContainer = this.yearSelect.nativeElement;
-            const selectedYear = selectContainer.querySelector('.calendar--year__selected');
+                const selectedYear = selectContainer.querySelector('.calendar--year__current');
                 selectContainer.scrollTop = selectedYear.offsetTop - (selectContainer.clientHeight / 2) - (selectedYear.clientHeight);
             }
         });
@@ -149,9 +164,10 @@ export class DateComponent implements OnInit {
         setTimeout(() => {
             if (this.monthSelect && this.monthSelect.nativeElement) {
                 const selectContainer = this.monthSelect.nativeElement;
-            const selectedMonth = selectContainer.querySelector('.calendar--month__selected');
+                const selectedMonth = selectContainer.querySelector('.calendar--month__current');
                 selectContainer.scrollTop = selectedMonth.offsetTop - (selectContainer.clientHeight / 2) - (selectedMonth.clientHeight);
             }
+>>>>>>> master
         });
     }
 
