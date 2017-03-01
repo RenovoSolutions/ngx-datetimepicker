@@ -1,0 +1,11 @@
+.ngx-picker {
+	display: flex;
+	position: relative;
+	width: 100%;
+	.calendar {
+		position: absolute;
+		left: 0;
+		top: 2.5em;
+		z-index: 3;
+	}
+}
