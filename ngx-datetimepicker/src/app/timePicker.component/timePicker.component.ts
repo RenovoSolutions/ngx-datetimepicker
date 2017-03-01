@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
 import { isMobile } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
@@ -11,6 +11,15 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 })
 
 export class TimePickerComponent implements OnInit {
+
+	@HostListener('document:click', ['$event'])
+    offClick(event) {
+        if (!this.eRef.nativeElement.contains(event.target)) {
+            this.pickerVisible = false;
+        }
+	}
+
+	pickerVisible: boolean = false;
 
 	get formattedTime(): string {
 		return this.dateService.formatHHMM_AMPM(this.selectedHour, this.selectedMinute);
@@ -37,7 +46,7 @@ export class TimePickerComponent implements OnInit {
 	public selectedHour: number;
 	public selectedMinute: number;
 
-	constructor(public isMobile: isMobile, public dateService: DateService) { }
+	constructor(public isMobile: isMobile, public dateService: DateService, private eRef: ElementRef) { }
 
 	ngOnInit() {
 

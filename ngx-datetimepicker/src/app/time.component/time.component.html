@@ -2,7 +2,6 @@
 	<button class="calendar--btn calendar--btn__hour" (click)="toggleHourMenu()">{{ formatSelectedHour }}</button>
 	<button class="calendar--btn calendar--btn__minute" (click)="toggleMinuteMenu()">{{ formatSelectedMinute }}</button>
 	<div class="time--periods">
-
 		<button class="calendar--btn calendar--btn__am" (click)="selectClockChange('am')" [class.calendar--btn__selected]="selectedHour < 12">AM</button>
 		<button class="calendar--btn calendar--btn__pm" (click)="selectClockChange('pm')" [class.calendar--btn__selected]="selectedHour >= 12">PM</button>
 	</div>
