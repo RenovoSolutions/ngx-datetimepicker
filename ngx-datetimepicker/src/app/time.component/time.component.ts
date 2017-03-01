@@ -1,9 +1,9 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
 	selector: 'ngx-time',
 	template: require('./time.component.html'),
-	styleUrls: ['./time.component.css']
+	encapsulation: ViewEncapsulation.None
 })
 
 export class TimeComponent implements OnInit {

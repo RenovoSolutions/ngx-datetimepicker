@@ -16,6 +16,7 @@
 * Run tests with watcher with `npm run test`.
 * Prepare for distrabution with `npm run dist` (note you man need to also run `tsc index.ts` if you have updated the exported values.)
 * Test a demo project using the exported ngModule with `npm run demo`
+* Sass files are compiled locally using [Koala](http://koala-app.com/)
 
 ### Requirements
 

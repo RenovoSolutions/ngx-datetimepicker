@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 
 import { isMobile } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
@@ -6,7 +6,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 @Component({
     selector: 'ngx-date',
     template: require('./date.component.html'),
-    styleUrls: ['./date.component.css']
+    encapsulation: ViewEncapsulation.None
 })
 
 export class DateComponent implements OnInit {

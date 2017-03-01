@@ -1,15 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { isMobile } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
 	selector: 'ngx-datetimepicker',
-	template: require('./datetimepicker.component.html')
+    template: require('./datetimepicker.component.html'),
+    encapsulation: ViewEncapsulation.None,
+	styleUrls: ['../../assets/date-picker.css']
 })
 
 export class DateTimePickerComponent implements OnInit {
     @Input() selectedDateTime: Date;
     @Output() selectedDateTimeChange = new EventEmitter<Date>();
+
+    pickerVisible: boolean = false;
 
 	get formattedDate(){
         return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
