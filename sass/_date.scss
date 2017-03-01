@@ -54,19 +54,13 @@
   background-color: $primary;
 }
 
-.calendar--months-select,
-.calendar--years-select {
-	opacity: 0;
-	visibility: hidden;
-	position: absolute;
-	max-height: $calendar-menu-height;
-	overflow-y: auto;
-}
-
 .calendar--years-select,
 .calendar--months-select {
+	display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+	justify-content: space-between;
+	overflow-y: auto;
+	max-height: $calendar-menu-height;
 	background-color: $menu-background;
 	width: 100%;
 }
@@ -87,45 +81,6 @@
 		color: $primary;
 		font-weight: 400;
 	}
-}
-
-.calendar--label {
-	display: inline-block;
-	padding: 1em .85em;
-	color: $text-inverted;
-	&__month:hover { border-top-left-radius: $base-border-radius; }
-	&:hover {
-		transition: .25s ease;
-		cursor: pointer;
-		background-color: $secondary;
-	}
-}
-
-.calendar--toggle {
-	&__month:checked + .calendar--label__month,
-	&__year:checked + .calendar--label__year {
-		background-color: $secondary;
-	}
-	&__month:checked ~ .calendar--days-and-weeks,
-	&__year:checked ~ .calendar--days-and-weeks {
-		display: none;
-	}
-	&__month:checked ~ .calendar--months-select,
-	&__year:checked ~ .calendar--years-select {
-			visibility: visible;
-			position: relative;
-			display: flex;
-			opacity: 1;
-	}
-}
-
-.calendar--toggles {
-	display: flex;
-	justify-content: flex-start;
-}
-
-.calendar--toggle {
-	display: none;
 }
 
 .calendar--days-of-week {

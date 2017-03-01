@@ -1,23 +1,20 @@
 <div class="time-picker">
-	<input type="checkbox" [checked]="hoursOpen"  (click)="minutesOpen = false; hoursOpen = true;" id="hour" class="time--toggle time--toggle__hour" />
-	<label class="time--label time--label__hour" for="hour">{{ formatSelectedHour }}</label>
-	<div class="time--colon">:</div>
-	<input type="checkbox" [checked]="minutesOpen" (click)="hoursOpen = false; minutesOpen = true;" id="minute" class="time--toggle time--toggle__minute" />
-	<label class="time--label time--label__minute" for="minute">{{ formatSelectedMinute }}</label>
+	<button class="calendar--btn calendar--btn__hour" (click)="toggleHourMenu()">{{ formatSelectedHour }}</button>
+	<button class="calendar--btn calendar--btn__minute" (click)="toggleMinuteMenu()">{{ formatSelectedMinute }}</button>
 	<div class="time--periods">
 		<input id="AM" (click)="selectClockChange('am')" [checked]="selectedHour < 12" type="radio" name="period" value="AM" class="time--toggle time--toggle__AM">
 		<label for="AM" class="time--label time--label__AM">AM</label>
 		<input id="PM" (click)="selectClockChange('pm')" [checked]="selectedHour >= 12" type="radio" name="period" value="PM" class="time--toggle time--toggle__PM">
 		<label for="PM" class="time--label time--label__PM">PM</label>
 	</div>
-	<div class="time--selection__hours">
+	<div class="time--selection__hours" *ngIf="hoursOpen">
 		<div class="time--values">
 			<div class="time--value" [class.time--value__selected]="selectedHour == hour" (click)="selectHourChange(hour)"
 				*ngFor="let hour of hours">{{ hour }}</div>
 		</div>
 	</div>
 
-	<div class="time--selection__minutes">
+	<div class="time--selection__minutes" *ngIf="minutesOpen">
 		<div class="time--values">
 			<div class="time--value" [class.time--value__selected]="selectedMinute == minute" (click)="selectMinuteChange(minute)"
 				*ngFor="let minute of minutes">{{ minute }}</div>

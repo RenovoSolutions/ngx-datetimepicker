@@ -72,4 +72,14 @@ export class TimeComponent implements OnInit {
 
 		}
 	}
+
+    public toggleHourMenu(): void {
+        this.minutesOpen = false;
+        this.hoursOpen = !this.hoursOpen;
+    }
+
+    public toggleMinuteMenu(): void {
+        this.hoursOpen = false;
+        this.minutesOpen = !this.minutesOpen;
+    }
 }

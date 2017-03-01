@@ -27,6 +27,12 @@ export class DateComponent implements OnInit {
     public selectedHour: number;
     public selectedMinute: number;
 
+    public showMonthSelection: boolean = false;
+    public showYearSelection: boolean = false;
+
+    public showHourSelection: boolean = false;
+    public showMinuteSelection: boolean = false;
+
     get selectedMonth(): number {
         //increment by one since getMonth is zero based
         return this.selectedDate.getMonth() + 1;
@@ -167,5 +173,17 @@ export class DateComponent implements OnInit {
         /// same as above but since selected month is 1-12 the index is already the next month.
         nextMonth.setMonth(this.selectedMonth)
         this.loadCalendarMonth(nextMonth)
+    }
+
+    public toggleMonthMenu(): void {
+        this.scrollToMonth();
+        this.showYearSelection = false;
+        this.showMonthSelection = !this.showMonthSelection;
+    }
+
+    public toggleYearMenu(): void {
+        this.scrollToYear();
+        this.showMonthSelection = false;
+        this.showYearSelection = !this.showYearSelection;
     }
 }
