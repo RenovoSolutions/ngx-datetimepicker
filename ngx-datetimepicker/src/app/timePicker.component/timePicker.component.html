@@ -1,0 +1,15 @@
+<div [ngSwitch]="isMobile.any">
+  <div *ngSwitchCase="true">
+    <input type="time" />
+  </div>
+  <div *ngSwitchDefault>
+    <input type="text" [value]="formattedTime" />
+
+	<ngx-time
+			[selectedHour]="selectedHour"
+			[selectedMinute]="selectedMinute"
+			(selectedHourChange)="selectedHour = $event"
+			(selectedMinuteChange)="selectedMinute = $event"
+			></ngx-time>
+  </div>
+</div>
