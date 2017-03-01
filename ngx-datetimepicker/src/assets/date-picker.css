@@ -24,6 +24,8 @@
   border: none;
   padding: 1em;
   font-size: 1em; }
+  .calendar--btn__selected {
+    background-color: #f41875; }
   .calendar--btn:hover {
     transition: .25s ease;
     background-color: #f41875;
@@ -45,6 +47,9 @@
   padding: 0;
   border-radius: 0.2em; }
 
+.calendar--btn__month:hover {
+  border-top-left-radius: 0.2em; }
+
 .calendar--btn__done:hover {
   border-bottom-right-radius: 0.2em; }
 
@@ -53,10 +58,6 @@
 
 .calendar--btn__next:hover {
   border-top-right-radius: 0.2em; }
-
-.calendar--month-and-year-toggle {
-  text-align: left;
-  background-color: #313775; }
 
 .calendar--years-select,
 .calendar--months-select {
@@ -188,6 +189,3 @@
     transition: .25s ease;
     cursor: pointer;
     background-color: #f41875; }
-
-.time--toggle {
-  display: none; }

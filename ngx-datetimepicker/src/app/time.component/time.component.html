@@ -2,10 +2,9 @@
 	<button class="calendar--btn calendar--btn__hour" (click)="toggleHourMenu()">{{ formatSelectedHour }}</button>
 	<button class="calendar--btn calendar--btn__minute" (click)="toggleMinuteMenu()">{{ formatSelectedMinute }}</button>
 	<div class="time--periods">
-		<input id="AM" (click)="selectClockChange('am')" [checked]="selectedHour < 12" type="radio" name="period" value="AM" class="time--toggle time--toggle__AM">
-		<label for="AM" class="time--label time--label__AM">AM</label>
-		<input id="PM" (click)="selectClockChange('pm')" [checked]="selectedHour >= 12" type="radio" name="period" value="PM" class="time--toggle time--toggle__PM">
-		<label for="PM" class="time--label time--label__PM">PM</label>
+
+		<button class="calendar--btn calendar--btn__am" (click)="selectClockChange('am')" [class.calendar--btn__selected]="selectedHour < 12">AM</button>
+		<button class="calendar--btn calendar--btn__pm" (click)="selectClockChange('pm')" [class.calendar--btn__selected]="selectedHour >= 12">PM</button>
 	</div>
 	<div class="time--selection__hours" *ngIf="hoursOpen">
 		<div class="time--values">

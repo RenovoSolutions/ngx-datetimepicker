@@ -69,7 +69,6 @@ export class TimeComponent implements OnInit {
 
 			this.selectedHour = hour;
 			this.selectedHourChange.emit(hour);
-
 		}
 	}
 

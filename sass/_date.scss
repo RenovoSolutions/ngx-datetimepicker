@@ -16,6 +16,9 @@
 	border: none;
 	padding: 1em;
 	font-size: 1em;
+	&__selected {
+		background-color: $secondary;
+	}
 	&:hover {
 		transition: .25s ease;
 		background-color: $secondary;
@@ -43,16 +46,13 @@
 	border-radius: $base-border-radius;
 }
 
+.calendar--btn__month:hover { border-top-left-radius: $base-border-radius; }
+
 .calendar--btn__done:hover { border-bottom-right-radius: $base-border-radius; }
 
 .calendar--btn__now:hover { border-bottom-left-radius: $base-border-radius; }
 
 .calendar--btn__next:hover { border-top-right-radius: $base-border-radius; }
-
-.calendar--month-and-year-toggle {
-  text-align: left;
-  background-color: $primary;
-}
 
 .calendar--years-select,
 .calendar--months-select {
