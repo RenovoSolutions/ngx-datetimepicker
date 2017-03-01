@@ -1,0 +1,104 @@
+// Time
+.time-picker {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	max-width: 16em;
+  min-width: 16em;
+	background-color: $primary-dark;
+}
+
+.time--colon {
+	font-weight: bold;
+	color: #fff;
+}
+
+.time--value:hover {
+	cursor: pointer;
+	transition: .25s ease;
+	background-color: $secondary;
+}
+
+.btn__time {
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	color: #fff;
+	padding: 1em .75em;
+	margin: 0;
+	&__selected {
+		background-color: $secondary;
+		font-weight: 600;
+	}
+	&:hover {
+		transition: .25s ease;
+		background-color: $secondary;
+	}
+}
+
+.time--selection__minutes,
+.time--selection__hours {
+	display: none;
+}
+
+.time--values {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 16em;
+  min-width: 16em;
+	background-color: $primary;
+}
+
+.time--value {
+	width: 2.66em;
+	font-size: 1em;
+	padding: .5em 0;
+	text-align: center;
+	color: #fff;
+	&__current {
+		background-color: $primary-light;
+		color: $primary;
+		font-weight: 600;
+	}
+	&__selected {
+		background-color: $primary-dark;
+	}
+	&:hover {
+		transition: .25s ease;
+		cursor: pointer;
+		background-color: $primary-dark;
+		color: #fff;
+	}
+}
+
+.time--label {
+	display: inline-block;
+	padding: 1em .85em;
+	color: #fff;
+	&:hover {
+		transition: .25s ease;
+		cursor: pointer;
+		background-color: $secondary;
+	}
+}
+
+.time--toggle {
+	&__hour:checked + .time--label__hour,
+	&__minute:checked + .time--label__minute,
+	&__AM:checked + .time--label__AM,
+	&__PM:checked + .time--label__PM,{
+		background-color: $secondary;
+	}
+	&__hour:checked ~ .time--selection__hours,
+	&__minute:checked ~ .time--selection__minutes {
+		display: inline-block;
+		opacity: 1;
+	}
+}
+
+.time--toggle {
+	display: none;
+}

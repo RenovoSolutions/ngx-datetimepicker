@@ -3,7 +3,7 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 @Component({
 	selector: 'ngx-time',
 	template: require('./time.component.html'),
-	styleUrls: ['./time.component.css']
+	styleUrls: ['../../assets/date-picker.css']
 })
 
 export class TimeComponent implements OnInit {

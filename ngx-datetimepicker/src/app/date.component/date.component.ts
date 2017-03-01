@@ -6,7 +6,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 @Component({
     selector: 'ngx-date',
     template: require('./date.component.html'),
-    styleUrls: ['./date.component.css']
+    styleUrls: ['../../assets/date-picker.css']
 })
 
 export class DateComponent implements OnInit {

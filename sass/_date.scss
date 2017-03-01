@@ -1,0 +1,180 @@
+// Calendar
+.calendar {
+	position: absolute;
+  background-color: $primary-dark;
+  max-width: 16em;
+  min-width: 16em;
+  font-size: $calendar-size-ratio;
+  font-family: 'Arial', sans-serif;
+	border-radius: $base-border-radius;
+	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.calendar--btn {
+	color: $text-inverted;
+  background-color: transparent;
+	border: none;
+	padding: 1em;
+	font-size: 1em;
+	&:hover {
+		transition: .25s ease;
+		background-color: $secondary;
+		cursor: pointer;
+	}
+	&:focus {
+		outline-color: transparent;
+	}
+}
+
+.calendar--previous-and-next {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.calendar--footer {
+	display: flex;
+	justify-content: space-between;
+  background-color: $primary-dark;
+  padding: 0;
+
+	border-radius: $base-border-radius;
+}
+
+.calendar--btn__done:hover { border-bottom-right-radius: $base-border-radius; }
+
+.calendar--btn__now:hover { border-bottom-left-radius: $base-border-radius; }
+
+.calendar--btn__next:hover { border-top-right-radius: $base-border-radius; }
+
+.calendar--month-and-year-toggle {
+  text-align: left;
+  background-color: $primary;
+}
+
+.calendar--months-select,
+.calendar--years-select {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	max-height: $calendar-menu-height;
+	overflow-y: auto;
+}
+
+.calendar--years-select,
+.calendar--months-select {
+  flex-wrap: wrap;
+  justify-content: space-between;
+	background-color: $menu-background;
+	width: 100%;
+}
+
+.calendar--year,
+.calendar--month {
+	padding: .5em 1em;
+	width: 100%;
+	&__selected {
+		color: $text-inverted;
+		font-weight: bold;
+		background-color: $primary;
+	}
+	&:hover {
+		transition: .25s ease;
+		cursor: pointer;
+		background-color: $primary-light;
+		color: $primary;
+		font-weight: 400;
+	}
+}
+
+.calendar--label {
+	display: inline-block;
+	padding: 1em .85em;
+	color: $text-inverted;
+	&__month:hover { border-top-left-radius: $base-border-radius; }
+	&:hover {
+		transition: .25s ease;
+		cursor: pointer;
+		background-color: $secondary;
+	}
+}
+
+.calendar--toggle {
+	&__month:checked + .calendar--label__month,
+	&__year:checked + .calendar--label__year {
+		background-color: $secondary;
+	}
+	&__month:checked ~ .calendar--days-and-weeks,
+	&__year:checked ~ .calendar--days-and-weeks {
+		display: none;
+	}
+	&__month:checked ~ .calendar--months-select,
+	&__year:checked ~ .calendar--years-select {
+			visibility: visible;
+			position: relative;
+			display: flex;
+			opacity: 1;
+	}
+}
+
+.calendar--toggles {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.calendar--toggle {
+	display: none;
+}
+
+.calendar--days-of-week {
+  display: flex;
+  justify-content: space-around;
+	background-color: $primary;
+}
+
+.calendar--day-of-week {
+  position: relative;
+  padding: .5em;
+  text-align: center;
+  text-transform: uppercase;
+	color: $text-inverted;
+  font-size: .9em;
+}
+
+.calendar--days-select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+	background-color: $menu-background;
+}
+
+.calendar--day {
+  text-align: center;
+  width: 1.285em;
+  padding: .5em;
+  font-weight: 500;
+	&__muted { color: $text-muted; }
+	&__selected {
+		background-color: $primary;
+		color: $text-inverted;
+	}
+	&:hover {
+		transition: .25s ease;
+		cursor: pointer;
+		background-color: $primary-light;
+		color: $primary;
+	}
+}
+
+// Codepen background & positioning
+body {
+	background-color: #1d1f20;
+}
+.container {
+	display: flex;
+	justify-content: space-around;
+	position: relative;
+	top: 25vh
+}

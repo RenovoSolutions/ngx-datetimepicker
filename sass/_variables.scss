@@ -1,0 +1,22 @@
+//Branding
+$primary: #313775;
+$primary-dark: darken($primary, 10%);
+$primary-light: lighten($primary, 45%);
+
+$secondary: #f41875;
+
+// Menus
+$menu-background: #fff;
+
+// Text
+$font-base: 16px;
+
+$text-inverted: #fff;
+$text-muted: #999;
+
+// Borders
+$base-border-radius: .2em;
+
+// Calendar Options
+$calendar-size-ratio: $font-base;
+$calendar-menu-height: 14.85em;
