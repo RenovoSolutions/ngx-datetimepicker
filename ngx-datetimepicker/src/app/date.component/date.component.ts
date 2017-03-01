@@ -30,9 +30,6 @@ export class DateComponent implements OnInit {
     public showMonthSelection: boolean = false;
     public showYearSelection: boolean = false;
 
-    public showHourSelection: boolean = false;
-    public showMinuteSelection: boolean = false;
-
     get selectedMonth(): number {
         //increment by one since getMonth is zero based
         return this.selectedDate.getMonth() + 1;
