@@ -174,13 +174,11 @@ export class DateComponent implements OnInit {
 
     public toggleMonthMenu(): void {
         this.scrollToMonth();
-        this.showYearSelection = false;
         this.showMonthSelection = !this.showMonthSelection;
     }
 
     public toggleYearMenu(): void {
         this.scrollToYear();
-        this.showMonthSelection = false;
         this.showYearSelection = !this.showYearSelection;
     }
 }

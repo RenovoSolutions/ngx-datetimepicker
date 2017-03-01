@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="calendar">
-		<button class="calendar--btn calendar--btn__month" (click)="toggleMonthMenu()">{{ selectedMonthText }}</button>
-		<button class="calendar--btn calendar--btn__year" (click)="toggleYearMenu()">{{ selectedYear }}</button>
+		<button class="calendar--btn calendar--btn__month" (click)="toggleMonthMenu(); showYearSelection = false">{{ selectedMonthText }}</button>
+		<button class="calendar--btn calendar--btn__year" (click)="toggleYearMenu(); showMonthSelection = false">{{ selectedYear }}</button>
 		<span class="calendar--previous-and-next">
 			<button class="calendar--btn calendar--btn__previous"
 				(click)="previousMonth()">&lt;</button>
