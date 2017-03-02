@@ -81,11 +81,11 @@ export class DateComponent implements OnInit {
         //load calendarMonth will set the selected date;
         this.loadCalendarMonth(date);
 
-        if (hour) {
+        if (hour != null) {
             this.selectedDate.setHours(hour);
         }
 
-        if (minutes) {
+        if (minutes != null) {
             this.selectedDate.setMinutes(minutes);
         }
 
