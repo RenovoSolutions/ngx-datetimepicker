@@ -24,6 +24,8 @@
   border: none;
   padding: 1em;
   font-size: 1em; }
+  .calendar--btn__selected {
+    background-color: #f41875; }
   .calendar--btn:hover {
     transition: .25s ease;
     background-color: #f41875;
@@ -45,6 +47,9 @@
   padding: 0;
   border-radius: 0.2em; }
 
+.calendar--btn__month:hover {
+  border-top-left-radius: 0.2em; }
+
 .calendar--btn__done:hover {
   border-bottom-right-radius: 0.2em; }
 
@@ -54,22 +59,13 @@
 .calendar--btn__next:hover {
   border-top-right-radius: 0.2em; }
 
-.calendar--month-and-year-toggle {
-  text-align: left;
-  background-color: #313775; }
-
-.calendar--months-select,
-.calendar--years-select {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  max-height: 14.85em;
-  overflow-y: auto; }
-
 .calendar--years-select,
 .calendar--months-select {
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  overflow-y: auto;
+  max-height: 14.85em;
   background-color: #fff;
   width: 100%; }
 
@@ -89,34 +85,6 @@
     background-color: #aeb2dd;
     color: #313775;
     font-weight: 400; }
-
-.calendar--label {
-  display: inline-block;
-  padding: 1em .85em;
-  color: #fff; }
-  .calendar--label__month:hover {
-    border-top-left-radius: 0.2em; }
-  .calendar--label:hover {
-    transition: .25s ease;
-    cursor: pointer;
-    background-color: #f41875; }
-
-.calendar--toggle__month:checked + .calendar--label__month, .calendar--toggle__year:checked + .calendar--label__year {
-  background-color: #f41875; }
-.calendar--toggle__month:checked ~ .calendar--days-and-weeks, .calendar--toggle__year:checked ~ .calendar--days-and-weeks {
-  display: none; }
-.calendar--toggle__month:checked ~ .calendar--months-select, .calendar--toggle__year:checked ~ .calendar--years-select {
-  visibility: visible;
-  position: relative;
-  display: flex;
-  opacity: 1; }
-
-.calendar--toggles {
-  display: flex;
-  justify-content: flex-start; }
-
-.calendar--toggle {
-  display: none; }
 
 .calendar--days-of-week {
   display: flex;
@@ -186,10 +154,6 @@
     transition: .25s ease;
     background-color: #f41875; }
 
-.time--selection__minutes,
-.time--selection__hours {
-  display: none; }
-
 .time--values {
   display: flex;
   justify-content: space-between;
@@ -225,12 +189,3 @@
     transition: .25s ease;
     cursor: pointer;
     background-color: #f41875; }
-
-.time--toggle__hour:checked + .time--label__hour, .time--toggle__minute:checked + .time--label__minute, .time--toggle__AM:checked + .time--label__AM, .time--toggle__PM:checked + .time--label__PM {
-  background-color: #f41875; }
-.time--toggle__hour:checked ~ .time--selection__hours, .time--toggle__minute:checked ~ .time--selection__minutes {
-  display: inline-block;
-  opacity: 1; }
-
-.time--toggle {
-  display: none; }

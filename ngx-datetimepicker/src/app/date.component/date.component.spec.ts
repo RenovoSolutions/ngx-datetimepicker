@@ -84,6 +84,26 @@ describe('a date component', () => {
 		expect(mockDateService.getDateList).toHaveBeenCalled();
 	});
 
+	it('should toggle the month selection menu', () => {
+		dateComponent.toggleMonthMenu();
+
+		expect(dateComponent.showMonthSelection).toBe(true);
+
+		dateComponent.toggleMonthMenu();
+
+		expect(dateComponent.showMonthSelection).toBe(false);
+	});
+
+	it('should toggle the year selection menu', () => {
+		dateComponent.toggleYearMenu();
+
+		expect(dateComponent.showYearSelection).toBe(true);
+
+		dateComponent.toggleYearMenu();
+
+		expect(dateComponent.showYearSelection).toBe(false);
+	});
+
 	describe('time component', () => {
 		it('should change the selected time to 8pm', (done) => {
 			dateComponent.ngOnInit();

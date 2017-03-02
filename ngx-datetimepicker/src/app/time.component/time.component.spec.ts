@@ -38,4 +38,24 @@ describe('a time component', () => {
 		expect(timeComponent.formatSelectedHour).toBe('12');
 
 	});
+
+	it('should toggle the hour selection menu', () => {
+		timeComponent.toggleHourMenu();
+
+		expect(timeComponent.hoursOpen).toBe(true);
+
+		timeComponent.toggleHourMenu();
+
+		expect(timeComponent.hoursOpen).toBe(false);
+	});
+
+	it('should toggle the minute selection menu', () => {
+		timeComponent.toggleMinuteMenu();
+
+		expect(timeComponent.minutesOpen).toBe(true);
+
+		timeComponent.toggleMinuteMenu();
+
+		expect(timeComponent.minutesOpen).toBe(false);
+	});
 });

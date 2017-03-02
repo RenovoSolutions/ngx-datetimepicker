@@ -38,11 +38,6 @@
 	}
 }
 
-.time--selection__minutes,
-.time--selection__hours {
-	display: none;
-}
-
 .time--values {
 	display: flex;
 	justify-content: space-between;
@@ -84,22 +79,4 @@
 		cursor: pointer;
 		background-color: $secondary;
 	}
-}
-
-.time--toggle {
-	&__hour:checked + .time--label__hour,
-	&__minute:checked + .time--label__minute,
-	&__AM:checked + .time--label__AM,
-	&__PM:checked + .time--label__PM,{
-		background-color: $secondary;
-	}
-	&__hour:checked ~ .time--selection__hours,
-	&__minute:checked ~ .time--selection__minutes {
-		display: inline-block;
-		opacity: 1;
-	}
-}
-
-.time--toggle {
-	display: none;
 }
