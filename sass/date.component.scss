@@ -3,3 +3,7 @@
 @import 'input.scss';
 @import 'date.scss';
 @import 'time.scss';
+
+[hidden] {
+  display: none !important;
+}

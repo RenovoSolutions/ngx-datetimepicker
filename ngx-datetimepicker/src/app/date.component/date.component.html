@@ -8,14 +8,14 @@
 		(click)="nextMonth()"
 		>&gt;</button>
 	</span>
-	<div class="calendar--months-select" #monthSelect *ngIf="showMonthSelection">
+	<div class="calendar--months-select" #monthSelect [hidden]="!showMonthSelection">
 		<span class="calendar--month"
 			[class.calendar--month__selected]="i+ 1 == selectedMonth"
 			(click)="selectedMonth = i+ 1; showMonthSelection = false;"
 		*ngFor="let month of months; let i = index ;">{{ month }}</span>
 
 	</div>
-	<div class="calendar--years-select" #yearSelect *ngIf="showYearSelection">
+	<div class="calendar--years-select" #yearSelect [hidden]="!showYearSelection">
 		<span class="calendar--year"
 			[class.calendar--year__selected]="selectedYear == year"
 			(click)="selectedYear = year; showMonthSelection = true; showYearSelection = false;"

@@ -2,18 +2,17 @@
 	<button class="calendar--btn calendar--btn__hour" (click)="toggleHourMenu()">{{ formatSelectedHour }}</button>
 	<button class="calendar--btn calendar--btn__minute" (click)="toggleMinuteMenu()">{{ formatSelectedMinute }}</button>
 	<div class="time--periods">
-
 		<button class="calendar--btn calendar--btn__am" (click)="selectClockChange('am')" [class.calendar--btn__selected]="selectedHour < 12">AM</button>
 		<button class="calendar--btn calendar--btn__pm" (click)="selectClockChange('pm')" [class.calendar--btn__selected]="selectedHour >= 12">PM</button>
 	</div>
-	<div class="time--selection__hours" *ngIf="hoursOpen">
+	<div class="time--selection__hours" [hidden]="!hoursOpen">
 		<div class="time--values">
 			<div class="time--value" [class.time--value__selected]="selectedHour == hour" (click)="selectHourChange(hour)"
 				*ngFor="let hour of hours">{{ hour }}</div>
 		</div>
 	</div>
 
-	<div class="time--selection__minutes" *ngIf="minutesOpen">
+	<div class="time--selection__minutes" [hidden]="!minutesOpen">
 		<div class="time--values">
 			<div class="time--value" [class.time--value__selected]="selectedMinute == minute" (click)="selectMinuteChange(minute)"
 				*ngFor="let minute of minutes">{{ minute }}</div>

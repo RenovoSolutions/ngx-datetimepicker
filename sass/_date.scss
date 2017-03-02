@@ -56,10 +56,8 @@
 
 .calendar--years-select,
 .calendar--months-select {
-	display: flex;
-  flex-wrap: wrap;
-	justify-content: space-between;
 	overflow-y: auto;
+	overflow-x: hidden;
 	max-height: $calendar-menu-height;
 	background-color: $menu-background;
 	width: 100%;
@@ -67,8 +65,10 @@
 
 .calendar--year,
 .calendar--month {
+	display: block;
 	padding: .5em 1em;
 	width: 100%;
+	overflow: hidden;
 	&__selected {
 		color: $text-inverted;
 		font-weight: bold;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
 import { isMobile } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
@@ -13,13 +13,20 @@ export class DatePickerComponent implements OnInit {
     @Input() selectedDate: Date;
     @Output() selectedDateChange = new EventEmitter<Date>();
 
+    @HostListener('document:click', ['$event'])
+    offClick(event) {
+        if (!this.eRef.nativeElement.contains(event.target)) {
+            this.pickerVisible = false;
+        }
+    }
+
     pickerVisible: boolean = false;
 
     get formattedDate() {
         return this.dateService.formatMMDDYYYY(this.selectedDate);
     }
 
-    constructor(public isMobile: isMobile, public dateService: DateService) { }
+    constructor(public isMobile: isMobile, public dateService: DateService, private eRef: ElementRef) { }
 
     ngOnInit() {
         //If no date is selected then default to today's date.
