@@ -61,18 +61,18 @@
 
 .calendar--years-select,
 .calendar--months-select {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: 14.85em;
   background-color: #fff;
   width: 100%; }
 
 .calendar--year,
 .calendar--month {
+  display: block;
   padding: .5em 1em;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
   .calendar--year__selected,
   .calendar--month__selected {
     color: #fff;
@@ -189,3 +189,6 @@
     transition: .25s ease;
     cursor: pointer;
     background-color: #f41875; }
+
+[hidden] {
+  display: none !important; }
