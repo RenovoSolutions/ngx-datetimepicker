@@ -167,14 +167,3 @@
 		color: $primary;
 	}
 }
-
-// Codepen background & positioning
-body {
-	background-color: #1d1f20;
-}
-.container {
-	display: flex;
-	justify-content: space-around;
-	position: relative;
-	top: 25vh
-}

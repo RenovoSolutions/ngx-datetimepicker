@@ -1,3 +1,13 @@
+.ngx-picker {
+  display: flex;
+  position: relative;
+  width: 100%; }
+  .ngx-picker .calendar {
+    position: absolute;
+    left: 0;
+    top: 2.5em;
+    z-index: 3; }
+
 .calendar {
   position: absolute;
   background-color: #222651;
@@ -142,15 +152,6 @@
     cursor: pointer;
     background-color: #aeb2dd;
     color: #313775; }
-
-body {
-  background-color: #1d1f20; }
-
-.container {
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  top: 25vh; }
 
 .time-picker {
   display: flex;
