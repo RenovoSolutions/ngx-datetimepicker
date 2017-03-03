@@ -49,4 +49,8 @@ export class DateTimePickerComponent implements OnInit {
         this.selectedDateTimeChange.emit(date);
         this.selectedDateTime = date;
     }
+
+    closePicker(close: boolean): void {
+        this.pickerVisible = close;
+    }
 }
