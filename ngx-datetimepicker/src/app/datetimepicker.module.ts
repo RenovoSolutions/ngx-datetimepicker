@@ -8,12 +8,12 @@ import { DateTimePickerComponent } from './dateTimePicker.component/dateTimePick
 import { TimePickerComponent } from './timePicker.component/timePicker.component';
 
 import { DateService } from './services/date.service';
-import { IS_MOBILE_PROVIDER } from './services/isMobile.service';
+import { IsMobileService } from './services/isMobile.service';
 
 @NgModule({
 	imports: [CommonModule],
 	exports: [DatePickerComponent, DateTimePickerComponent, TimePickerComponent],
 	declarations: [ TimeComponent, DateComponent, DatePickerComponent, DateTimePickerComponent, TimePickerComponent ],
-	providers: [DateService, IS_MOBILE_PROVIDER],
+	providers: [DateService, IsMobileService],
 })
 export class DateTimePickerModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
-import { isMobile } from '../services/isMobile.service';
+import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
@@ -20,6 +20,7 @@ export class TimePickerComponent implements OnInit {
 	}
 
 	pickerVisible: boolean = false;
+    isMobile: boolean;
 
 	get formattedTime(): string {
 		return this.dateService.formatHHMM_AMPM(this.selectedHour, this.selectedMinute);
@@ -46,7 +47,9 @@ export class TimePickerComponent implements OnInit {
 	public selectedHour: number;
 	public selectedMinute: number;
 
-	constructor(public isMobile: isMobile, public dateService: DateService, private eRef: ElementRef) { }
+	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
+        this.isMobile = isMobileService.isMobile;
+    }
 
 	ngOnInit() {
 

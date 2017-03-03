@@ -5,8 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-
-import { IS_MOBILE_PROVIDER } from './services/isMobile.service';
 import { DateService } from './services/date.service';
 
 import { DateTimePickerModule } from './datetimepicker.module';
