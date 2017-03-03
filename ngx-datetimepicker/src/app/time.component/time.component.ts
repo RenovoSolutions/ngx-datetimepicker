@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Input, Output, ViewEncapsulation } fro
 
 @Component({
 	selector: 'ngx-time',
-	template: require('./time.component.html'),
+	templateUrl: './time.component.html',
 	encapsulation: ViewEncapsulation.None
 })
 

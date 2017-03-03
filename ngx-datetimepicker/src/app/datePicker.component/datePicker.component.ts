@@ -4,7 +4,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
     selector: 'ngx-datepicker',
-    template: require('./datePicker.component.html'),
+    templateUrl: './datePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
 	styleUrls: ['../../assets/date-picker.css']
 })

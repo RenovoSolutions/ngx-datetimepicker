@@ -8,7 +8,7 @@ describe('a timePicker component', () => {
 		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
-		timePickerComponent = new TimePickerComponent(<any>{}, mockDateService);
+		timePickerComponent = new TimePickerComponent(<any>{}, mockDateService, <any>{});
 	});
 
 	it('should have an instance', () => {

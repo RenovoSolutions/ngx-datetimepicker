@@ -5,7 +5,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
     selector: 'ngx-date',
-    template: require('./date.component.html'),
+    templateUrl: './date.component.html',
     encapsulation: ViewEncapsulation.None
 })
 
