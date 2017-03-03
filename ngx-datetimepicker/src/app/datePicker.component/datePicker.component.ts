@@ -46,4 +46,7 @@ export class DatePickerComponent implements OnInit {
         this.selectedDate = date;
     }
 
+    closePicker(close: boolean): void {
+        this.pickerVisible = close;
+    }
 }
