@@ -17,10 +17,8 @@
 	}
 }
 
+// Matching button border radius to picker's radius
 .ngx-picker--btn__month:hover { border-top-left-radius: $base-border-radius; }
-
 .ngx-picker--btn__done:hover { border-bottom-right-radius: $base-border-radius; }
-
 .ngx-picker--btn__now:hover { border-bottom-left-radius: $base-border-radius; }
-
 .ngx-picker--btn__next:hover { border-top-right-radius: $base-border-radius; }
