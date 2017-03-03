@@ -14,5 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "ismobilejs": "^0.4.0"
+  },
+  "devDependencies": {
+    "typescript": "~2.0.0"
   }
 }
