@@ -27,6 +27,7 @@
 	border-radius: $base-border-radius;
 }
 
+// Year & Month selection
 .calendar--years-select,
 .calendar--months-select {
 	overflow-y: auto;
@@ -56,6 +57,7 @@
 	}
 }
 
+// Days of the week (Su - Sa)
 .calendar--days-of-week {
   display: flex;
   justify-content: space-around;
@@ -71,6 +73,7 @@
   font-size: .9em;
 }
 
+// Individual day selection (1 - 31)
 .calendar--days-select {
   display: flex;
   flex-wrap: wrap;
