@@ -130,10 +130,6 @@
   font-family: 'Arial', sans-serif;
   background-color: #222651; }
 
-.time--colon {
-  font-weight: bold;
-  color: #fff; }
-
 .time--value:hover {
   cursor: pointer;
   transition: .25s ease;
@@ -165,15 +161,6 @@
     cursor: pointer;
     background-color: #222651;
     color: #fff; }
-
-.time--label {
-  display: inline-block;
-  padding: 1em .85em;
-  color: #fff; }
-  .time--label:hover {
-    transition: .25s ease;
-    cursor: pointer;
-    background-color: #f41875; }
 
 [hidden] {
   display: none !important; }

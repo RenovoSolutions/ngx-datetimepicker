@@ -10,11 +10,6 @@
 	background-color: $primary-dark;
 }
 
-.time--colon {
-	font-weight: bold;
-	color: #fff;
-}
-
 .time--value:hover {
 	cursor: pointer;
 	transition: .25s ease;
@@ -50,16 +45,5 @@
 		cursor: pointer;
 		background-color: $primary-dark;
 		color: #fff;
-	}
-}
-
-.time--label {
-	display: inline-block;
-	padding: 1em .85em;
-	color: #fff;
-	&:hover {
-		transition: .25s ease;
-		cursor: pointer;
-		background-color: $secondary;
 	}
 }
