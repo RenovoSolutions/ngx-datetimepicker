@@ -130,11 +130,6 @@
   font-family: 'Arial', sans-serif;
   background-color: #222651; }
 
-.time--value:hover {
-  cursor: pointer;
-  transition: .25s ease;
-  background-color: #f41875; }
-
 .time--values {
   display: flex;
   justify-content: space-between;

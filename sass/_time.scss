@@ -10,12 +10,6 @@
 	background-color: $primary-dark;
 }
 
-.time--value:hover {
-	cursor: pointer;
-	transition: .25s ease;
-	background-color: $secondary;
-}
-
 .time--values {
 	display: flex;
 	justify-content: space-between;
