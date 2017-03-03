@@ -93,6 +93,8 @@ export class DateComponent implements OnInit {
         this.highlightedDate = this.selectedDate;
         this.selectedHour = date.getHours();
         this.selectedMinute = date.getMinutes();
+
+        this.closePicker();
     }
 
     private loadCalendarMonth(date: Date) {
