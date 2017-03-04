@@ -27,7 +27,15 @@
 	border-radius: $base-border-radius;
 }
 
-// Year & Month selection
+
+.calendar--btn__month:hover { border-top-left-radius: $base-border-radius; }
+
+.calendar--btn__close:hover { border-bottom-right-radius: $base-border-radius; }
+
+.calendar--btn__now:hover { border-bottom-left-radius: $base-border-radius; }
+
+.calendar--btn__next:hover { border-top-right-radius: $base-border-radius; }
+
 .calendar--years-select,
 .calendar--months-select {
 	overflow-y: auto;
