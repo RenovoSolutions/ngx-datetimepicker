@@ -14,7 +14,7 @@
 				<ngx-time [selectedHour]="selectedHour" [selectedMinute]="selectedMinute" (selectedHourChange)="selectedHour = $event" (selectedMinuteChange)="selectedMinute = $event"></ngx-time>
 				<div class="calendar--footer">
 					<button class="calendar--btn calendar--btn__now" (click)="setTimeToNow()">Now</button>
-					<button class="calendar--btn calendar--btn__done">Done</button>
+					<button class="calendar--btn calendar--btn__close" (click)="closePicker()">Close</button>
 				</div>
 			</div>
 		</div>

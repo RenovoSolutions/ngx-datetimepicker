@@ -27,4 +27,12 @@ describe('a input component', () => {
 		expect(dateTimePickerComponent.selectedDateTime.getMinutes()).toEqual(0);
 	});
 
+	it('should hide the picker', () => {
+		let visibility = false;
+
+		dateTimePickerComponent.closePicker(visibility);
+
+		expect(dateTimePickerComponent.pickerVisible).toBe(false);
+	});
+
 });
