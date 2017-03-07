@@ -13,6 +13,10 @@ import { Component, Inject } from '@angular/core';
 export class AppComponent {
 	title = 'app works!';
 
+	public dateTimeExample = null
+	public dateExample = null
+	public timeExample = null
+
 	constructor() {
 	};
 }
