@@ -1,6 +1,6 @@
 <div [ngSwitch]="isMobile">
   <div *ngSwitchCase="true">
-    <input type="date" />
+    <input type="date" [value]="mobileFormattedDate" (change)="setMobileFormattedDate($event)" />
   </div>
   <div *ngSwitchDefault>
     <div class="ngx-picker">

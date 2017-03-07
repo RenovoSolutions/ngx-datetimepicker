@@ -26,6 +26,14 @@ export class DateTimePickerComponent implements OnInit {
     get formattedDate() {
         return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
     }
+    get mobileFormattedDate() {
+        return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
+    }
+
+    setMobileFormattedDate(event) {
+        this.selectedDateTime = new Date(event.target.value);
+        this.selectedDateTimeChange.emit(this.selectedDateTime);
+    }
 
     set formattedDate(value: string) {
         this.selectedDateTime = new Date(value);
