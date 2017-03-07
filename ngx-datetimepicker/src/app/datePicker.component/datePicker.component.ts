@@ -31,9 +31,12 @@ export class DatePickerComponent implements OnInit {
         return this.dateService.formatMobileYYYYMMDD(this.selectedDate);
     }
 
-    setMobileFormattedDate(event) {
-        this.selectedDate = new Date(event.target.value);
-        this.selectedDateChange.emit(this.selectedDate);
+    setDate(date: string) {
+        const isValid = !!Date.parse(date);
+        if (isValid) {
+            this.selectedDate = new Date(date);
+            this.selectedDateChange.emit(this.selectedDate);
+        }
     }
 
     constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
