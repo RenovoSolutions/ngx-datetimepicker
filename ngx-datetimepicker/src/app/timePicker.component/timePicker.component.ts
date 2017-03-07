@@ -11,7 +11,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 })
 
 export class TimePickerComponent  {
-    @Input() selectedTime: Date;
+    @Input() selectedTime: string;
 	@Output() selectedimeChange = new EventEmitter<string>();
 
 	@HostListener('document:click', ['$event'])
