@@ -22,7 +22,7 @@ export class DateTimePickerComponent implements OnInit {
 
     pickerVisible: boolean = false;
     isMobile: boolean;
-
+    invalid: boolean;
     get formattedDate() {
         return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
     }
@@ -30,19 +30,22 @@ export class DateTimePickerComponent implements OnInit {
         return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
     }
 
-    setDateTime(dateTime: string) {
-        const isValid = !!Date.parse(dateTime);
-        if (isValid) {
-            this.selectedDateTime = new Date(dateTime);
-            this.selectedDateTimeChange.emit(this.selectedDateTime);
-        }
-    }
-
     set formattedDate(value: string) {
         this.selectedDateTime = new Date(value);
     }
     constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
         this.isMobile = isMobileService.isMobile;
+    }
+
+    setDateTime(dateTime: string) {
+        const isValid = !!Date.parse(dateTime);
+        if (isValid) {
+            this.selectedDateTime = new Date(dateTime);
+            this.selectedDateTimeChange.emit(this.selectedDateTime);
+            this.invalid = false;
+        } else {
+            this.invalid = true;
+        }
     }
 
     ngOnInit() {
