@@ -1,5 +1,5 @@
 <div [ngSwitch]="isMobile"
-  [class.invalid]="invalid";
+  [class.invalid]="invalid"
   >
   <div *ngSwitchCase="true">
     <input type="datetime-local" [value]="mobileFormattedDate" (change)="setDateTime($event.target.value)" />
