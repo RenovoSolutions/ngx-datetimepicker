@@ -3,7 +3,7 @@ import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
-    selector: 'ngx-datepicker',
+    selector: 'ngx-date-picker',
     templateUrl: './datePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
 	styleUrls: ['../../assets/date-picker.css']

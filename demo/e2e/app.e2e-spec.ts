@@ -7,8 +7,8 @@ describe('demo App', function() {
     page = new DemoPage();
   });
 
-  it('should display message saying ngx-datetimepicker', () => {
+  it('should display message saying ngx-datetime-picker', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('ngx-datetimepicker');
+    expect(page.getParagraphText()).toEqual('ngx-datetime-picker');
   });
 });

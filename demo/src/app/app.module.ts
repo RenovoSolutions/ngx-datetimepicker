@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import { DateTimePickerModule } from 'ngx-datetimepicker';
+import { DateTimePickerModule } from 'ngx-datetime-picker';
 
 @NgModule({
   declarations: [
