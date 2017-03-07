@@ -128,6 +128,9 @@ export class DateService {
 	}
 
 	getMonthText(date: Date): string {
+		if (date == null) {
+			date = new Date();
+		}
 		return this.months[date.getMonth()];
 	}
 
