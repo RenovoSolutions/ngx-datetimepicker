@@ -1,6 +1,10 @@
 # ngx-datetimepicker
 ## Date time picker that falls back to native HTML5 components on mobile
 
+* No jQuery or other external dependencies.
+* 3 seperate components for Date Time, Date, and Time picker
+* When being used on a mobile or touch devices it falls back to html5 inputs of date, datetime-local, and time
+
 [![npm](https://img.shields.io/npm/v/ngx-datetimepicker.svg)](https://www.npmjs.com/package/ngx-datetimepicker)
 [![npm](https://img.shields.io/npm/dt/ngx-datetimepicker.svg?label=npm%20downloads)](https://www.npmjs.com/package/ngx-datetimepicker)
 
