@@ -33,6 +33,9 @@ export class DateService {
 	}
 
 	formatHHMM_AMPM(hour: number, minute: number): string {
+		if (hour == null || minute == null) {
+			return '';
+		}
 		let formattedMinute = (!minute ? '00' : (minute <= 9 ? `0${minute}` : minute));
 
 		if (hour > 12) {
