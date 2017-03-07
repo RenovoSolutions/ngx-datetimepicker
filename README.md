@@ -8,7 +8,7 @@
 [![npm](https://img.shields.io/npm/v/ngx-datetimepicker.svg)](https://www.npmjs.com/package/ngx-datetimepicker)
 [![npm](https://img.shields.io/npm/dt/ngx-datetimepicker.svg?label=npm%20downloads)](https://www.npmjs.com/package/ngx-datetimepicker)
 
-## [Codepen Demo](http://codepen.io/BrentWMiller/pen/gmOGmz)
+## [Live Demo](https://renovosolutions.github.io/ngx-datetimepicker/)
 
 ## Development:
 
@@ -18,11 +18,21 @@
 * Run `npm run setup` to prepare the  project
 * Live edit mode with `npm run serve`.
 * Run tests with watcher with `npm run test`.
+* Run tests without a watcher with `npm run test.once`.
 * Prepare for distrabution with `npm run dist` (note you man need to also run `tsc index.ts` if you have updated the exported values.)
 * Test a demo project using the exported ngModule with `npm run demo`
 * Sass files are compiled locally using [Koala](http://koala-app.com/).
 * Set Koala to watch `date.component.scss` and compile it to `ngx-datetimepicker > src > assets` as `date.component.css`.
 
+* *Optionally* you can use https://github.com/angular-buch/angular-cli-ghpages to publish the demo install to github pages. by first running `npm run demo`, then by going into your demo directory with `cd demo` and from there you can copy and past the two commands to publish to github pages.
+    ```
+    ng build --prod --aot --base-href "https://renovosolutions.github.io/ngx-datetimepicker/"
+    ```
+    then
+    ```
+    ngh --repo=https://github.com/renovosolutions/ngx-datetimepicker.git
+    ```
+    _note this will publish to the `gh-pages` branch and you wil need to authenicate again_
 ### Requirements
 
 * angular-cli 1.0.0-beta.28.3 or higher
