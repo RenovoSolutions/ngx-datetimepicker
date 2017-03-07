@@ -44,4 +44,10 @@ describe('a timePicker component', () => {
 		expect(timePickerComponent.selectedHour).toBe(now.getHours());
 		expect(timePickerComponent.selectedMinute).toBe(now.getMinutes());
 	});
+
+	it('should hide the picker when closed', () => {
+		timePickerComponent.closePicker();
+
+		expect(timePickerComponent.pickerVisible).toBe(false);
+	})
 });

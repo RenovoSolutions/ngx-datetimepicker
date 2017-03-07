@@ -1,9 +1,11 @@
 @import 'variables.scss';
 
-@import 'input.scss';
+@import 'button.scss';
 @import 'date.scss';
+@import 'picker.scss';
 @import 'time.scss';
 
+// Override for Angular's [hidden], so off-clicking works.
 [hidden] {
   display: none !important;
 }

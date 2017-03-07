@@ -13,6 +13,7 @@ export class DateComponent implements OnInit {
     @Input() includeTime: boolean;
 
     @Output() selectedDateChange = new EventEmitter<Date>();
+    @Output() closeDatePicker = new EventEmitter<boolean>();
 
     @ViewChild('yearSelect') yearSelect: ElementRef;
     @ViewChild('monthSelect') monthSelect: ElementRef;
@@ -92,6 +93,8 @@ export class DateComponent implements OnInit {
         this.highlightedDate = this.selectedDate;
         this.selectedHour = date.getHours();
         this.selectedMinute = date.getMinutes();
+
+        this.closePicker();
     }
 
     private loadCalendarMonth(date: Date) {
@@ -179,5 +182,9 @@ export class DateComponent implements OnInit {
     public toggleYearMenu(): void {
         this.scrollToYear();
         this.showYearSelection = !this.showYearSelection;
+    }
+
+    public closePicker(): void {
+        this.closeDatePicker.emit(false);
     }
 }

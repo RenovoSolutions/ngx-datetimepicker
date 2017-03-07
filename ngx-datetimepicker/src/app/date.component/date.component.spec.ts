@@ -104,6 +104,13 @@ describe('a date component', () => {
 		expect(dateComponent.showYearSelection).toBe(false);
 	});
 
+	it('should tell the picker to hide when closed', () => {
+		dateComponent.closeDatePicker.subscribe(visiblility => {
+			expect(visiblility).toBe(false);
+		})
+		dateComponent.closePicker();
+	});
+
 	describe('time component', () => {
 		it('should change the selected time to 8pm', (done) => {
 			dateComponent.ngOnInit();

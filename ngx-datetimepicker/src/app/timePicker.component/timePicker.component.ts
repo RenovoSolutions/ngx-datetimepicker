@@ -70,4 +70,8 @@ export class TimePickerComponent implements OnInit {
 		this.selectedHour = now.getHours();
 		this.selectedMinute = now.getMinutes();
 	}
+
+	closePicker(): void {
+		this.pickerVisible = false;
+	}
 }

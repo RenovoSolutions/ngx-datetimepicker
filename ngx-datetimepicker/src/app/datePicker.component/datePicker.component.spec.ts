@@ -25,4 +25,12 @@ describe('a input component', () => {
 		expect(datePickerComponent.selectedDate.getFullYear()).toEqual(new Date().getFullYear());
 	});
 
+	it('should hide the picker', () => {
+		let visibility = false;
+
+		datePickerComponent.closePicker(visibility);
+
+		expect(datePickerComponent.pickerVisible).toBe(false);
+	});
+
 });
