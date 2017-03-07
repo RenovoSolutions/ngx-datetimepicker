@@ -22,7 +22,7 @@ export class AppComponent {
 
 	setToNow(): void{
 		this.dateExample = new Date();
-		this.timeExample = `${this.dateExample.getHours()}:${this.dateExample.getMinutes()} ${(this.dateExample.getHours() > 11 ? 'am' : 'pm')}`;
+		this.timeExample = `${this.dateExample.getHours()}:${this.dateExample.getMinutes()}`;
 		this.dateTimeExample = new Date();
 	}
 }
