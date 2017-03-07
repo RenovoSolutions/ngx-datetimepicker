@@ -49,6 +49,18 @@
   padding: 0;
   border-radius: 0.2em; }
 
+.ngx-picker--btn__month:hover {
+  border-top-left-radius: 0.2em; }
+
+.ngx-picker--btn__close:hover {
+  border-bottom-right-radius: 0.2em; }
+
+.ngx-picker--btn__now:hover {
+  border-bottom-left-radius: 0.2em; }
+
+.ngx-picker--btn__next:hover {
+  border-top-right-radius: 0.2em; }
+
 .calendar--years-select,
 .calendar--months-select {
   overflow-y: auto;
@@ -159,3 +171,5 @@
 
 [hidden] {
   display: none !important; }
+
+/*# sourceMappingURL=date-picker.css.map */
