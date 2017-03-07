@@ -10,7 +10,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 })
 
-export class TimePickerComponent implements OnInit {
+export class TimePickerComponent  {
     @Input() selectedTime: Date;
 	@Output() selectedimeChange = new EventEmitter<string>();
 
@@ -52,19 +52,6 @@ export class TimePickerComponent implements OnInit {
 	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
         this.isMobile = isMobileService.isMobile;
     }
-
-	ngOnInit() {
-
-
-		if (this.selectedMinute == null) {
-			this.selectedMinute = 0;
-		}
-		if (this.selectedHour == null) {
-			this.selectedHour = 12;
-		}
-
-	}
-
 	setTimeToNow(): void{
 		const now = new Date();
 		this.selectedHour = now.getHours();

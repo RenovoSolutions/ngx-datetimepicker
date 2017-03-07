@@ -35,11 +35,6 @@ export class DateTimePickerComponent implements OnInit {
     }
 
     ngOnInit() {
-        //If no date is selected then default to today's date.
-        if (!this.selectedDateTime) {
-            this.selectedDateTime = new Date();
-            this.selectedDateTime.setHours(12, 0);
-        }
         if (typeof this.selectedDateTime == 'string') {
             this.selectedDateTime = new Date(this.selectedDateTime);
         }
