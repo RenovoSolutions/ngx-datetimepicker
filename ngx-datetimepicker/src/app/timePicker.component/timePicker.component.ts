@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef., EventEmitter, Input, Output } from '@angular/core';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
@@ -11,6 +11,8 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 })
 
 export class TimePickerComponent implements OnInit {
+    @Input() selectedTime: Date;
+	@Output() selectedselectedTimeChange = new EventEmitter<string>();
 
 	@HostListener('document:click', ['$event'])
     offClick(event) {
