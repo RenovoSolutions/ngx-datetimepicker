@@ -12,7 +12,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 export class TimePickerComponent implements OnInit {
     @Input() selectedTime: Date;
-	@Output() selectedselectedTimeChange = new EventEmitter<string>();
+	@Output() selectedimeChange = new EventEmitter<string>();
 
 	@HostListener('document:click', ['$event'])
     offClick(event) {
