@@ -16,15 +16,6 @@ describe('a input component', () => {
 	it('should have an instance', () => {
 		expect(datePickerComponent).toBeTruthy();
 	});
-
-	it('should set the selected date to today when no date is set', () => {
-		datePickerComponent.ngOnInit();
-
-		expect(datePickerComponent.selectedDate.getDate()).toEqual(new Date().getDate());
-		expect(datePickerComponent.selectedDate.getMonth()).toEqual(new Date().getMonth());
-		expect(datePickerComponent.selectedDate.getFullYear()).toEqual(new Date().getFullYear());
-	});
-
 	it('should hide the picker', () => {
 		let visibility = false;
 

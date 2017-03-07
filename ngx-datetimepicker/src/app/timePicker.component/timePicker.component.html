@@ -13,8 +13,8 @@
 			<div class="calendar" [hidden]="!pickerVisible">
 				<ngx-time [selectedHour]="selectedHour" [selectedMinute]="selectedMinute" (selectedHourChange)="selectedHour = $event" (selectedMinuteChange)="selectedMinute = $event"></ngx-time>
 				<div class="calendar--footer">
-					<button class="calendar--btn calendar--btn__now" (click)="setTimeToNow()">Now</button>
-					<button class="calendar--btn calendar--btn__close" (click)="closePicker()">Close</button>
+					<button class="ngx-picker--btn ngx-picker--btn__now" (click)="setTimeToNow()">Now</button>
+					<button class="ngx-picker--btn ngx-picker--btn__close" (click)="closePicker()">Close</button>
 				</div>
 			</div>
 		</div>

@@ -48,6 +48,10 @@ export class TimeComponent implements OnInit {
 		hour = this.selectedClock == 'pm' ? parseInt(<any>hour) + 12 : hour ;
 		this.selectedHourChange.emit(hour);
 		this.selectedHour = hour;
+		//if there isnt' a minute selected defautl to 0
+		if (this.selectedMinute == null) {
+			this.selectMinuteChange(0);
+		}
 
 		this.minutesOpen = false;
 		this.hoursOpen = false;

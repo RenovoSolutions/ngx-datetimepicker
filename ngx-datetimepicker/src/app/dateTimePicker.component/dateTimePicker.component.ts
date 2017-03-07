@@ -3,7 +3,7 @@ import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
-    selector: 'ngx-datetimepicker',
+    selector: 'ngx-datetime-picker',
     templateUrl: './datetimepicker.component.html',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['../../assets/date-picker.css']
@@ -26,6 +26,14 @@ export class DateTimePickerComponent implements OnInit {
     get formattedDate() {
         return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
     }
+    get mobileFormattedDate() {
+        return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
+    }
+
+    setMobileFormattedDate(event) {
+        this.selectedDateTime = new Date(event.target.value);
+        this.selectedDateTimeChange.emit(this.selectedDateTime);
+    }
 
     set formattedDate(value: string) {
         this.selectedDateTime = new Date(value);
@@ -35,11 +43,6 @@ export class DateTimePickerComponent implements OnInit {
     }
 
     ngOnInit() {
-        //If no date is selected then default to today's date.
-        if (!this.selectedDateTime) {
-            this.selectedDateTime = new Date();
-            this.selectedDateTime.setHours(12, 0);
-        }
         if (typeof this.selectedDateTime == 'string') {
             this.selectedDateTime = new Date(this.selectedDateTime);
         }

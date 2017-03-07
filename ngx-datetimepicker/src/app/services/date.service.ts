@@ -14,6 +14,25 @@ export class DateService {
 
 	constructor() { }
 
+	private addLeadingZero(value: number): string {
+		if (value < 10) {
+			return `0${value.toString()}`;
+		}
+		return value.toString();
+	}
+
+	formatMobileYYYYMMDD(date: Date): string {
+		if (!date || typeof date == 'string') {
+			return '';
+		}
+		return `${date.getFullYear()}-${this.addLeadingZero(date.getMonth() + 1)}-${this.addLeadingZero(date.getDate())}`;
+	}
+	formatMobileYYYYMMDDTHHMM(date: Date): string {
+		if (!date || typeof date == 'string') {
+			return '';
+		}
+		return `${this.formatMobileYYYYMMDD(date)}T${this.addLeadingZero(date.getHours())}:${this.addLeadingZero(date.getMinutes())}`;
+	}
 	formatMMDDYYYY(date: Date): string {
 		if (!date || typeof date == 'string') {
 			return '';
@@ -33,6 +52,9 @@ export class DateService {
 	}
 
 	formatHHMM_AMPM(hour: number, minute: number): string {
+		if (hour == null || minute == null) {
+			return '';
+		}
 		let formattedMinute = (!minute ? '00' : (minute <= 9 ? `0${minute}` : minute));
 
 		if (hour > 12) {
@@ -125,6 +147,9 @@ export class DateService {
 	}
 
 	getMonthText(date: Date): string {
+		if (date == null) {
+			date = new Date();
+		}
 		return this.months[date.getMonth()];
 	}
 

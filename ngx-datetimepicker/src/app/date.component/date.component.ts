@@ -31,20 +31,32 @@ export class DateComponent implements OnInit {
     public showYearSelection: boolean = false;
 
     get selectedMonth(): number {
-        //increment by one since getMonth is zero based
+        if (this.selectedDate == null) {
+            return new Date().getMonth() + 1;
+        }
         return this.selectedDate.getMonth() + 1;
     }
 
     get selectedDay(): number {
+        if (this.selectedDate == null) {
+            return new Date().getDate();
+        }
         return this.selectedDate.getDate();
     }
 
     get selectedYear(): number {
+        if (this.selectedDate == null) {
+            return new Date().getFullYear();
+        }
         return this.selectedDate.getFullYear();
     }
 
     set selectedMonth(month: number) {
         let newDate = new Date(this.selectedDate);
+
+        if (month == null) {
+            month = new Date().getMonth();
+        }
 
         newDate.setMonth(month - 1);
         this.loadCalendarMonth(newDate);
@@ -98,7 +110,9 @@ export class DateComponent implements OnInit {
     }
 
     private loadCalendarMonth(date: Date) {
-
+        if (date == null) {
+            date = new Date();
+        }
         const shouldReloadCalendar = (this.selectedMonth != (date.getMonth() + 1) || this.selectedYear != date.getFullYear());
         this.selectedDate = date;
 
@@ -143,7 +157,7 @@ export class DateComponent implements OnInit {
         setTimeout(() => {
             if (this.yearSelect && this.yearSelect.nativeElement) {
                 const selectContainer = this.yearSelect.nativeElement;
-            const selectedYear = selectContainer.querySelector('.calendar--year__selected');
+                const selectedYear = selectContainer.querySelector('.calendar--year__selected');
                 selectContainer.scrollTop = selectedYear.offsetTop - (selectContainer.clientHeight / 2) - (selectedYear.clientHeight);
             }
         });
@@ -154,7 +168,7 @@ export class DateComponent implements OnInit {
         setTimeout(() => {
             if (this.monthSelect && this.monthSelect.nativeElement) {
                 const selectContainer = this.monthSelect.nativeElement;
-            const selectedMonth = selectContainer.querySelector('.calendar--month__selected');
+                const selectedMonth = selectContainer.querySelector('.calendar--month__selected');
                 selectContainer.scrollTop = selectedMonth.offsetTop - (selectContainer.clientHeight / 2) - (selectedMonth.clientHeight);
             }
         });

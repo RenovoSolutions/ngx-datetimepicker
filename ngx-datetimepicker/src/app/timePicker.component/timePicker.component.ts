@@ -1,16 +1,18 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
-	selector: 'ngx-timepicker',
+	selector: 'ngx-time-picker',
 	templateUrl: './timePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
 	styleUrls: ['../../assets/date-picker.css']
 
 })
 
-export class TimePickerComponent implements OnInit {
+export class TimePickerComponent  {
+    @Input() selectedTime: string;
+	@Output() selectedimeChange = new EventEmitter<string>();
 
 	@HostListener('document:click', ['$event'])
     offClick(event) {
@@ -50,19 +52,6 @@ export class TimePickerComponent implements OnInit {
 	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
         this.isMobile = isMobileService.isMobile;
     }
-
-	ngOnInit() {
-
-
-		if (this.selectedMinute == null) {
-			this.selectedMinute = 0;
-		}
-		if (this.selectedHour == null) {
-			this.selectedHour = 12;
-		}
-
-	}
-
 	setTimeToNow(): void{
 		const now = new Date();
 		this.selectedHour = now.getHours();

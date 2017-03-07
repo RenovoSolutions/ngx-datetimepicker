@@ -3,10 +3,10 @@ import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
-    selector: 'ngx-datepicker',
+    selector: 'ngx-date-picker',
     templateUrl: './datePicker.component.html',
-	encapsulation: ViewEncapsulation.None,
-	styleUrls: ['../../assets/date-picker.css']
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['../../assets/date-picker.css']
 })
 
 export class DatePickerComponent implements OnInit {
@@ -27,15 +27,20 @@ export class DatePickerComponent implements OnInit {
         return this.dateService.formatMMDDYYYY(this.selectedDate);
     }
 
+    get mobileFormattedDate() {
+        return this.dateService.formatMobileYYYYMMDD(this.selectedDate);
+    }
+
+    setMobileFormattedDate(event) {
+        this.selectedDate = new Date(event.target.value);
+        this.selectedDateChange.emit(this.selectedDate);
+    }
+
     constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
         this.isMobile = isMobileService.isMobile;
-     }
+    }
 
     ngOnInit() {
-        //If no date is selected then default to today's date.
-        if (!this.selectedDate) {
-            this.selectedDate = new Date();
-        }
         if (typeof this.selectedDate == 'string') {
             this.selectedDate = new Date(this.selectedDate);
         }
