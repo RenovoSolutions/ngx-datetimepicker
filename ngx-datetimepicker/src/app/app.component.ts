@@ -19,4 +19,10 @@ export class AppComponent {
 
 	constructor() {
 	};
+
+	setToNow(): void{
+		this.dateExample = new Date();
+		this.timeExample = `${this.dateExample.getHours()}:${this.dateExample.getMinutes()} ${(this.dateExample.getHours() > 11 ? 'am' : 'pm')}`;
+		this.dateTimeExample = new Date();
+	}
 }

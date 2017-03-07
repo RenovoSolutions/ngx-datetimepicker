@@ -1,8 +1,15 @@
 <h1>
   {{title}}
 </h1>
-<ngx-datetime-picker></ngx-datetime-picker>
+<ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
 <hr />
-<ngx-date-picker></ngx-date-picker>
+<label>Date Picker</label>
+<ngx-date-picker [(selectedDate)]="dateExample"></ngx-date-picker>
 <hr />
-<ngx-time-picker></ngx-time-picker>
+<label>Time Picker</label>
+<ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
+
+
+<br>
+<button (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>
+<button (click)="setToNow()">Set all to now</button>
