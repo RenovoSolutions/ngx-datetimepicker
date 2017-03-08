@@ -1,23 +1,22 @@
 //Branding
-$primary: #313775 !default;
-$primary-dark: darken($primary, 10%) !default;
-$primary-light: lighten($primary, 45%) !default;
+$primary: #313775;
+$primary-dark: darken($primary, 10%);
+$primary-light: lighten($primary, 45%);
 
-$secondary: #f41875 !default;
+$secondary: #f41875;
 
 // Menus
-$menu-background: #fff !default;
+$menu-background: #fff;
 
 // Text
-$font-family: 'Arial', sans-serif !default;
-$font-base: 16px !default;
+$font-base: 16px;
 
-$text-inverted: #fff !default;
-$text-muted: #999 !default;
+$text-inverted: #fff;
+$text-muted: #999;
 
 // Borders
-$base-border-radius: .2em !default;
+$base-border-radius: .2em;
 
 // Calendar Options
-$calendar-size-ratio: $font-base !default;
-$calendar-menu-height: 14.85em !default;
+$calendar-size-ratio: $font-base;
+$calendar-menu-height: 14.85em;

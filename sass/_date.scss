@@ -5,9 +5,28 @@
   max-width: 16em;
   min-width: 16em;
   font-size: $calendar-size-ratio;
-  font-family: $font-family;
+  font-family: 'Arial', sans-serif;
 	border-radius: $base-border-radius;
 	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.calendar--btn {
+	color: $text-inverted;
+  background-color: transparent;
+	border: none;
+	padding: 1em;
+	font-size: 1em;
+	&__selected {
+		background-color: $secondary;
+	}
+	&:hover {
+		transition: .25s ease;
+		background-color: $secondary;
+		cursor: pointer;
+	}
+	&:focus {
+		outline-color: transparent;
+	}
 }
 
 .calendar--previous-and-next {
@@ -26,7 +45,6 @@
 
 	border-radius: $base-border-radius;
 }
-
 
 .calendar--btn__month:hover { border-top-left-radius: $base-border-radius; }
 
@@ -65,7 +83,6 @@
 	}
 }
 
-// Days of the week (Su - Sa)
 .calendar--days-of-week {
   display: flex;
   justify-content: space-around;
@@ -81,7 +98,6 @@
   font-size: .9em;
 }
 
-// Individual day selection (1 - 31)
 .calendar--days-select {
   display: flex;
   flex-wrap: wrap;
