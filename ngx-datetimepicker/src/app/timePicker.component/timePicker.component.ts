@@ -10,26 +10,31 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 })
 
-export class TimePickerComponent  {
-    @Input() selectedTime: string;
-	@Output() selectedimeChange = new EventEmitter<string>();
+export class TimePickerComponent {
+	@Input() selectedTime: string;
+	@Output() selectedTimeChange = new EventEmitter<string>();
 
 	@HostListener('document:click', ['$event'])
-    offClick(event) {
-        if (!this.eRef.nativeElement.contains(event.target)) {
-            this.pickerVisible = false;
-        }
+	offClick(event) {
+		if (!this.eRef.nativeElement.contains(event.target)) {
+			this.pickerVisible = false;
+		}
 	}
 
 	pickerVisible: boolean = false;
-    isMobile: boolean;
+	isMobile: boolean;
 
 	get formattedTime(): string {
 		return this.dateService.formatHHMM_AMPM(this.selectedHour, this.selectedMinute);
 	}
 
 	get mobileFormattedTime(): string {
-		return `${(this.selectedHour < 10 ? '0'+this.selectedHour : this.selectedHour)}:${(this.selectedMinute < 10 ? '0'+this.selectedMinute : this.selectedMinute)}`
+		if (this.selectedTime == null) {
+			return '';
+		}
+		this.selectedHour = parseInt(this.selectedTime.split(':')[0]);
+		this.selectedMinute = parseInt(this.selectedTime.split(':')[1]);
+		return `${(this.selectedHour < 10 ? '0' + this.selectedHour : this.selectedHour)}:${(this.selectedMinute < 10 ? '0' + this.selectedMinute : this.selectedMinute)}`
 	}
 
 	set mobileFormattedTime(value: string) {
@@ -50,9 +55,19 @@ export class TimePickerComponent  {
 	public selectedMinute: number;
 
 	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
-        this.isMobile = isMobileService.isMobile;
-    }
-	setTimeToNow(): void{
+		this.isMobile = isMobileService.isMobile;
+	}
+
+	setMobileFormattedTime(time: string) {
+		this.selectedTimeChange.emit(time);
+		this.selectedTime = time;
+	}
+
+	setFormattedTime(formattedTime: string) {
+		console.log(formattedTime);
+	}
+
+	setTimeToNow(): void {
 		const now = new Date();
 		this.selectedHour = now.getHours();
 		this.selectedMinute = now.getMinutes();
