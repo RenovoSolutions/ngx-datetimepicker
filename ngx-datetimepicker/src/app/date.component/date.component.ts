@@ -83,7 +83,7 @@ export class DateComponent implements OnInit {
     constructor(private dateService: DateService) { }
 
     setSelectedDate(date: Date, hour?: number, minutes?: number): void {
-        if (this.includeTime && !!date) {
+        if (this.includeTime && !!date && !!this.selectedDate) {
             date.setHours(this.selectedDate.getHours(), this.selectedDate.getMinutes());
         }
         if (!date) {
