@@ -7,6 +7,7 @@
     "url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
   },
   "scripts": {
+    "start" : "npm run serve",
     "serve": "cd ngx-datetimepicker && ng serve",
     "test": "cd ngx-datetimepicker && npm test",
     "test.once": "cd ngx-datetimepicker && npm test --watch=false",
