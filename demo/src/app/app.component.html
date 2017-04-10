@@ -3,14 +3,26 @@
 </h1>
 <label>Date & Time Picker</label>
 <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
+<br>
+{{ dateTimeExample }}
+
+<br>
 <hr />
 <label>Date Picker</label>
 <ngx-date-picker [(selectedDate)]="dateExample"></ngx-date-picker>
+
+<br>
+{{ dateExample }}
+
+<br>
 <hr />
 <label>Time Picker</label>
 <ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
 
-
 <br>
+{{ timeExample }}
+
+<hr>
+
 <button (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>
 <button (click)="setToNow()">Set all to now</button>
