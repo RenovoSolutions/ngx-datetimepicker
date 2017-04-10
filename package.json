@@ -7,20 +7,27 @@
     "url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
   },
   "scripts": {
-    "start" : "npm run serve",
+    "start": "npm run serve",
     "serve": "cd ngx-datetimepicker && ng serve",
     "test": "cd ngx-datetimepicker && npm test",
     "test.once": "cd ngx-datetimepicker && npm test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
     "dist": "cd ngx-datetimepicker/src/ && tsc",
-    "demo": "npm run dist && cd demo && npm remove ngx-datetimepicker && npm install ../ && ng serve",
+    "demo": "npm run dist && cd demo && npm install && npm remove ngx-datetimepicker && npm install ../ && ng serve",
     "demo.build": "npm run dist && cd demo && npm remove ngx-datetimepicker && npm install ../ && ng build"
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "typescript": "~2.0.0"
+    "typescript": "~2.2.2"
+  },
+  "peerDependencies": {
+    "@angular/common": "4.0.0",
+    "@angular/compiler": "4.0.0",
+    "@angular/core": "4.0.0",
+    "@angular/forms": "4.0.0",
+    "@angular/platform-browser": "4.0.0",
+    "@angular/platform-browser-dynamic": "4.0.0"
   }
 }
