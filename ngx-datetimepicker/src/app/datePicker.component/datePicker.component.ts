@@ -37,10 +37,12 @@ export class DatePickerComponent implements OnInit {
     }
 
 
+    // for use with the native html5 element. only emit's new valid dates.
     setDate(date: string) {
-        const isValid = !!Date.parse(date);
+        const isValid = !!Date.parse(`${date} 00:00:00`);
         if (isValid) {
-            this.selectedDate = new Date(date);
+            // set the time to zero so that values emitted on mobile are the same as on desktop
+            this.selectedDate = new Date(`${date} 00:00:00`);
             this.selectedDateChange.emit(this.selectedDate);
             this.invalid = false;
         } else {
