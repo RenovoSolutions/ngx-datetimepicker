@@ -33,9 +33,19 @@ import { DateTimePickerModule} from 'ngx-datetime-picker';
 
 ```
 
-```css
- ¯\_(ツ)_/¯
+## CSS
+
+Copy the [ngx-datetime-picker](/sass/ngx-datetime-picker.css) css to your project.
+
+_If_ you are using angular-cli the css can be added to your angular-cli.json
+
+```typescript
+"styles": [
+  "/node_modules/ngx-datetime-picker/ngx-datetime-picker/assets/ngx-datetime-picker.css"
+]
 ```
+
+[Sass files](/sass/) avaliable for quick customization. Override the defaults, compile, and include them in your project.
 
 ## Development:
 
