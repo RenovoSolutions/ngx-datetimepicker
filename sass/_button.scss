@@ -1,15 +1,15 @@
 .ngx-picker--btn {
-	color: $text-inverted;
-  background-color: transparent;
+	color: $btn-text-color;
+	background-color: $btn-bg;
 	border: none;
 	padding: 1em;
 	font-size: 1em;
 	&__selected {
-		background-color: $secondary;
+		background-color: $btn-selected-bg;
 	}
 	&:hover {
 		transition: .25s ease;
-		background-color: $secondary;
+		background-color: $btn-hover-bg;
 		cursor: pointer;
 	}
 	&:focus {

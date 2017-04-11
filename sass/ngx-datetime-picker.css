@@ -1,14 +1,14 @@
 .ngx-picker--btn {
-  color: #fff;
+  color: #000;
   background-color: transparent;
   border: none;
   padding: 1em;
   font-size: 1em; }
   .ngx-picker--btn__selected {
-    background-color: #f41875; }
+    background-color: #eee; }
   .ngx-picker--btn:hover {
     transition: .25s ease;
-    background-color: #f41875;
+    background-color: #eee;
     cursor: pointer; }
   .ngx-picker--btn:focus {
     outline-color: transparent; }
@@ -27,7 +27,7 @@
 
 .calendar {
   position: absolute;
-  background-color: #222651;
+  background-color: #e6e6e6;
   max-width: 16em;
   min-width: 16em;
   font-size: 16px;
@@ -45,21 +45,9 @@
 .calendar--footer {
   display: flex;
   justify-content: space-between;
-  background-color: #222651;
+  background-color: #e6e6e6;
   padding: 0;
   border-radius: 0.2em; }
-
-.ngx-picker--btn__month:hover {
-  border-top-left-radius: 0.2em; }
-
-.ngx-picker--btn__close:hover {
-  border-bottom-right-radius: 0.2em; }
-
-.ngx-picker--btn__now:hover {
-  border-bottom-left-radius: 0.2em; }
-
-.ngx-picker--btn__next:hover {
-  border-top-right-radius: 0.2em; }
 
 .calendar--years-select,
 .calendar--months-select {
@@ -74,31 +62,31 @@
   display: block;
   padding: .5em 1em;
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  color: #000; }
   .calendar--year__selected,
   .calendar--month__selected {
-    color: #fff;
+    color: #000;
     font-weight: bold;
-    background-color: #313775; }
+    background-color: #eee; }
   .calendar--year:hover,
   .calendar--month:hover {
-    transition: .25s ease;
     cursor: pointer;
-    background-color: #aeb2dd;
-    color: #313775;
-    font-weight: 400; }
+    background-color: #eee;
+    font-weight: 400;
+    color: #000; }
 
 .calendar--days-of-week {
   display: flex;
   justify-content: space-around;
-  background-color: #313775; }
+  background-color: #eee; }
 
 .calendar--day-of-week {
   position: relative;
   padding: .5em;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
+  color: #000;
   font-size: .9em; }
 
 .calendar--days-select {
@@ -111,17 +99,17 @@
   text-align: center;
   width: 1.285em;
   padding: .5em;
-  font-weight: 500; }
+  font-weight: 500;
+  color: #000; }
   .calendar--day__muted {
     color: #999; }
   .calendar--day__selected {
-    background-color: #313775;
-    color: #fff; }
+    background-color: #eee;
+    color: #000; }
   .calendar--day:hover {
-    transition: .25s ease;
     cursor: pointer;
-    background-color: #aeb2dd;
-    color: #313775; }
+    color: #000;
+    background-color: #eee; }
 
 .ngx-picker {
   display: flex;
@@ -139,8 +127,7 @@
   flex-wrap: wrap;
   max-width: 16em;
   min-width: 16em;
-  font-family: 'Arial', sans-serif;
-  background-color: #222651; }
+  background-color: #e6e6e6; }
 
 .time--values {
   display: flex;
@@ -149,27 +136,21 @@
   flex-wrap: wrap;
   max-width: 16em;
   min-width: 16em;
-  background-color: #313775; }
+  background-color: #eee; }
 
 .time--value {
   width: 2.66em;
   font-size: 1em;
   padding: .5em 0;
   text-align: center;
-  color: #fff; }
-  .time--value__current {
-    background-color: #aeb2dd;
-    color: #313775;
-    font-weight: 600; }
+  color: #000; }
   .time--value__selected {
-    background-color: #222651; }
+    color: #000;
+    background-color: #e6e6e6; }
   .time--value:hover {
     transition: .25s ease;
     cursor: pointer;
-    background-color: #222651;
-    color: #fff; }
+    background-color: #e6e6e6; }
 
 [hidden] {
   display: none !important; }
-
-/*# sourceMappingURL=date-picker.css.map */
