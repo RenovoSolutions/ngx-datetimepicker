@@ -1,23 +1,67 @@
 //Branding
-$primary: #313775 !default;
-$primary-dark: darken($primary, 10%) !default;
-$primary-light: lighten($primary, 45%) !default;
+$color-primary: 	  #fff !default;
+$color-primary-dark:  darken($color-primary, 10%) !default;
+$color-primary-light: lighten($color-primary, 45%) !default;
 
-$secondary: #f41875 !default;
+$color-secondary: #eee !default;
 
 // Menus
 $menu-background: #fff !default;
 
 // Text
 $font-family: 'Arial', sans-serif !default;
-$font-base: 16px !default;
+$font-base:	  16px !default;
 
+$text:			#000 !default;
 $text-inverted: #fff !default;
-$text-muted: #999 !default;
+$text-muted:	#999 !default;
 
 // Borders
 $base-border-radius: .2em !default;
 
-// Calendar Options
-$calendar-size-ratio: $font-base !default;
+// Calendar Size Options
+$calendar-size-ratio:  $font-base !default;
 $calendar-menu-height: 14.85em !default;
+
+// Calendar Color Options
+
+	// Header & Footer
+	$header-footer-text: $text !default;
+	$header-footer-bg:	 $color-primary-dark !default;
+
+	// Buttons
+	$btn-text-color:  $header-footer-text !default;
+	$btn-bg:		  transparent !default;
+	$btn-hover-bg:	  $color-secondary !default;
+	$btn-selected-bg: $color-secondary !default;
+
+	// Month & Year Selection Menus
+	$month-and-year-text:			  $text !default;
+	$month-and-year-text-hover:		  $text !default;
+	$month-and-year-text-hover-bg:	  $color-secondary !default;
+	$month-and-year-text-selected:	  $text !default;
+	$month-and-year-text-selected-bg: $color-secondary !default;
+
+	// Day of Week Header (Su - Sa)
+	$week-bg:	$color-secondary !default;
+	$week-text: $text !default;
+
+	// Day of Month Selection (1-31)
+	$days-select-bg: $menu-background !default;
+
+	$day-text:			   $text !default;
+	$day-text-hover:	   $text !default;
+	$day-text-hover-bg:	   $color-secondary !default;
+	$day-text-selected:	   $text !default;
+	$day-text-selected-bg: $color-secondary !default;
+	$day-text-muted:	   $text-muted !default;
+
+// Time Color Options
+$time-picker-header-bg:	   $header-footer-bg !default;
+$time-picker-selection-bg: $color-secondary !default;
+
+$time-value-text:			  $text !default;
+$time-value-text-hover:		  $text !default;
+$time-value-text-hover-bg:	  $color-primary-dark !default;
+$time-value-text-selected:	  $text !default;
+$time-value-text-selected-bg: $color-primary-dark !default;

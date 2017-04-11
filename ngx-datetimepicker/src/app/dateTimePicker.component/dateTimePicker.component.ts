@@ -6,7 +6,6 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
     selector: 'ngx-datetime-picker',
     templateUrl: './datetimepicker.component.html',
     encapsulation: ViewEncapsulation.None,
-    styleUrls: ['../../assets/date-picker.css']
 })
 
 export class DateTimePickerComponent implements OnInit {
