@@ -12,6 +12,31 @@
 
 ## [Live Demo](https://renovosolutions.github.io/ngx-datetimepicker/)
 
+## Usage
+
+```typescript
+import { DateTimePickerModule} from 'ngx-datetime-picker';
+
+@NgModule({
+  imports: [
+    DateTimePickerModule
+  ],
+```
+
+```html
+
+<ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
+
+<ngx-date-picker [(selectedDate)]="dateExample"></ngx-date-picker>
+
+<ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
+
+```
+
+```css
+ ¯\_(ツ)_/¯
+```
+
 ## Development:
 
 ### Work flow

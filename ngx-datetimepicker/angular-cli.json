@@ -17,6 +17,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
+        "assets/ngx-datetime-picker.css",
         "styles.css"
       ],
       "scripts": [],
