@@ -4,7 +4,8 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
 	selector: 'ngx-time-picker',
-	templateUrl: './timePicker.component.html'
+	templateUrl: './timePicker.component.html',
+	encapsulation: ViewEncapsulation.None,
 
 })
 

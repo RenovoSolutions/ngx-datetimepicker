@@ -4,7 +4,8 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
     selector: 'ngx-date',
-    templateUrl: './date.component.html'
+    templateUrl: './date.component.html',
+    encapsulation: ViewEncapsulation.None,
 })
 
 export class DateComponent implements OnInit {
