@@ -1,28 +1,29 @@
-<h1>
-  {{title}}
-</h1>
-<label>Date & Time Picker</label>
-<ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
-<br>
-{{ dateTimeExample }}
+<div class="demo">
 
-<br>
-<hr />
-<label>Date Picker</label>
-<ngx-date-picker [(selectedDate)]="dateExample"></ngx-date-picker>
+  <div class="demo-section">
+    <label class="demo-section--label">Date & Time Picker</label>
+    <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
 
-<br>
-{{ dateExample }}
+    <div [class.demo-section--string]="dateTimeExample">{{ dateTimeExample }}</div>
+  </div>
 
-<br>
-<hr />
-<label>Time Picker</label>
-<ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
+  <div class="demo-section">
+    <label class="demo-section--label">Date Picker</label>
+    <ngx-date-picker [(selectedDate)]="dateExample"></ngx-date-picker>
 
-<br>
-{{ timeExample }}
+    <div [class.demo-section--string]="dateExample">{{ dateExample }}</div>
+  </div>
 
-<hr>
+  <div class="demo-section">
+    <label class="demo-section--label">Time Picker</label>
+    <ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
 
-<button (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>
-<button (click)="setToNow()">Set all to now</button>
+    <div [class.demo-section--string]="timeExample">{{ timeExample }}</div>
+  </div>
+
+  <div class="demo-buttons">
+    <button class="btn-demo btn-demo__clear" (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>
+    <button class="btn-demo btn-demo__set" (click)="setToNow()">Set all to now</button>
+  </div>
+
+</div>
