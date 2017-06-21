@@ -3,59 +3,59 @@ import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
-    selector: 'ngx-datetime-picker',
-    templateUrl: './datetimepicker.component.html',
-    encapsulation: ViewEncapsulation.None,
+	selector: 'ngx-datetime-picker',
+	templateUrl: './datetimepicker.component.html',
+	encapsulation: ViewEncapsulation.None,
 })
 
 export class DateTimePickerComponent implements OnInit {
-    @Input() selectedDateTime: Date;
-    @Output() selectedDateTimeChange = new EventEmitter<Date>();
+	@Input() selectedDateTime: Date;
+	@Output() selectedDateTimeChange = new EventEmitter<Date>();
 
-    @HostListener('document:click', ['$event'])
-    offClick(event) {
-        if (!this.eRef.nativeElement.contains(event.target)) {
-            this.pickerVisible = false;
-        }
-    }
+	@HostListener('document:click', ['$event'])
+	offClick(event) {
+		if (!this.eRef.nativeElement.contains(event.target)) {
+			this.pickerVisible = false;
+		}
+	}
 
-    pickerVisible: boolean = false;
-    isMobile: boolean;
-    invalid: boolean;
-    get formattedDate() {
-        return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
-    }
-    get mobileFormattedDate() {
-        return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
-    }
+	pickerVisible: boolean = false;
+	isMobile: boolean;
+	invalid: boolean;
+	get formattedDate() {
+		return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
+	}
+	get mobileFormattedDate() {
+		return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
+	}
 
-    constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
-        this.isMobile = isMobileService.isMobile;
-    }
+	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
+		this.isMobile = isMobileService.isMobile;
+	}
 
-    setDateTime(dateTime: string) {
-        const isValid = !!Date.parse(dateTime);
-        if (isValid) {
-            this.selectedDateTime = new Date(dateTime);
-            this.selectedDateTimeChange.emit(this.selectedDateTime);
-            this.invalid = false;
-        } else {
-            this.invalid = true;
-        }
-    }
+	setDateTime(dateTime: string) {
+		const isValid = !!Date.parse(dateTime);
+		if (isValid) {
+			this.selectedDateTime = new Date(dateTime);
+			this.selectedDateTimeChange.emit(this.selectedDateTime);
+			this.invalid = false;
+		} else {
+			this.invalid = true;
+		}
+	}
 
-    ngOnInit() {
-        if (typeof this.selectedDateTime == 'string') {
-            this.selectedDateTime = new Date(this.selectedDateTime);
-        }
-    }
+	ngOnInit() {
+		if (typeof this.selectedDateTime == 'string') {
+			this.selectedDateTime = new Date(this.selectedDateTime);
+		}
+	}
 
-    newDatePicked(date: Date): void {
-        this.selectedDateTimeChange.emit(date);
-        this.selectedDateTime = date;
-    }
+	newDatePicked(date: Date): void {
+		this.selectedDateTimeChange.emit(date);
+		this.selectedDateTime = date;
+	}
 
-    closePicker(close: boolean): void {
-        this.pickerVisible = close;
-    }
+	closePicker(close: boolean): void {
+		this.pickerVisible = close;
+	}
 }
