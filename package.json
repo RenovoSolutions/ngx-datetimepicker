@@ -23,11 +23,11 @@
     "typescript": "~2.2.2"
   },
   "peerDependencies": {
-    "@angular/common": "4.0.0",
-    "@angular/compiler": "4.0.0",
-    "@angular/core": "4.0.0",
-    "@angular/forms": "4.0.0",
-    "@angular/platform-browser": "4.0.0",
-    "@angular/platform-browser-dynamic": "4.0.0"
+    "@angular/common": "4.x",
+    "@angular/compiler": "4.x",
+    "@angular/core": "4.x",
+    "@angular/forms": "4.x",
+    "@angular/platform-browser": "4.x",
+    "@angular/platform-browser-dynamic": "4.x"
   }
 }
