@@ -11,6 +11,8 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 export class TimePickerComponent {
 	@Input() selectedTime: string;
+	@Input() placeholder: string;
+
 	@Output() selectedTimeChange = new EventEmitter<string>();
 
 	@HostListener('document:click', ['$event'])
@@ -55,6 +57,8 @@ export class TimePickerComponent {
 
 	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
 		this.isMobile = isMobileService.isMobile;
+		this.placeholder = this.placeholder || '';
+
 	}
 
 	setMobileFormattedTime(time: string) {

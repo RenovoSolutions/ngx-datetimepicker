@@ -10,6 +10,8 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 
 export class DatePickerComponent implements OnInit {
 	@Input() selectedDate: Date;
+	@Input() placeholder: string;
+
 	@Output() selectedDateChange = new EventEmitter<Date>();
 
 	@HostListener('document:click', ['$event'])
@@ -33,6 +35,7 @@ export class DatePickerComponent implements OnInit {
 
 	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
 		this.isMobile = isMobileService.isMobile;
+		this.placeholder = this.placeholder || '';
 	}
 
 
