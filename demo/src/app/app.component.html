@@ -2,21 +2,21 @@
 
   <div class="demo-section">
     <label class="demo-section--label">Date & Time Picker</label>
-    <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
+    <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample" placeholder="Date Time"></ngx-datetime-picker>
 
     <div [class.demo-section--string]="dateTimeExample">{{ dateTimeExample }}</div>
   </div>
 
   <div class="demo-section">
     <label class="demo-section--label">Date Picker</label>
-    <ngx-date-picker [(selectedDate)]="dateExample"></ngx-date-picker>
+    <ngx-date-picker [(selectedDate)]="dateExample" placeholder="Date"></ngx-date-picker>
 
     <div [class.demo-section--string]="dateExample">{{ dateExample }}</div>
   </div>
 
   <div class="demo-section">
     <label class="demo-section--label">Time Picker</label>
-    <ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
+    <ngx-time-picker [(selectedTime)]="timeExample" placeholder="Date"></ngx-time-picker>
 
     <div [class.demo-section--string]="timeExample">{{ timeExample }}</div>
   </div>

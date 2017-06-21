@@ -10,18 +10,18 @@ import { DateService } from './services/date.service';
 import { DateTimePickerModule } from './datetimepicker.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    DateTimePickerModule
-  ],
-  providers: [
-    DateService
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		HttpModule,
+		DateTimePickerModule
+	],
+	providers: [
+		DateService
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
