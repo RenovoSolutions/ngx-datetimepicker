@@ -13,6 +13,7 @@ export class TimePickerComponent {
 	@Input() selectedTime: string;
 	@Input() placeholder: string;
     @Input() disableInput: boolean = false;
+    @Input() disableButton: boolean = false;
     @Input() disablePicker: boolean = false;
 
 	@Output() selectedTimeChange = new EventEmitter<string>();
