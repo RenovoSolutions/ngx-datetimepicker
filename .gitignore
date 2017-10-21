@@ -59,4 +59,3 @@ ngx-datetimepicker/**/*.d.ts
 !ngx-datetimepicker/*.js
 ngx-datetimepicker/bash.exe.stackdump
 ngx-datetimepicker/package-lock.json
-ngx-datetimepicker/src/app/services/DateUtil.ts
