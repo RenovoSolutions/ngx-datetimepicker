@@ -31,6 +31,11 @@ import { DateTimePickerModule} from 'ngx-datetime-picker';
 
 <ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
 
+Additional options for each picker:
+ [disableButton]="false" (default)
+ [disableInput]="false" (default)
+ [disablePicker]="false" (default)
+
 ```
 
 ## CSS

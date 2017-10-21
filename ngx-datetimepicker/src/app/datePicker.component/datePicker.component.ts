@@ -11,6 +11,8 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 export class DatePickerComponent implements OnInit {
 	@Input() selectedDate: Date;
 	@Input() placeholder: string;
+    @Input() disableInput: boolean = false;
+    @Input() disablePicker: boolean = false;
 
 	@Output() selectedDateChange = new EventEmitter<Date>();
 
