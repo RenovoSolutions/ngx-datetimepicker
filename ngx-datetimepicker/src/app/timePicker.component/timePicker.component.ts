@@ -26,6 +26,11 @@ export class TimePickerComponent {
 	isMobile: boolean;
 
 	get formattedTime(): string {
+		if (this.selectedTime == null) {
+			return '';
+		}
+		this.selectedHour = parseInt(this.selectedTime.split(':')[0]);
+		this.selectedMinute = parseInt(this.selectedTime.split(':')[1]);
 		return this.dateService.formatHHMM_AMPM(this.selectedHour, this.selectedMinute);
 	}
 
@@ -67,13 +72,33 @@ export class TimePickerComponent {
 	}
 
 	setFormattedTime(formattedTime: string) {
-		console.log(formattedTime);
+		this.selectedTime = formattedTime;
+		this.selectedTimeChange.emit(formattedTime);
 	}
 
 	setTimeToNow(): void {
 		const now = new Date();
-		this.selectedHour = now.getHours();
-		this.selectedMinute = now.getMinutes();
+		this.selectedTime = `${now.getHours()}:${now.getMinutes()} ${(now.getHours() > 11 ? 'am' : 'pm')}`;
+		this.selectedTimeChange.emit(this.selectedTime);
+	}
+	setHourNow(hour: any) {
+		if (this.selectedTime == null || this.selectedTime === '') {
+			this.selectedTime = `${hour}:00 ${hour > 11 ? 'am' : 'pm'}`
+		} else {
+			const prevMinute = parseInt(this.selectedTime.split(':')[1]);
+			this.selectedTime = `${hour}:${prevMinute} ${hour > 11 ? 'am' : 'pm'}`
+		}
+		this.selectedTimeChange.emit(this.selectedTime);
+	}
+
+	setMinuteNow(minute: any) {
+		if (this.selectedTime == null || this.selectedTime === '') {
+			this.selectedTime = `00:${minute} am`
+		} else {
+			const prevHour = parseInt(this.selectedTime.split(':')[1]);
+			this.selectedTime = `${prevHour}:${minute} ${prevHour > 11 ? 'am' : 'pm'}`
+		}
+		this.selectedTimeChange.emit(this.selectedTime);
 	}
 
 	closePicker(): void {
