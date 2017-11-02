@@ -56,6 +56,7 @@ export class TimePickerComponent {
 		} else {
 			this.selectedMinute = 0;
 		}
+		this.selectedTime = `${hour}:${minute} ${parseInt(hour) > 11 ? 'am' : 'pm'}`
 	}
 	public selectedHour: number;
 	public selectedMinute: number;
@@ -80,7 +81,10 @@ export class TimePickerComponent {
 		const now = new Date();
 		this.selectedTime = `${now.getHours()}:${now.getMinutes()} ${(now.getHours() > 11 ? 'am' : 'pm')}`;
 		this.selectedTimeChange.emit(this.selectedTime);
+		this.selectedHour = now.getHours();
+		this.selectedMinute = now.getMinutes();
 	}
+
 	setHourNow(hour: any) {
 		if (this.selectedTime == null || this.selectedTime === '') {
 			this.selectedTime = `${hour}:00 ${hour > 11 ? 'am' : 'pm'}`
@@ -95,7 +99,7 @@ export class TimePickerComponent {
 		if (this.selectedTime == null || this.selectedTime === '') {
 			this.selectedTime = `00:${minute} am`
 		} else {
-			const prevHour = parseInt(this.selectedTime.split(':')[1]);
+			const prevHour = parseInt(this.selectedTime.split(':')[0]);
 			this.selectedTime = `${prevHour}:${minute} ${prevHour > 11 ? 'am' : 'pm'}`
 		}
 		this.selectedTimeChange.emit(this.selectedTime);
