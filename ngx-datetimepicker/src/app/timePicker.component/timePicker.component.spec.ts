@@ -50,4 +50,28 @@ describe('a timePicker component', () => {
 
 		expect(timePickerComponent.pickerVisible).toBe(false);
 	})
+
+	it('should set the selected hour accordingly, upon user select', () => {
+		timePickerComponent.mobileFormattedTime = '04:15';
+
+		timePickerComponent.setHourNow(6);
+		timePickerComponent.mobileFormattedTime;
+
+
+		expect(timePickerComponent.selectedHour).toBe(6);
+		expect(timePickerComponent.selectedMinute).toBe(15);
+		expect(timePickerComponent.selectedTime).toBe('6:15 pm');
+	});
+
+	it('should set the selected minute accordingly, upon user select', () => {
+		timePickerComponent.mobileFormattedTime = '04:15';
+
+		timePickerComponent.setMinuteNow(30);
+		timePickerComponent.mobileFormattedTime;
+
+
+		expect(timePickerComponent.selectedHour).toBe(4);
+		expect(timePickerComponent.selectedMinute).toBe(30);
+		expect(timePickerComponent.selectedTime).toBe('4:30 pm');
+	});
 });
