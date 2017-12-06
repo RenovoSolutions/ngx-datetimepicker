@@ -92,6 +92,14 @@ export class DateComponent implements OnInit {
 			date = new Date();
 		}
 
+		if (this.min && date < new Date(this.min)) {
+			date = new Date(this.min);
+		}
+
+		if (this.max && date > new Date(this.max)) {
+			date = new Date(this.max);
+		}
+
 		//load calendarMonth will set the selected date;
 		this.loadCalendarMonth(date);
 
