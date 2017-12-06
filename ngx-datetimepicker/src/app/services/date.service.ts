@@ -166,6 +166,10 @@ export class DateService {
 	}
 
 	canSelectYear(year: number, min: string, max: string): boolean {
+		if (!min && !max) {
+			return true;
+		}
+
 		if (min && year < new Date(min).getFullYear()) {
 			return false;
 		}
@@ -178,6 +182,10 @@ export class DateService {
 	}
 
 	canSelectMonth(month: number, year: number, min: string, max: string): boolean {
+		if (!min && !max) {
+			return true;
+		}
+
 		if ((!min || year === new Date(min).getFullYear())
 			&& (!max || year === new Date(max).getFullYear())) {
 
@@ -196,6 +204,10 @@ export class DateService {
 	}
 
 	canSelectDay(day: number, month: number, year: number, min: string, max: string): boolean {
+		if (!min && !max) {
+			return true;
+		}
+
 		if ((!min || (year === new Date(min).getFullYear() && month === new Date(min).getMonth()))
 			&& (!max || (year === new Date(max).getFullYear() && month === new Date(max).getMonth()))) {
 
