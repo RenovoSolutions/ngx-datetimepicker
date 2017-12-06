@@ -11,6 +11,7 @@
 	<div class="calendar--months-select" #monthSelect [hidden]="!showMonthSelection">
 		<span class="calendar--month"
 			[class.calendar--month__selected]="i+ 1 == selectedMonth"
+			[class.calendar--month__disabled]="!canSelectMonth(i)"
 			(click)="selectedMonth = i+ 1; showMonthSelection = false;"
 		*ngFor="let month of months; let i = index ;">{{ month }}</span>
 
@@ -18,6 +19,7 @@
 	<div class="calendar--years-select" #yearSelect [hidden]="!showYearSelection">
 		<span class="calendar--year"
 			[class.calendar--year__selected]="selectedYear == year"
+			[class.calendar--year__disabled]="!canSelectYear(year)"
 			(click)="selectedYear = year; showMonthSelection = true; showYearSelection = false;"
 			*ngFor="let year of years">
 			{{ year }}
@@ -37,6 +39,7 @@
 				<span class="calendar--day"
 				[class.calendar--day__muted]="day.month != selectedMonth"
 				[class.calendar--day__selected]="day.date.getDate() == highlightedDate?.getDate() && day.date.getFullYear() == highlightedDate?.getFullYear() && day.date.getMonth() == highlightedDate?.getMonth() "
+				[class.calendar--day__disabled]="!canSelectDay(day.day, day.date.getMonth())"
 				(click)="setSelectedDate(day.date)"
 				*ngFor="let day of availableDays">
 			{{ day.day}}

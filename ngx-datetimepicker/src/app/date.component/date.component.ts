@@ -11,6 +11,8 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 export class DateComponent implements OnInit {
 	@Input() selectedDate: Date;
 	@Input() includeTime: boolean;
+	@Input() min: string;
+	@Input() max: string;
 
 	@Output() selectedDateChange = new EventEmitter<Date>();
 	@Output() closeDatePicker = new EventEmitter<boolean>();
@@ -90,6 +92,14 @@ export class DateComponent implements OnInit {
 			date = new Date();
 		}
 
+		if (this.min && date < new Date(this.min)) {
+			date = new Date(this.min);
+		}
+
+		if (this.max && date > new Date(this.max)) {
+			date = new Date(this.max);
+		}
+
 		//load calendarMonth will set the selected date;
 		this.loadCalendarMonth(date);
 
@@ -134,7 +144,13 @@ export class DateComponent implements OnInit {
 
 		//If no date is selected then default to today's date.
 		if (!this.selectedDate) {
-			this.selectedDate = new Date();
+			if (this.min && new Date(this.min) > new Date()) {
+				this.selectedDate = new Date(this.min);
+			} else if (this.max && new Date(this.max) < new Date()) {
+				this.selectedDate = new Date(this.max);
+			} else {
+				this.selectedDate = new Date();
+			}
 		}
 		if (typeof this.selectedDate == 'string') {
 			this.selectedDate = new Date(this.selectedDate);
@@ -150,6 +166,18 @@ export class DateComponent implements OnInit {
 		this.highlightedDate = this.selectedDate;
 		this.availableDays = [...this.dateService.getDateList(this.selectedMonth, this.selectedYear)];
 
+	}
+
+	public canSelectYear(year: number): boolean {
+		return this.dateService.canSelectYear(year, this.min, this.max);
+	}
+
+	public canSelectMonth(month: number): boolean {
+		return this.dateService.canSelectMonth(month, this.selectedYear, this.min, this.max);
+	}
+
+	public canSelectDay(day: number, month: number): boolean {
+		return this.dateService.canSelectDay(day, month, this.selectedYear, this.min, this.max);
 	}
 
 	public scrollToYear(): void {

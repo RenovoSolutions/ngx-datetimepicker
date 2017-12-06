@@ -75,6 +75,13 @@
     background-color: #eee;
     font-weight: 400;
     color: #000; }
+  .calendar--year__disabled,
+  .calendar--month__disabled,
+  .calendar--day__disabled {
+    cursor: default;
+    pointer-events: none;
+    color: #888;
+    background-color: #ebebe4; }
 
 .calendar--days-of-week {
   display: flex;

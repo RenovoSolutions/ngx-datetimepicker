@@ -1,4 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
+import { DatePickerComponent } from 'app/datePicker.component/datePicker.component';
 
 
 @Component({
@@ -17,12 +18,18 @@ export class AppComponent {
 	public dateExample = null
 	public timeExample = null
 
+	@ViewChild('pickerToFocus') pickerToFocus: DatePickerComponent;
+
 	constructor() {
 	};
 
-	setToNow(): void{
+	setToNow(): void {
 		this.dateExample = new Date();
 		this.timeExample = `${this.dateExample.getHours()}:${this.dateExample.getMinutes()}`;
 		this.dateTimeExample = new Date();
+	}
+
+	focusPicker(): void {
+		this.pickerToFocus.focus();
 	}
 }
