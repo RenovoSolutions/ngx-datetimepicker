@@ -6,7 +6,7 @@
 <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample" [disablePicker]="true"></ngx-datetime-picker>
 <hr />
 <label>Date Picker</label>
-<ngx-date-picker [(selectedDate)]="dateExample"></ngx-date-picker>
+<ngx-date-picker [(selectedDate)]="dateExample" #pickerToFocus></ngx-date-picker>
 <ngx-date-picker [(selectedDate)]="dateExample" [inputTabIndex]="1"></ngx-date-picker>
 <ngx-date-picker [(selectedDate)]="dateExample" [disableButton]="true"></ngx-date-picker>
 <ngx-date-picker [(selectedDate)]="dateExample" [disableInput]="true"></ngx-date-picker>
@@ -21,6 +21,7 @@
 <br>
 <button (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>
 <button (click)="setToNow()">Set all to now</button>
+<button (click)="focusPicker()">Focus datepicker</button>
 
 <br>
 

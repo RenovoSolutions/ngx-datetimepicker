@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef, ViewChild, Renderer } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
@@ -26,6 +26,8 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
 	@Output() selectedDateChange = new EventEmitter<Date>();
 
+  @ViewChild('input') input: ElementRef;
+
 	@HostListener('document:click', ['$event'])
 	offClick(event) {
 		if (!this.eRef.nativeElement.contains(event.target)) {
@@ -45,7 +47,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 		return this.dateService.formatMobileYYYYMMDD(this.selectedDate);
 	}
 
-	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
+	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef, private renderer: Renderer) {
 		this.isMobile = isMobileService.isMobile;
 		this.placeholder = this.placeholder || '';
 	}
@@ -87,5 +89,9 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
 	closePicker(close: boolean): void {
 		this.pickerVisible = close;
-	}
+  }
+
+  focus(): void {
+    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus', []);
+  }
 }
