@@ -164,4 +164,52 @@ export class DateService {
 		}
 		return returnYears;
 	}
+
+	canSelectYear(year: number, min: string, max: string): boolean {
+		if (min && year < new Date(min).getFullYear()) {
+			return false;
+		}
+
+		if (max && year > new Date(max).getFullYear()) {
+			return false;
+		}
+
+		return true;
+	}
+
+	canSelectMonth(month: number, year: number, min: string, max: string): boolean {
+		if ((!min || year === new Date(min).getFullYear())
+			&& (!max || year === new Date(max).getFullYear())) {
+
+			if (min && month < new Date(min).getMonth()) {
+				return false;
+			}
+
+			if (max && month > new Date(max).getMonth()) {
+				return false;
+			}
+
+			return true;
+		} else {
+			return this.canSelectYear(year, min, max);
+		}
+	}
+
+	canSelectDay(day: number, month: number, year: number, min: string, max: string): boolean {
+		if ((!min || (year === new Date(min).getFullYear() && month === new Date(min).getMonth()))
+			&& (!max || (year === new Date(max).getFullYear() && month === new Date(max).getMonth()))) {
+
+			if (min && day < new Date(min).getDate()) {
+				return false;
+			}
+
+			if (max && day > new Date(max).getDate()) {
+				return false;
+			}
+
+			return true;
+		} else {
+			return this.canSelectMonth(month, year, min, max);
+		}
+	}
 }
