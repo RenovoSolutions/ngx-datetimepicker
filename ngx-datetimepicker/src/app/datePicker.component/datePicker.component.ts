@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
@@ -6,9 +7,16 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 	selector: 'ngx-date-picker',
 	templateUrl: './datePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
+  providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => DatePickerComponent),
+			multi: true,
+		},
+	],
 })
 
-export class DatePickerComponent implements OnInit {
+export class DatePickerComponent implements OnInit, ControlValueAccessor {
 	@Input() selectedDate: Date;
 	@Input() placeholder: string;
 
@@ -37,6 +45,16 @@ export class DatePickerComponent implements OnInit {
 		this.isMobile = isMobileService.isMobile;
 		this.placeholder = this.placeholder || '';
 	}
+
+  writeValue(value: Date) {
+    this.selectedDate = value;
+  }
+
+  registerOnChange(handler) {
+    this.selectedDateChange.subscribe(handler);
+  }
+
+  registerOnTouched() {}
 
 
 	// for use with the native html5 element. only emit's new valid dates.

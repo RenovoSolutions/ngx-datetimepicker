@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
@@ -6,9 +7,16 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 	selector: 'ngx-datetime-picker',
 	templateUrl: './dateTimePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
+  providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => DateTimePickerComponent),
+			multi: true,
+		},
+	],
 })
 
-export class DateTimePickerComponent implements OnInit {
+export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 	@Input() selectedDateTime: Date;
 	@Input() placeholder: string;
 
@@ -36,6 +44,16 @@ export class DateTimePickerComponent implements OnInit {
 		this.placeholder = this.placeholder || '';
 
 	}
+
+  writeValue(value: Date) {
+    this.selectedDateTime = value;
+  }
+
+  registerOnChange(handler) {
+    this.selectedDateTimeChange.subscribe(handler);
+  }
+
+  registerOnTouched() {}
 
 	setDateTime(dateTime: string) {
 		const isValid = !!Date.parse(dateTime);
