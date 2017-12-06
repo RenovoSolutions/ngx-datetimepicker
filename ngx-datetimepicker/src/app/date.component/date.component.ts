@@ -136,7 +136,13 @@ export class DateComponent implements OnInit {
 
 		//If no date is selected then default to today's date.
 		if (!this.selectedDate) {
-			this.selectedDate = new Date();
+			if (this.min && new Date(this.min) > new Date()) {
+				this.selectedDate = new Date(this.min);
+			} else if (this.max && new Date(this.max) < new Date()) {
+				this.selectedDate = new Date(this.max);
+			} else {
+				this.selectedDate = new Date();
+			}
 		}
 		if (typeof this.selectedDate == 'string') {
 			this.selectedDate = new Date(this.selectedDate);
