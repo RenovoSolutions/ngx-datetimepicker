@@ -19,6 +19,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 export class DatePickerComponent implements OnInit, ControlValueAccessor {
 	@Input() selectedDate: Date;
   @Input() placeholder: string;
+  @Input() inputTabIndex: number;
   @Input() disableInput: boolean = false;
   @Input() disableButton: boolean = false;
   @Input() disablePicker: boolean = false;
