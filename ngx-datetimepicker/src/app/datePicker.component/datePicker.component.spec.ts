@@ -27,13 +27,13 @@ describe('a input component', () => {
 	});
 
 	it('should focus the input element', () => {
-		let input = {} as any;
-		datePickerComponent.input = input;
+		let nativeInput = {};
+		datePickerComponent.input = { nativeElement: nativeInput } as any;
 
 		datePickerComponent.focus();
 
 		expect(renderer.invokeElementMethod).toHaveBeenCalledTimes(1);
-		expect(renderer.invokeElementMethod).toHaveBeenCalledWith(input, 'focus', []);
+		expect(renderer.invokeElementMethod).toHaveBeenCalledWith(nativeInput, 'focus', []);
 	});
 
 });
