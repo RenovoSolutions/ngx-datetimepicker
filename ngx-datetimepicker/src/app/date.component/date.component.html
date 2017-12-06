@@ -1,10 +1,10 @@
 <div class="calendar">
-	<button class="ngx-picker--btn ngx-picker--btn__month" (click)="toggleMonthMenu(); showYearSelection = false">{{ selectedMonthText }}</button>
-	<button class="ngx-picker--btn ngx-picker--btn__year" (click)="toggleYearMenu(); showMonthSelection = false">{{ selectedYear }}</button>
+	<button type="button" class="ngx-picker--btn ngx-picker--btn__month" (click)="toggleMonthMenu(); showYearSelection = false">{{ selectedMonthText }}</button>
+	<button type="button" class="ngx-picker--btn ngx-picker--btn__year" (click)="toggleYearMenu(); showMonthSelection = false">{{ selectedYear }}</button>
 	<span class="calendar--previous-and-next">
-		<button class="ngx-picker--btn ngx-picker--btn__previous"
+		<button type="button" class="ngx-picker--btn ngx-picker--btn__previous"
 			(click)="previousMonth()">&lt;</button>
-		<button class="ngx-picker--btn ngx-picker--btn__next"
+		<button type="button" class="ngx-picker--btn ngx-picker--btn__next"
 		(click)="nextMonth()"
 		>&gt;</button>
 	</span>
@@ -50,7 +50,7 @@
 			(selectedMinuteChange)="setSelectedDate(highlightedDate,null,$event)"
 			></ngx-time>
 	<div class="calendar--footer">
-		<button class="ngx-picker--btn ngx-picker--btn__now" (click)="setSelectedDate(null); showMonthSelection = false; showYearSelection = false">Now</button>
-		<button class="ngx-picker--btn ngx-picker--btn__close" (click)="closePicker()">Close</button>
+		<button type="button" class="ngx-picker--btn ngx-picker--btn__now" (click)="setSelectedDate(null); showMonthSelection = false; showYearSelection = false">Now</button>
+		<button type="button" class="ngx-picker--btn ngx-picker--btn__close" (click)="closePicker()">Close</button>
 	</div>
 </div>

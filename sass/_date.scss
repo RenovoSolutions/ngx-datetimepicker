@@ -76,14 +76,15 @@
 .calendar--days-select {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: row;
+	justify-content: space-between;
 	background-color: $days-select-bg;
 }
 
 .calendar--day {
   text-align: center;
-  width: 1.285em;
-  padding: .5em;
+  width: 2.25em;
+  padding: .5em 0;
   font-weight: 500;
 	color: $day-text;
 	&__muted { color: $day-text-muted; }
