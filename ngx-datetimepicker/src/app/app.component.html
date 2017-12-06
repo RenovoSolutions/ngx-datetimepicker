@@ -1,3 +1,4 @@
+<h2>Stand-alone</h2>
 <label>Date & Time Picker</label>
 <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
 <hr />
@@ -7,6 +8,27 @@
 <label>Time Picker</label>
 <ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
 
+<br>
+<button (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>
+<button (click)="setToNow()">Set all to now</button>
+
+<br>
+
+{{ dateTimeExample }}
+<br>
+{{ dateExample }}
+<br>
+{{ timeExample }}
+
+<h2>With angular forms</h2>
+<label>Date & Time Picker</label>
+<ngx-datetime-picker [(ngModel)]="dateTimeExample"></ngx-datetime-picker>
+<hr />
+<label>Date Picker</label>
+<ngx-date-picker [(ngModel)]="dateExample"></ngx-date-picker>
+<hr />
+<label>Time Picker</label>
+<ngx-time-picker [(ngModel)]="timeExample"></ngx-time-picker>
 
 <br>
 <button (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>

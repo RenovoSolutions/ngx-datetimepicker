@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, EventEmitter, Input, Output, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
@@ -6,10 +7,16 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 	selector: 'ngx-time-picker',
 	templateUrl: './timePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
-
+  providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => TimePickerComponent),
+			multi: true,
+		},
+	],
 })
 
-export class TimePickerComponent {
+export class TimePickerComponent implements ControlValueAccessor {
 	@Input() selectedTime: string;
 	@Input() placeholder: string;
 
@@ -66,6 +73,16 @@ export class TimePickerComponent {
 		this.placeholder = this.placeholder || '';
 
 	}
+
+  writeValue(value: string) {
+    this.selectedTime = value;
+  }
+
+  registerOnChange(handler) {
+    this.selectedTimeChange.subscribe(handler);
+  }
+
+  registerOnTouched() {}
 
 	setMobileFormattedTime(time: string) {
 		this.selectedTimeChange.emit(time);
