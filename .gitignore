@@ -59,3 +59,7 @@ ngx-datetimepicker/**/*.d.ts
 !ngx-datetimepicker/*.js
 ngx-datetimepicker/bash.exe.stackdump
 ngx-datetimepicker/package-lock.json
+
+!/dist/package.json
+!gulpfile.js
+!gulp-inline-script.js
