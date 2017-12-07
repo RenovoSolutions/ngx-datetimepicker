@@ -2,6 +2,7 @@
   "name": "ngx-datetime-picker",
   "version": "1.2.0",
   "description": "Date, DateTime & Time Picker components that uses native HTML5 components on mobile",
+  "main": "index.js",
   "repository": {
     "url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
   },
@@ -11,7 +12,7 @@
     "test": "cd ngx-datetimepicker && npm test",
     "test.once": "cd ngx-datetimepicker && npm test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
-    "dist": "cd ngx-datetimepicker/src/ && tsc",
+    "dist": "./node_modules/.bin/ngc --p tsconfig.json && gulp copy-html-css-and-inline",
     "demo": "npm run dist && cd demo && npm install && npm remove ngx-datetimepicker && npm install ../ && ng serve",
     "demo.build": "npm run dist && cd demo && npm remove ngx-datetimepicker && npm install ../ && ng build"
   },
