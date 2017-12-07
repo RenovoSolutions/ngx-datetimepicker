@@ -29,5 +29,14 @@
     "@angular/forms": "4.x",
     "@angular/platform-browser": "4.x",
     "@angular/platform-browser-dynamic": "4.x"
+  },
+  "devDependencies": {
+    "@angular/core": "4.x",
+    "@angular/compiler":  "4.x",
+    "@angular/compiler-cli": "4.x",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "typescript": "2.4.0",
+    "rxjs": "5.4.1"
   }
 }
