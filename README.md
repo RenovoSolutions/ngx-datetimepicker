@@ -46,7 +46,7 @@ _If_ you are using angular-cli the css can be added to your angular-cli.json
 
 ```typescript
 "styles": [
-  "../node_modules/ngx-datetime-picker/ngx-datetimepicker/src/assets/ngx-datetime-picker.css"
+  "../node_modules/ngx-datetime-picker/ngx-datetime-picker.css"
 ]
 ```
 
