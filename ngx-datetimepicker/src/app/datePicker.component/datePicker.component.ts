@@ -25,6 +25,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
   @Input() disableInput: boolean = false;
   @Input() disableButton: boolean = false;
   @Input() disablePicker: boolean = false;
+  @Input() doNotCloseOnDateSet: boolean = false;
 
 	@Output() selectedDateChange = new EventEmitter<Date>();
 
