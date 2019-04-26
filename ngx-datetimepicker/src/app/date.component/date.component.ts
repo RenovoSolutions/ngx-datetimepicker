@@ -11,7 +11,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 export class DateComponent implements OnInit {
 	@Input() selectedDate: Date;
 	@Input() includeTime: boolean;
-	@Input() doNotCloseOnDateSet: boolean;
+	@Input() doNotCloseOnDateSet: boolean = false;
 	@Input() min: string;
 	@Input() max: string;
 

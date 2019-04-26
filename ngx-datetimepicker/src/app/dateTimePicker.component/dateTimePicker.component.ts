@@ -22,7 +22,7 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 	@Input() disableInput: boolean = false;
 	@Input() disableButton: boolean = false;
 	@Input() disablePicker: boolean = false;
-	@Input() doNotCloseOnDateSet: boolean;
+	@Input() doNotCloseOnDateSet: boolean = false;
 
 	@Output() selectedDateTimeChange = new EventEmitter<Date>();
 
