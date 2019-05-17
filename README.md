@@ -37,6 +37,10 @@ Additional options for each picker:
  [disablePicker]="false" (default)
  [doNotCloseOnDateSet]="false" (default)
 
+Additional options for ngx-date-picker and ngx-datetime-picker:
+ [min]="null" (default)
+ [max]="null" (default)
+
 ```
 
 ## CSS
