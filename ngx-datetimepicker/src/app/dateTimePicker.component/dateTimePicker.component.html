@@ -13,6 +13,7 @@
 					</svg>
 				</button>
 			<ngx-date [hidden]="!pickerVisible" includeTime="true" [doNotCloseOnDateSet]="doNotCloseOnDateSet" (closeDatePicker)="closePicker($event)" (selectedDateChange)="newDatePicked($event)"
+			[min]="min" [max]="max"
 			 [selectedDate]="selectedDateTime"> </ngx-date>
 		</div>
 	</div>
