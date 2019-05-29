@@ -186,14 +186,14 @@ export class DateService {
 			return true;
 		}
 
-		if ((!min || year === new Date(min).getFullYear())
-			&& (!max || year === new Date(max).getFullYear())) {
+		if ((min && year === new Date(min).getFullYear())
+			|| (max && year === new Date(max).getFullYear())) {
 
-			if (min && month < new Date(min).getMonth()) {
+			if (min && year === new Date(min).getFullYear() && month < new Date(min).getMonth()) {
 				return false;
 			}
 
-			if (max && month > new Date(max).getMonth()) {
+			if (max && year === new Date(max).getFullYear() && month > new Date(max).getMonth()) {
 				return false;
 			}
 
@@ -208,14 +208,14 @@ export class DateService {
 			return true;
 		}
 
-		if ((!min || (year === new Date(min).getFullYear() && month === new Date(min).getMonth()))
-			&& (!max || (year === new Date(max).getFullYear() && month === new Date(max).getMonth()))) {
+		if ((min && (year === new Date(min).getFullYear() && month === new Date(min).getMonth()))
+			|| (max && (year === new Date(max).getFullYear() && month === new Date(max).getMonth()))) {
 
-			if (min && day < new Date(min).getDate()) {
+			if (min && year === new Date(min).getFullYear() && month === new Date(min).getMonth() && day < new Date(min).getDate()) {
 				return false;
 			}
 
-			if (max && day > new Date(max).getDate()) {
+			if (max && year === new Date(max).getFullYear() && month === new Date(max).getMonth() && day > new Date(max).getDate()) {
 				return false;
 			}
 
