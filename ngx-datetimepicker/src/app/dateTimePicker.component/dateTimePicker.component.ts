@@ -19,9 +19,10 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 	@Input() selectedDateTime: Date;
 	@Input() placeholder: string;
-    @Input() disableInput: boolean = false;
-    @Input() disableButton: boolean = false;
-    @Input() disablePicker: boolean = false;
+	@Input() disableInput: boolean = false;
+	@Input() disableButton: boolean = false;
+	@Input() disablePicker: boolean = false;
+	@Input() doNotCloseOnDateSet: boolean = false;
 
 	@Output() selectedDateTimeChange = new EventEmitter<Date>();
 

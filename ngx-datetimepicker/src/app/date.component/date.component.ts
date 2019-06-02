@@ -11,6 +11,7 @@ import { DateService, dayOfTheMonth } from '../services/date.service';
 export class DateComponent implements OnInit {
 	@Input() selectedDate: Date;
 	@Input() includeTime: boolean;
+	@Input() doNotCloseOnDateSet: boolean = false;
 	@Input() min: string;
 	@Input() max: string;
 
@@ -116,7 +117,9 @@ export class DateComponent implements OnInit {
 		this.selectedHour = date.getHours();
 		this.selectedMinute = date.getMinutes();
 
-		this.closePicker();
+		if (!this.doNotCloseOnDateSet) {
+			this.closePicker();
+		}
 	}
 
 	private loadCalendarMonth(date: Date) {

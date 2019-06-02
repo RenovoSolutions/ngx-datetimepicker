@@ -35,6 +35,7 @@ Additional options for each picker:
  [disableButton]="false" (default)
  [disableInput]="false" (default)
  [disablePicker]="false" (default)
+ [doNotCloseOnDateSet]="false" (default)
 
 ```
 
