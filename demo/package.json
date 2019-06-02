@@ -23,14 +23,16 @@
     "ngx-datetime-picker": "file:../dist",
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.0.0-rc.0",
-    "zone.js": "^0.9.1"
+    "tslib": "^1.9.0",
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.800.0",
     "@angular/cli": "^8.0.1",
     "@angular/compiler-cli": "^8.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
-    "codelyzer": "^2.0.1",
+    "codelyzer": "^5.0.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
