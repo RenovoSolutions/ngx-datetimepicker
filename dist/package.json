@@ -1,18 +1,16 @@
 {
-	"name": "ngx-datetime-picker",
-	"version": "2.0.0",
-	"description": "Date, DateTime & Time Picker components that uses native HTML5 components on mobile",
-	"main": "index.js",
-	"repository": {
-		"url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
-	},
-	"author": "Renovo Development Team",
-	"license": "ISC",
-	"peerDependencies": {
-		"@angular/common": "4.x",
-		"@angular/core": "4.x",
-		"@angular/forms": "4.x",
-		"@angular/platform-browser": "4.x",
-		"@angular/platform-browser-dynamic": "4.x"
-	}
+  "name": "ngx-datetime-picker",
+  "version": "2.1.0",
+  "description": "Date, DateTime & Time Picker components that uses native HTML5 components on mobile",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
+  },
+  "author": "Renovo Development Team",
+  "license": "ISC",
+  "peerDependencies": {
+    "@angular/common": ">=4.x",
+    "@angular/core": ">=4.x",
+    "@angular/forms": ">=4.x"
+  }
 }
