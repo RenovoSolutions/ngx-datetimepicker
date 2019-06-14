@@ -14,6 +14,7 @@
 				</button>
 			<ngx-date [hidden]="!pickerVisible" includeTime="true" [doNotCloseOnDateSet]="doNotCloseOnDateSet" (closeDatePicker)="closePicker($event)" (selectedDateChange)="newDatePicked($event)"
 			[min]="min" [max]="max"
+			[use24HourClock]="use24HourClock"
 			 [selectedDate]="selectedDateTime"> </ngx-date>
 		</div>
 	</div>

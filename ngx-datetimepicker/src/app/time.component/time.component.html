@@ -1,7 +1,7 @@
 <div class="time-picker">
-	<button type="button" class="ngx-picker--btn ngx-picker--btn__hour" (click)="toggleHourMenu()">{{ formatSelectedHour }}</button>
-	<button type="button" class="ngx-picker--btn ngx-picker--btn__minute" (click)="toggleMinuteMenu()">{{ formatSelectedMinute }}</button>
-	<div class="time--periods">
+	<button type="button" class="ngx-picker--btn ngx-picker--btn__hour" (click)="toggleHourMenu()" [class.ngx-picker--btn__24h]="use24HourClock">{{ formatSelectedHour }}</button>
+	<button type="button" class="ngx-picker--btn ngx-picker--btn__minute" (click)="toggleMinuteMenu()" [class.ngx-picker--btn__24h]="use24HourClock">{{ formatSelectedMinute }}</button>
+	<div class="time--periods" *ngIf="!use24HourClock">
 		<button type="button" class="ngx-picker--btn ngx-picker--btn__am" (click)="selectClockChange('am')" [class.ngx-picker--btn__selected]="selectedHour < 12">AM</button>
 		<button type="button" class="ngx-picker--btn ngx-picker--btn__pm" (click)="selectClockChange('pm')" [class.ngx-picker--btn__selected]="selectedHour >= 12">PM</button>
 	</div>

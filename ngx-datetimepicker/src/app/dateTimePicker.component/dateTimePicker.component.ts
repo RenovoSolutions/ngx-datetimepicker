@@ -25,6 +25,7 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 	@Input() doNotCloseOnDateSet: boolean = false;
 	@Input() min: string = null;
 	@Input() max: string = null;
+	@Input() use24HourClock: boolean = false;
 
 	@Output() selectedDateTimeChange = new EventEmitter<Date>();
 
@@ -39,6 +40,9 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 	isMobile: boolean;
 	invalid: boolean;
 	get formattedDate() {
+		if (this.use24HourClock) {
+			return this.dateService.formatMMDDYYYY_HHMM(this.selectedDateTime);
+		}
 		return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
 	}
 	get mobileFormattedDate() {
