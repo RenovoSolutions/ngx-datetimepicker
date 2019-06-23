@@ -7,6 +7,7 @@
 <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample" [disableInput]="true"></ngx-datetime-picker>
 <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample" [disablePicker]="true"></ngx-datetime-picker>
 <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample" [doNotCloseOnDateSet]="true"></ngx-datetime-picker>
+<ngx-datetime-picker [(selectedDateTime)]="dateTimeExample" [use24HourClock]="true"></ngx-datetime-picker>
 <hr />
 <label>Date Picker</label>
 <ngx-date-picker [(selectedDate)]="dateExample" #pickerToFocus></ngx-date-picker>
@@ -24,6 +25,7 @@
 <ngx-time-picker [(selectedTime)]="timeExample" [disableButton]="true"></ngx-time-picker>
 <ngx-time-picker [(selectedTime)]="timeExample" [disableInput]="true"></ngx-time-picker>
 <ngx-time-picker [(selectedTime)]="timeExample" [disablePicker]="true"></ngx-time-picker>
+<ngx-time-picker [(selectedTime)]="timeExample" [use24HourClock]="true"></ngx-time-picker>
 
 <br>
 <button (click)="dateExample=null;timeExample=null;dateTimeExample=null;" >Clear All</button>

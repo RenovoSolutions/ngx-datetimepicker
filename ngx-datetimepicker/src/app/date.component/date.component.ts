@@ -14,6 +14,7 @@ export class DateComponent implements OnInit {
 	@Input() doNotCloseOnDateSet: boolean = false;
 	@Input() min: string = null;
 	@Input() max: string = null;
+	@Input() use24HourClock: boolean = false;
 
 	@Output() selectedDateChange = new EventEmitter<Date>();
 	@Output() closeDatePicker = new EventEmitter<boolean>();

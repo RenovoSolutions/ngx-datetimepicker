@@ -12,6 +12,8 @@
     cursor: pointer; }
   .ngx-picker--btn:focus {
     outline-color: transparent; }
+  .ngx-picker--btn__24h {
+    width: 50%; }
 
 .ngx-picker--btn__month:hover {
   border-top-left-radius: 0.2em; }

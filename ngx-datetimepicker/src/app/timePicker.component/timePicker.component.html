@@ -13,7 +13,9 @@
 				</svg>
 			</button>
 			<div class="calendar" [hidden]="!pickerVisible">
-				<ngx-time [selectedHour]="selectedHour" [selectedMinute]="selectedMinute" (selectedHourChange)="setHourNow($event)" (selectedMinuteChange)="setMinuteNow($event)"></ngx-time>
+				<ngx-time [selectedHour]="selectedHour" [selectedMinute]="selectedMinute"
+				[use24HourClock]="use24HourClock"
+				(selectedHourChange)="setHourNow($event)" (selectedMinuteChange)="setMinuteNow($event)"></ngx-time>
 				<div class="calendar--footer">
 					<button type="button" class="ngx-picker--btn ngx-picker--btn__now" (click)="setTimeToNow()">Now</button>
 					<button type="button" class="ngx-picker--btn ngx-picker--btn__close" (click)="closePicker()">Close</button>

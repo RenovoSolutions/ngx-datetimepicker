@@ -22,6 +22,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     @Input() disableInput: boolean = false;
     @Input() disableButton: boolean = false;
     @Input() disablePicker: boolean = false;
+	@Input() use24HourClock: boolean = false;
 
 	@Output() selectedTimeChange = new EventEmitter<string>();
 
@@ -41,6 +42,9 @@ export class TimePickerComponent implements ControlValueAccessor {
 		}
 		this.selectedHour = parseInt(this.selectedTime.split(':')[0]);
 		this.selectedMinute = parseInt(this.selectedTime.split(':')[1]);
+		if (this.use24HourClock) {
+			return this.dateService.formatHHMM(this.selectedHour, this.selectedMinute);
+		}
 		return this.dateService.formatHHMM_AMPM(this.selectedHour, this.selectedMinute);
 	}
 

@@ -51,6 +51,16 @@ export class DateService {
 		return `${this.formatMMDDYYYY(date)} ${this.formatHHMM_AMPM(hours, minutes)}`;
 	}
 
+	formatMMDDYYYY_HHMM(date: Date): string {
+		if (!date || typeof date == 'string') {
+			return '';
+		}
+		const hours = date.getHours();
+		const minutes = date.getMinutes();
+
+		return `${this.formatMMDDYYYY(date)} ${this.formatHHMM(hours, minutes)}`;
+	}
+
 	formatHHMM_AMPM(hour: number, minute: number): string {
 		if (hour == null || minute == null) {
 			return '';
@@ -67,6 +77,16 @@ export class DateService {
 			return `12:${formattedMinute} am`;
 		}
 		return `${hour}:${formattedMinute} am`;
+	}
+
+	formatHHMM(hour: number, minute: number): string {
+		if (hour == null || minute == null) {
+			return '';
+		}
+		let formattedHour = (!hour ? '00' : (hour <= 9 ? `0${hour}` : hour));
+		let formattedMinute = (!minute ? '00' : (minute <= 9 ? `0${minute}` : minute));
+
+		return `${formattedHour}:${formattedMinute}`;
 	}
 
 	getCurrentMonthDays(month: number, year: number): dayOfTheMonth[] {
