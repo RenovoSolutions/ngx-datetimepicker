@@ -1,6 +1,7 @@
 <div [ngSwitch]="isMobile" [class.invalid]="invalid">
 	<div *ngSwitchCase="true">
 		<input type="datetime-local"
+               style="{{ style }}"
                [disabled]="disableInput || disablePicker" [placeholder]="placeholder"
                [value]="mobileFormattedDate"
                (change)="setDateTime($event.target.value)"
@@ -9,6 +10,7 @@
 	<div *ngSwitchDefault>
 		<div class="ngx-picker">
 			<input type="text"
+                   [ngStyle]="styles.input"
                    [disabled]="disableInput || disablePicker"
                    [placeholder]="placeholder"
                    (click)="pickerVisible = !pickerVisible"
@@ -17,6 +19,7 @@
 			/>
 
 			<button type="button"
+                    [ngStyle]="styles.button"
                     [disabled]="disableButton || disablePicker"
                     (click)="pickerVisible = !pickerVisible">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  width="24" height="24" viewBox="0 0 24 24">
@@ -25,6 +28,7 @@
             </button>
 
 			<ngx-date [hidden]="!pickerVisible"
+                      [ngStyle]="styles.date"
                       includeTime="true"
                       [doNotCloseOnDateSet]="doNotCloseOnDateSet"
                       (closeDatePicker)="closePicker($event)"

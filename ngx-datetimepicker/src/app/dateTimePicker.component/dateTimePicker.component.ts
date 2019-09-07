@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, Host
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService } from '../services/date.service';
+import { StyleObject } from '../models/styleObject.model';
 
 @Component({
     selector:    'ngx-datetime-picker',
@@ -16,6 +17,10 @@ import { DateService } from '../services/date.service';
     ],
 })
 export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
+    public pickerVisible: boolean = false;
+    public isMobile: boolean;
+    public invalid: boolean;
+
     @Input() selectedDateTime: Date;
     @Input() placeholder: string;
     @Input() disableInput: boolean = false;
@@ -24,6 +29,7 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
     @Input() doNotCloseOnDateSet: boolean = false;
     @Input() min: string = null;
     @Input() max: string = null;
+    @Input() styles: StyleObject = new StyleObject();
     @Input() use24HourClock: boolean = false;
 
     @Output() selectedDateTimeChange = new EventEmitter<Date>();
@@ -35,15 +41,13 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
         }
     }
 
-    pickerVisible: boolean = false;
-    isMobile: boolean;
-    invalid: boolean;
     get formattedDate() {
         if (this.use24HourClock) {
             return this.dateService.formatMMDDYYYY_HHMM(this.selectedDateTime);
         }
         return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
     }
+
     get mobileFormattedDate() {
         return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
     }
