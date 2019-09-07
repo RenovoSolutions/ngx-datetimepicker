@@ -16,43 +16,43 @@ import { DateService } from '../services/date.service';
     ],
 })
 export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
-	@Input() selectedDateTime: Date;
-	@Input() placeholder: string;
-	@Input() disableInput: boolean = false;
-	@Input() disableButton: boolean = false;
-	@Input() disablePicker: boolean = false;
-	@Input() doNotCloseOnDateSet: boolean = false;
-	@Input() min: string = null;
-	@Input() max: string = null;
-	@Input() use24HourClock: boolean = false;
+    @Input() selectedDateTime: Date;
+    @Input() placeholder: string;
+    @Input() disableInput: boolean = false;
+    @Input() disableButton: boolean = false;
+    @Input() disablePicker: boolean = false;
+    @Input() doNotCloseOnDateSet: boolean = false;
+    @Input() min: string = null;
+    @Input() max: string = null;
+    @Input() use24HourClock: boolean = false;
 
-	@Output() selectedDateTimeChange = new EventEmitter<Date>();
+    @Output() selectedDateTimeChange = new EventEmitter<Date>();
 
-	@HostListener('document:click', ['$event'])
-	offClick(event) {
-		if (!this.eRef.nativeElement.contains(event.target)) {
-			this.pickerVisible = false;
-		}
-	}
+    @HostListener('document:click', ['$event'])
+    offClick(event) {
+        if (!this.eRef.nativeElement.contains(event.target)) {
+            this.pickerVisible = false;
+        }
+    }
 
-	pickerVisible: boolean = false;
-	isMobile: boolean;
-	invalid: boolean;
-	get formattedDate() {
-		if (this.use24HourClock) {
-			return this.dateService.formatMMDDYYYY_HHMM(this.selectedDateTime);
-		}
-		return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
-	}
-	get mobileFormattedDate() {
-		return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
-	}
+    pickerVisible: boolean = false;
+    isMobile: boolean;
+    invalid: boolean;
+    get formattedDate() {
+        if (this.use24HourClock) {
+            return this.dateService.formatMMDDYYYY_HHMM(this.selectedDateTime);
+        }
+        return this.dateService.formatMMDDYYYY_HHMM_AMPM(this.selectedDateTime);
+    }
+    get mobileFormattedDate() {
+        return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
+    }
 
-	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
-		this.isMobile = isMobileService.isMobile;
-		this.placeholder = this.placeholder || '';
+    constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
+        this.isMobile = isMobileService.isMobile;
+        this.placeholder = this.placeholder || '';
 
-	}
+    }
 
   writeValue(value: Date) {
     this.selectedDateTime = value;
@@ -64,29 +64,29 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 
   registerOnTouched() {}
 
-	setDateTime(dateTime: string) {
-		const isValid = !!Date.parse(dateTime);
-		if (isValid) {
-			this.selectedDateTime = new Date(dateTime);
-			this.selectedDateTimeChange.emit(this.selectedDateTime);
-			this.invalid = false;
-		} else {
-			this.invalid = true;
-		}
-	}
+    setDateTime(dateTime: string) {
+        const isValid = !!Date.parse(dateTime);
+        if (isValid) {
+            this.selectedDateTime = new Date(dateTime);
+            this.selectedDateTimeChange.emit(this.selectedDateTime);
+            this.invalid = false;
+        } else {
+            this.invalid = true;
+        }
+    }
 
-	ngOnInit() {
-		if (typeof this.selectedDateTime === 'string') {
-			this.selectedDateTime = new Date(this.selectedDateTime);
-		}
-	}
+    ngOnInit() {
+        if (typeof this.selectedDateTime === 'string') {
+            this.selectedDateTime = new Date(this.selectedDateTime);
+        }
+    }
 
-	newDatePicked(date: Date): void {
-		this.selectedDateTimeChange.emit(date);
-		this.selectedDateTime = date;
-	}
+    newDatePicked(date: Date): void {
+        this.selectedDateTimeChange.emit(date);
+        this.selectedDateTime = date;
+    }
 
-	closePicker(close: boolean): void {
-		this.pickerVisible = close;
-	}
+    closePicker(close: boolean): void {
+        this.pickerVisible = close;
+    }
 }
