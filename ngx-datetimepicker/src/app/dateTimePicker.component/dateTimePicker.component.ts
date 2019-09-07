@@ -76,7 +76,7 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 	}
 
 	ngOnInit() {
-		if (typeof this.selectedDateTime == 'string') {
+		if (typeof this.selectedDateTime === 'string') {
 			this.selectedDateTime = new Date(this.selectedDateTime);
 		}
 	}
