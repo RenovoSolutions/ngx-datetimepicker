@@ -4,18 +4,17 @@ import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
 
 @Component({
-	selector: 'ngx-datetime-picker',
-	templateUrl: './dateTimePicker.component.html',
-	encapsulation: ViewEncapsulation.None,
-  providers: [
-		{
-			provide: NG_VALUE_ACCESSOR,
-			useExisting: forwardRef(() => DateTimePickerComponent),
-			multi: true,
-		},
-	],
+    selector:    'ngx-datetime-picker',
+    templateUrl: './dateTimePicker.component.html',
+    encapsulation: ViewEncapsulation.None,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => DateTimePickerComponent),
+            multi: true,
+        },
+    ],
 })
-
 export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 	@Input() selectedDateTime: Date;
 	@Input() placeholder: string;
