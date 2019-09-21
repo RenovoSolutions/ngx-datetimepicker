@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, EventEm
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
+import {StyleObject} from "../models/styleObject.model";
 
 @Component({
 	selector: 'ngx-time-picker',
@@ -22,6 +23,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     @Input() disableInput: boolean = false;
     @Input() disableButton: boolean = false;
     @Input() disablePicker: boolean = false;
+    @Input() styles: StyleObject = new StyleObject();
 	@Input() use24HourClock: boolean = false;
 
 	@Output() selectedTimeChange = new EventEmitter<string>();

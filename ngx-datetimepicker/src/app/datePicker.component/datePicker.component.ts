@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, Host
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../services/isMobile.service';
 import { DateService, dayOfTheMonth } from '../services/date.service';
+import {StyleObject} from "../models/styleObject.model";
 
 @Component({
 	selector: 'ngx-date-picker',
@@ -26,6 +27,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
   @Input() disableButton: boolean = false;
   @Input() disablePicker: boolean = false;
   @Input() doNotCloseOnDateSet: boolean = false;
+  @Input() styles: StyleObject = new StyleObject();
 
 	@Output() selectedDateChange = new EventEmitter<Date>();
 
