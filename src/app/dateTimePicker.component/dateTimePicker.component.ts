@@ -69,13 +69,11 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
     registerOnTouched() {}
 
     setDateTime(dateTime: string) {
-        const isValid = !!Date.parse(dateTime);
-        if (isValid) {
+        this.invalid = !Date.parse(dateTime);
+
+        if (!this.invalid) {
             this.selectedDateTime = new Date(dateTime);
             this.selectedDateTimeChange.emit(this.selectedDateTime);
-            this.invalid = false;
-        } else {
-            this.invalid = true;
         }
     }
 
@@ -86,6 +84,8 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
     }
 
     newDatePicked(date: Date): void {
+        this.invalid = false;
+
         this.selectedDateTimeChange.emit(date);
         this.selectedDateTime = date;
     }
