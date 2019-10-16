@@ -58,15 +58,15 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 
     }
 
-  writeValue(value: Date) {
-    this.selectedDateTime = value;
-  }
+    writeValue(value: Date) {
+        this.selectedDateTime = value;
+    }
 
-  registerOnChange(handler) {
-    this.selectedDateTimeChange.subscribe(handler);
-  }
+    registerOnChange(handler) {
+        this.selectedDateTimeChange.subscribe(handler);
+    }
 
-  registerOnTouched() {}
+    registerOnTouched() {}
 
     setDateTime(dateTime: string) {
         const isValid = !!Date.parse(dateTime);

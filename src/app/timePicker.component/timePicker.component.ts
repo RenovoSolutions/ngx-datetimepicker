@@ -8,15 +8,14 @@ import {StyleObject} from "../models/styleObject.model";
 	selector: 'ngx-time-picker',
 	templateUrl: './timePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
-  providers: [
-		{
-			provide: NG_VALUE_ACCESSOR,
-			useExisting: forwardRef(() => TimePickerComponent),
-			multi: true,
-		},
-	],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => TimePickerComponent),
+            multi: true,
+        },
+    ],
 })
-
 export class TimePickerComponent implements ControlValueAccessor {
 	@Input() selectedTime: string;
 	@Input() placeholder: string;
