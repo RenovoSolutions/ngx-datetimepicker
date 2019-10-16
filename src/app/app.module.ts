@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {DateService} from './services/date.service';
 
 import {DateTimePickerModule} from './datetimepicker.module';
+import {Renderer} from './services/renderer.service';
 
 @NgModule({
 	declarations: [
@@ -20,7 +21,8 @@ import {DateTimePickerModule} from './datetimepicker.module';
 		DateTimePickerModule
 	],
 	providers: [
-		DateService
+		DateService,
+        Renderer
 	],
 	bootstrap: [
 	    AppComponent

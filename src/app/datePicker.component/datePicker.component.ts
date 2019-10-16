@@ -1,14 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef, ViewChild, Renderer } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IsMobileService } from '../services/isMobile.service';
-import { DateService, dayOfTheMonth } from '../services/date.service';
-import {StyleObject} from "../models/styleObject.model";
+import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef, ViewChild} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {IsMobileService} from '../services/isMobile.service';
+import {DateService} from '../services/date.service';
+import {StyleObject} from '../models/styleObject.model';
+import {Renderer} from '../services/renderer.service';
 
 @Component({
 	selector: 'ngx-date-picker',
 	templateUrl: './datePicker.component.html',
 	encapsulation: ViewEncapsulation.None,
-  providers: [
+    providers: [
 		{
 			provide: NG_VALUE_ACCESSOR,
 			useExisting: forwardRef(() => DatePickerComponent),
@@ -29,33 +30,33 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
   @Input() doNotCloseOnDateSet: boolean = false;
   @Input() styles: StyleObject = new StyleObject();
 
-	@Output() selectedDateChange = new EventEmitter<Date>();
+  @Output() selectedDateChange = new EventEmitter<Date>();
 
   @ViewChild('input') input: ElementRef;
 
-	@HostListener('document:click', ['$event'])
-	offClick(event) {
-		if (!this.eRef.nativeElement.contains(event.target)) {
-			this.pickerVisible = false;
-		}
-	}
+  @HostListener('document:click', ['$event'])
+  offClick(event) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.pickerVisible = false;
+    }
+  }
 
-	pickerVisible: boolean = false;
-	isMobile: boolean;
-	invalid: boolean;
+  pickerVisible: boolean = false;
+  isMobile: boolean;
+  invalid: boolean;
 
-	get formattedDate() {
-		return this.dateService.formatMMDDYYYY(this.selectedDate);
-	}
+  get formattedDate() {
+    return this.dateService.formatMMDDYYYY(this.selectedDate);
+  }
 
-	get mobileFormattedDate() {
-		return this.dateService.formatMobileYYYYMMDD(this.selectedDate);
-	}
+  get mobileFormattedDate() {
+    return this.dateService.formatMobileYYYYMMDD(this.selectedDate);
+  }
 
-	constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef, private renderer: Renderer) {
-		this.isMobile = isMobileService.isMobile;
-		this.placeholder = this.placeholder || '';
-	}
+  constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef, private renderer: Renderer) {
+    this.isMobile = isMobileService.isMobile;
+    this.placeholder = this.placeholder || '';
+  }
 
   writeValue(value: Date) {
     this.selectedDate = value;
@@ -96,7 +97,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 		this.pickerVisible = close;
   }
 
-  focus(): void {
-    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus', []);
+  focus():void {
+    this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
   }
 }

@@ -1,11 +1,13 @@
 import { TimePickerComponent } from './timePicker.component';
+import { beforeEach, describe, expect, it } from '@angular/core/testing/src/testing_internal';
 
 describe('a timePicker component', () => {
 	let timePickerComponent: TimePickerComponent;
 	let mockDateService: any;
 	// register all needed dependencies
 	beforeEach(() => {
-		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
+		// @ts-ignore
+        mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
 		timePickerComponent = new TimePickerComponent(<any>{}, mockDateService, <any>{});

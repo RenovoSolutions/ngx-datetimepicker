@@ -1,4 +1,5 @@
 import { DatePickerComponent } from './datePicker.component';
+import { beforeEach, describe, expect, it } from '@angular/core/testing/src/testing_internal';
 
 describe('a input component', () => {
 	let datePickerComponent: DatePickerComponent;
@@ -8,8 +9,10 @@ describe('a input component', () => {
 
 	// register all needed dependencies
 	beforeEach(() => {
-		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
-		renderer = jasmine.createSpyObj('renderer', ['invokeElementMethod']);
+        // @ts-ignore
+        mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
+        // @ts-ignore
+        renderer = jasmine.createSpyObj('renderer', ['invokeElementMethod']);
 
 		mockDateService.getDateList.and.returnValue([]);
 		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, <any>{}, renderer);

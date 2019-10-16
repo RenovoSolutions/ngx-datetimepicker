@@ -54,12 +54,10 @@ demo/app/*.js
 demo/*.d.ts
 demo/node_modules
 !demo/*.js
-ngx-datetimepicker/**/*.js
-ngx-datetimepicker/**/*.d.ts
-!ngx-datetimepicker/*.js
-ngx-datetimepicker/bash.exe.stackdump
-ngx-datetimepicker/package-lock.json
+**/*.js
+**/*.d.ts
+!*.js
+bash.exe.stackdump
+package-lock.json
 
 !/dist/package.json
-!gulpfile.js
-!gulp-inline-script.js

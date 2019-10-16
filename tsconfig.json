@@ -1,35 +1,36 @@
 {
-	"compilerOptions": {
-		"baseUrl": "./src/app/",
-		"outDir": "./dist",
-		"sourceMap": false,
-		"declaration": true,
-		"moduleResolution": "node",
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"target": "es5",
-		"typeRoots": [
-			"node_modules/@types"
-		],
-		"lib": [
-			"es2017",
-			"dom"
-		],
-		"paths": {
-			"@angular/*": [
-				"./ngx-datetimepicker/node_modules/@angular/*"
-			]
-		}
-	},
-	"angularCompilerOptions": {
-		"skipTemplateCodegen": true
-	},
-	"include": [
-        "./src/app/"
-	],
-	"exclude": [
-		"**/**.spec.ts",
-		"**/app.module.ts",
-		"**/app.component.ts"
-	]
+  "compilerOptions": {
+    "baseUrl": "./src/app/",
+    "outDir": "./dist",
+    "sourceMap": false,
+    "declaration": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@angular/*": [
+        "./ngx-datetimepicker/node_modules/@angular/*"
+      ]
+    },
+    "module": "es2015"
+  },
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  },
+  "include": [
+    "./src/app/"
+  ],
+  "exclude": [
+    "**/**.spec.ts",
+    "**/app.module.ts",
+    "**/app.component.ts"
+  ]
 }

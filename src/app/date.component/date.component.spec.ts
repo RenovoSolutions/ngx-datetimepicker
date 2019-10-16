@@ -1,6 +1,5 @@
 import { DateComponent } from './date.component';
-
-import { DateService } from '../services/date.service';
+import { beforeEach, describe, expect, it } from '@angular/core/testing/src/testing_internal';
 
 describe('a date component', () => {
 	let dateComponent: DateComponent;
@@ -9,7 +8,8 @@ describe('a date component', () => {
 
 	// register all needed dependencies
 	beforeEach(() => {
-		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
+		// @ts-ignore
+        mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
 
