@@ -1,7 +1,7 @@
 <div [ngSwitch]="isMobile" [class.invalid]="invalid">
 	<div *ngSwitchCase="true">
 		<input type="datetime-local"
-               style="{{ style }}"
+               style="{{ styles }}"
                [disabled]="disableInput || disablePicker" [placeholder]="placeholder"
                [value]="mobileFormattedDate"
                (change)="setDateTime($event.target.value)"

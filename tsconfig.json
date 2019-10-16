@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./ngx-datetimepicker/src/app/",
+		"baseUrl": "./src/app/",
 		"outDir": "./dist",
 		"sourceMap": false,
 		"declaration": true,
@@ -25,7 +25,7 @@
 		"skipTemplateCodegen": true
 	},
 	"include": [
-		"./ngx-datetimepicker/src/app/"
+        "./src/app/"
 	],
 	"exclude": [
 		"**/**.spec.ts",

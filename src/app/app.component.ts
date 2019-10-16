@@ -1,6 +1,5 @@
-import { Component, Inject, ViewChild } from '@angular/core';
-import { DatePickerComponent } from 'app/datePicker.component/datePicker.component';
-
+import {Component, ViewChild} from '@angular/core';
+import {DatePickerComponent} from './datePicker.component/datePicker.component';
 
 @Component({
 	selector: 'app-root',
