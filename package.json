@@ -7,14 +7,11 @@
   },
   "scripts": {
     "build": "ng-packagr -p package.json",
-    "start": "npm run serve",
-    "serve": "ng serve",
     "test": "npm test",
     "test.once": "npm test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
-    "dist": "./node_modules/.bin/ngc --p tsconfig.json && gulp copy-html-css-and-inline",
-    "demo": "npm run dist && cd dist && npm pack && cd .. && cd demo && npm install && npm remove ngx-datetimepicker && npm install ../dist/ngx-datetime-picker-2.1.0.tgz && ng serve",
-    "demo.build": "npm run dist && cd demo && npm remove ngx-datetimepicker && npm install ../ && ng build"
+    "demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng serve",
+    "demo.build": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng build"
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
