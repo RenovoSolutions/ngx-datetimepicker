@@ -6,10 +6,11 @@
     "url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
   },
   "scripts": {
+    "build": "ng-packagr -p package.json",
     "start": "npm run serve",
-    "serve": "cd ngx-datetimepicker && ng serve",
-    "test": "cd ngx-datetimepicker && npm test",
-    "test.once": "cd ngx-datetimepicker && npm test --watch=false",
+    "serve": "ng serve",
+    "test": "npm test",
+    "test.once": "npm test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
     "dist": "./node_modules/.bin/ngc --p tsconfig.json && gulp copy-html-css-and-inline",
     "demo": "npm run dist && cd dist && npm pack && cd .. && cd demo && npm install && npm remove ngx-datetimepicker && npm install ../dist/ngx-datetime-picker-2.1.0.tgz && ng serve",
@@ -19,17 +20,33 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "@angular/core": "4.x",
-    "@angular/compiler": "4.x",
-    "@angular/compiler-cli": "4.x",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "typescript": "2.4.0",
-    "rxjs": "5.4.1"
+    "@angular-devkit/build-angular": "~0.8.0",
+    "@angular/common": "6.x",
+    "@angular/compiler": "6.x",
+    "@angular/compiler-cli": "6.x",
+    "@angular/core": "6.x",
+    "@angular/cli": "6.x",
+    "@angular/forms": "6.x",
+    "@angular/http": "6.x",
+    "@angular/platform-browser": "6.x",
+    "@angular/platform-browser-dynamic": "6.x",
+    "ng-packagr": "^5.7.0",
+    "rxjs": "6.5.3",
+    "typescript": "2.9.2",
+    "zone.js": "~0.8.26"
   },
   "peerDependencies": {
-    "@angular/common": ">=4.x",
-    "@angular/core": ">=4.x",
-    "@angular/forms": ">=4.x"
+    "@angular/common": ">=2.x",
+    "@angular/core": ">=2.x",
+    "@angular/forms": ">=2.x"
+  },
+  "ngPackage": {
+    "lib": {
+      "cssUrl": "inline",
+      "entryFile": "src/main.ts",
+      "styleIncludePaths": [
+        "./sass"
+      ]
+    }
   }
 }

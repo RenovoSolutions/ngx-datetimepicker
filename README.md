@@ -43,7 +43,7 @@ Additional options for ngx-time-picker and ngx-datetime-picker:
 
 ## CSS
 
-Copy the [ngx-datetime-picker](/sass/ngx-datetime-picker.css) css to your project.
+Copy the [ngx-datetime-picker](/scss/ngx-datetime-picker.css) css to your project.
 
 _If_ you are using angular-cli the css can be added to your angular-cli.json
 
@@ -53,7 +53,7 @@ _If_ you are using angular-cli the css can be added to your angular-cli.json
 ]
 ```
 
-[Sass files](/sass/) avaliable for quick customization. Override the defaults, compile, and include them in your project.
+[Sass files](/scss/) avaliable for quick customization. Override the defaults, compile, and include them in your project.
 
 ## Development:
 

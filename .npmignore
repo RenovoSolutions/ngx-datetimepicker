@@ -15,5 +15,5 @@ ngx-datetimepicker/src/environments/
 ngx-datetimepicker/src/**.json
 ngx-datetimepicker/src/**.md
 demo
-sass
+scss
 tsconfig.json
