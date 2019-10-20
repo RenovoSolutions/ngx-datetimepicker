@@ -13,13 +13,14 @@ import {DatePickerComponent} from './datePicker.component/datePicker.component';
 export class AppComponent {
 	title = 'app works!';
 
-	public dateTimeExample = null
-	public dateExample = null
-	public timeExample = null
+	public dateTimeExample = null;
+	public dateExample = null;
+	public timeExample = null;
 
 	@ViewChild('pickerToFocus') pickerToFocus: DatePickerComponent;
 
 	constructor() {
+
 	};
 
 	setToNow(): void {
