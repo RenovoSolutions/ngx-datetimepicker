@@ -1,13 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 
-import { DateService, dayOfTheMonth } from '../../services/date.service';
+import { DateService } from '../../services/date.service';
+import { dayOfTheMonth } from '../../models/dayOfTheMonth.interface';
 
 @Component({
-	selector: 'ngx-date',
+	selector:    'ngx-date',
 	templateUrl: './date.component.html',
 	encapsulation: ViewEncapsulation.None,
 })
-
 export class DateComponent implements OnInit {
 	@Input() selectedDate: Date;
 	@Input() includeTime: boolean;
@@ -140,10 +140,12 @@ export class DateComponent implements OnInit {
 		this.years = this.dateService.getAvailableYears();
 
 		// subscribing to it's own event emitter to set the selected year position
-		this.selectedDateChange.subscribe(date => {
-			this.scrollToMonth();
-			this.scrollToYear();
-		});
+		this.selectedDateChange.subscribe(
+            () => {
+                this.scrollToMonth();
+                this.scrollToYear();
+            }
+        );
 
 
 		//If no date is selected then default to today's date.
@@ -196,7 +198,7 @@ export class DateComponent implements OnInit {
 	}
 
 	public scrollToMonth(): void {
-		// setTime out is being used since I need this code to excute next, if not the change won't be visible until the second click
+		// setTime out is being used since I need this code to execute next, if not the change won't be visible until the second click
 		setTimeout(() => {
 			if (this.monthSelect && this.monthSelect.nativeElement) {
 				const selectContainer = this.monthSelect.nativeElement;
@@ -209,15 +211,15 @@ export class DateComponent implements OnInit {
 	public previousMonth(): void {
 		let previousMonth = new Date(this.selectedDate);
 		//because javascript sets months based on a 0 index need to jump back 2 to go to the previous month.
-		previousMonth.setMonth(this.selectedMonth - 2)
-		this.loadCalendarMonth(previousMonth)
+		previousMonth.setMonth(this.selectedMonth - 2);
+		this.loadCalendarMonth(previousMonth);
 	}
 
 	public nextMonth(): void {
 		let nextMonth = new Date(this.selectedDate);
 		/// same as above but since selected month is 1-12 the index is already the next month.
-		nextMonth.setMonth(this.selectedMonth)
-		this.loadCalendarMonth(nextMonth)
+		nextMonth.setMonth(this.selectedMonth);
+		this.loadCalendarMonth(nextMonth);
 	}
 
 	public toggleMonthMenu(): void {

@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface dayOfTheMonth {
-	day: number;
-	dayOfTheWeek: number;
-	month: number;
-	date: Date;
-}
-
+import { dayOfTheMonth } from '../models/dayOfTheMonth.interface';
 
 @Injectable()
 export class DateService {
@@ -27,12 +20,14 @@ export class DateService {
 		}
 		return `${date.getFullYear()}-${this.addLeadingZero(date.getMonth() + 1)}-${this.addLeadingZero(date.getDate())}`;
 	}
+
 	formatMobileYYYYMMDDTHHMM(date: Date): string {
 		if (!date || typeof date == 'string') {
 			return '';
 		}
 		return `${this.formatMobileYYYYMMDD(date)}T${this.addLeadingZero(date.getHours())}:${this.addLeadingZero(date.getMinutes())}`;
 	}
+
 	formatMMDDYYYY(date: Date): string {
 		if (!date || typeof date == 'string') {
 			return '';

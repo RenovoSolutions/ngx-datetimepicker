@@ -5,7 +5,6 @@ import { Component, OnInit, EventEmitter, Input, Output, ViewEncapsulation } fro
 	templateUrl: './time.component.html',
 	encapsulation: ViewEncapsulation.None,
 })
-
 export class TimeComponent implements OnInit {
 	@Input() selectedHour: number;
 	@Output() selectedHourChange = new EventEmitter<number>();
@@ -18,7 +17,7 @@ export class TimeComponent implements OnInit {
 	public selectedClock: string;
 
 	public hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-	public minutes = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']
+	public minutes = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
 
 	public minutesOpen: boolean;
 	public hoursOpen: boolean;
@@ -79,8 +78,8 @@ export class TimeComponent implements OnInit {
 	selectClockChange(clock: string): void {
 		if (this.selectedClock != clock) {
 			this.selectedClock = clock;
-			let hour = 0;
-			hour = this.selectedClock == 'pm' ? parseInt(<any>this.selectedHour) + 12 : this.selectedHour - 12;
+
+			const hour = this.selectedClock == 'pm' ? parseInt(<any>this.selectedHour) + 12 : this.selectedHour - 12;
 
 			this.selectedHour = hour;
 			this.selectedHourChange.emit(hour);

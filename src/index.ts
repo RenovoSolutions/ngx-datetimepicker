@@ -12,20 +12,20 @@ import { IsMobileService } from './services/isMobile.service';
 import { Renderer } from './services/renderer.service';
 
 @NgModule({
-    imports: [
-        CommonModule
-    ],
-    exports: [
-        DatePickerComponent,
-        DateTimePickerComponent,
-        TimePickerComponent
-    ],
     declarations: [
         TimeComponent,
         DateComponent,
         DatePickerComponent,
         DateTimePickerComponent,
         TimePickerComponent
+    ],
+    exports: [
+        DatePickerComponent,
+        DateTimePickerComponent,
+        TimePickerComponent
+    ],
+    imports: [
+        CommonModule
     ],
     providers: [
         DateService,

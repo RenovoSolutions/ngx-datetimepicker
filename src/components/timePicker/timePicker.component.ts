@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, EventEmitter, Input, Output, forwardRef } from '@angular/core';
+import { Component, ViewEncapsulation, HostListener, ElementRef, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../../services/isMobile.service';
-import { DateService, dayOfTheMonth } from '../../services/date.service';
-import {StyleObject} from "../../models/styleObject.model";
+import { DateService } from '../../services/date.service';
+import { StyleObject } from "../../models/styleObject.model";
 
 @Component({
 	selector: 'ngx-time-picker',
