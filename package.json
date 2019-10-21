@@ -10,7 +10,7 @@
     "test": "npm test",
     "test.once": "npm test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
-    "demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng serve",
+    "demo": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetime-picker && ng serve",
     "demo.build": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng build"
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
@@ -40,9 +40,9 @@
   "ngPackage": {
     "lib": {
       "cssUrl": "inline",
-      "entryFile": "src/main.ts",
+      "entryFile": "src/index.ts",
       "styleIncludePaths": [
-        "./sass"
+        "./src/scss"
       ]
     }
   }
