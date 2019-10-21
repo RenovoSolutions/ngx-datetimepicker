@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 
-import { DateService, dayOfTheMonth } from '../services/date.service';
+import { DateService, dayOfTheMonth } from '../../services/date.service';
 
 @Component({
 	selector: 'ngx-date',
