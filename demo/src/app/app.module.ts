@@ -7,9 +7,17 @@ import { AppComponent } from './app.component';
 import { DateTimePickerModule } from 'ngx-datetime-picker';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, DateTimePickerModule],
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    DateTimePickerModule
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {}
