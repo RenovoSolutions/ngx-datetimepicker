@@ -6,7 +6,7 @@
     "url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
   },
   "scripts": {
-    "build": "ng-packagr -p package.json && sass src/scss/date.component.scss dist/ngx-datetimepicker.css",
+    "build": "ng-packagr -p package.json && sass src/scss/date.component.scss dist/ngx-datetime-picker.css",
     "test": "npm test",
     "test.once": "npm test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
