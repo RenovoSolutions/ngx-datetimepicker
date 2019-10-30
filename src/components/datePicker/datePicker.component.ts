@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef, ViewChild} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ElementRef, forwardRef, ViewChild} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {IsMobileService} from '../../services/isMobile.service';
 import {DateService} from '../../services/date.service';
@@ -33,13 +33,6 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
     @ViewChild('input') input: ElementRef;
 
-    @HostListener('document:click', ['$event'])
-    offClick(event) {
-        if (!this.eRef.nativeElement.contains(event.target)) {
-          this.pickerVisible = false;
-        }
-    }
-
     pickerVisible: boolean = false;
     isMobile: boolean;
     invalid: boolean;
@@ -54,8 +47,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
     constructor(
         private isMobileService: IsMobileService,
-        public dateService: DateService,
-        private eRef: ElementRef,
+        private dateService: DateService,
         private renderer: Renderer
     ) {
         this.isMobile = isMobileService.isMobile;
