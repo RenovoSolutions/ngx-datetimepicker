@@ -82,19 +82,6 @@
 			  [selectedMinute]="selectedMinute"
 			  (selectedHourChange)="setSelectedDate(highlightedDate,$event)"
 			  (selectedMinuteChange)="setSelectedDate(highlightedDate,null, $event)"
+              (closeDatePicker)="closePicker()"
 			  [use24HourClock]="use24HourClock"></ngx-time>
-
-	<div class="calendar--footer">
-		<button type="button"
-                class="ngx-picker--btn ngx-picker--btn__now"
-                (click)="setSelectedDate(null); showMonthSelection = false; showYearSelection = false">
-            Now
-        </button>
-
-		<button type="button"
-                class="ngx-picker--btn ngx-picker--btn__close"
-                (click)="closePicker()">
-            Close
-        </button>
-	</div>
 </div>
