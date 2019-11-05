@@ -27,14 +27,15 @@ export class TimeComponent implements OnInit {
 		return <string>(this.selectedMinute <= 9 ? '0' + this.selectedMinute : this.selectedMinute)
 	}
 
-	get formatSelectedHour(): string {
+	get formatSelectedHour():string {
 		if (!this.use24HourClock) {
-			if (this.selectedHour == 12 || this.selectedHour == 0) {
+			if (this.selectedHour === 12 || this.selectedHour === 0) {
 				return '12';
 			}
-			return <any>( this.selectedHour > 12 ? this.selectedHour - 12 : this.selectedHour);
+
+			return (this.selectedHour > 12 ? this.selectedHour - 12 : this.selectedHour) + '';
 		} else {
-			return <any>( this.selectedHour < 10 ? '0' + this.selectedHour : this.selectedHour);
+			return (this.selectedHour < 10 ? '0' + this.selectedHour : this.selectedHour) + '';
 		}
 	}
 
@@ -84,7 +85,7 @@ export class TimeComponent implements OnInit {
 		if (this.selectedClock != clock) {
 			this.selectedClock = clock;
 
-			const hour = this.selectedClock == 'pm' ? parseInt(<any>this.selectedHour) + 12 : this.selectedHour - 12;
+			const hour = this.selectedClock == 'pm' ? this.selectedHour + 12 : this.selectedHour - 12;
 
 			this.selectedHour = hour;
 			this.selectedHourChange.emit(hour);
