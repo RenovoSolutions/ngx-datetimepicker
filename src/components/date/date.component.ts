@@ -267,6 +267,9 @@ export class DateComponent implements OnInit {
 	}
 
 	public closePicker(): void {
+	    this.alreadySpecifiedMonth = false;
+	    this.alreadySpecifiedYear = false;
+
 		this.closeDatePicker.emit(false);
 	}
 }
