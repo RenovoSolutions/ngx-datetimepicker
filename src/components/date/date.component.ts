@@ -31,7 +31,10 @@ export class DateComponent implements OnInit {
 	public selectedHour: number;
 	public selectedMinute: number;
 
-	public showMonthSelection: boolean = false;
+    public alreadySpecifiedMonth: boolean = false;
+    public alreadySpecifiedYear: boolean = false;
+
+    public showMonthSelection: boolean = false;
 	public showYearSelection: boolean = false;
 
 	get selectedMonth(): number {
@@ -84,7 +87,22 @@ export class DateComponent implements OnInit {
 		return this.dateService.getMonthText(this.selectedDate);
 	}
 
-	constructor(private dateService: DateService) { }
+	constructor(
+	    private dateService:DateService
+    ) {
+
+    }
+
+	setMonth(i:number):void {
+	    this.selectedMonth = i;
+
+	    this.showMonthSelection = false;
+	    this.alreadySpecifiedMonth = true;
+
+        if (!this.alreadySpecifiedYear) {
+            this.showYearSelection = true;
+        }
+    }
 
 	setSelectedDate(date: Date, hour?: number, minutes?: number): void {
 		if (this.includeTime && !!date && !!this.selectedDate) {
@@ -122,6 +140,17 @@ export class DateComponent implements OnInit {
 			this.closePicker();
 		}
 	}
+
+    setYear(year:number):void {
+        this.selectedYear = year;
+
+        this.showYearSelection = false;
+        this.alreadySpecifiedYear = true;
+
+        if (!this.alreadySpecifiedMonth) {
+            this.showMonthSelection = true;
+        }
+    }
 
 	private loadCalendarMonth(date: Date) {
 		if (date == null) {
@@ -209,6 +238,8 @@ export class DateComponent implements OnInit {
 	}
 
 	public previousMonth(): void {
+	    this.alreadySpecifiedMonth = false;
+
 		let previousMonth = new Date(this.selectedDate);
 		//because javascript sets months based on a 0 index need to jump back 2 to go to the previous month.
 		previousMonth.setMonth(this.selectedMonth - 2);
@@ -216,6 +247,8 @@ export class DateComponent implements OnInit {
 	}
 
 	public nextMonth(): void {
+        this.alreadySpecifiedMonth = false;
+
 		let nextMonth = new Date(this.selectedDate);
 		/// same as above but since selected month is 1-12 the index is already the next month.
 		nextMonth.setMonth(this.selectedMonth);
@@ -224,6 +257,7 @@ export class DateComponent implements OnInit {
 
 	public toggleMonthMenu(): void {
 		this.scrollToMonth();
+
 		this.showMonthSelection = !this.showMonthSelection;
 	}
 
