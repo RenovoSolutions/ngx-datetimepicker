@@ -56,22 +56,24 @@ export class DateService {
 		return `${this.formatMMDDYYYY(date)} ${this.formatHHMM(hours, minutes)}`;
 	}
 
-	formatHHMM_AMPM(hour: number, minute: number): string {
+	formatHHMM_AMPM(hour: number, minute: number, clock?:string): string {
 		if (hour == null || minute == null) {
 			return '';
 		}
-		let formattedMinute = (!minute ? '00' : (minute <= 9 ? `0${minute}` : minute));
+
+		if (typeof clock === 'undefined') {
+            clock = hour >= 12 ? 'pm' : 'am';
+        }
 
 		if (hour > 12) {
-			return `${hour - 12}:${formattedMinute} pm`;
-		}
-		if (hour == 12) {
-			return `12:${formattedMinute} pm`;
-		}
-		if (hour == 0) {
-			return `12:${formattedMinute} am`;
-		}
-		return `${hour}:${formattedMinute} am`;
+		    hour = hour - 12;
+        } else if (hour === 0) {
+		    hour = 12;
+        }
+
+		let formattedMinute = (!minute ? '00' : (minute <= 9 ? `0${minute}` : minute));
+
+		return `${hour}:${formattedMinute} ${clock}`;
 	}
 
 	formatHHMM(hour: number, minute: number): string {
