@@ -15,7 +15,7 @@ describe('a input component', () => {
         renderer = jasmine.createSpyObj('renderer', ['invokeElementMethod']);
 
 		mockDateService.getDateList.and.returnValue([]);
-		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, <any>{}, renderer);
+		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, renderer);
 	});
 
 	it('should have an instance', () => {
