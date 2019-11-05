@@ -123,7 +123,7 @@ export class TimePickerComponent implements ControlValueAccessor {
 
   setMinuteNow(minute:any):void {
     if (this.selectedTime == null || this.selectedTime === '') {
-      this.selectedTime = `00:${minute} am`
+      this.selectedTime = `12:${minute} pm`
     } else {
       const prevHour = parseInt(this.selectedTime.split(':')[0]);
 
