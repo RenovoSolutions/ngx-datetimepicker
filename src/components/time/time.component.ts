@@ -83,17 +83,17 @@ export class TimeComponent implements OnInit {
 		this.hoursOpen = false;
 	}
 
-	selectClockChange(clock: string): void {
+	selectClockChange(clock:string):void {
 		if (this.selectedClock !== clock) {
 			this.selectedClock = clock;
 
-			let hour = this.selectedHour;
-			// if (this.use24HourClock) {
-                hour = this.selectedClock == 'pm' ? this.selectedHour + 12 : this.selectedHour - 12;
-            // }
+			if (this.selectedClock === 'pm' && this.selectedHour <= 11) {
+                this.selectedHour = this.selectedHour + 12;
+            } else if (this.selectedClock === 'am' && this.selectedHour >= 12) {
+                this.selectedHour = this.selectedHour - 12;
+            }
 
-			this.selectedHour = hour;
-			this.selectedHourChange.emit(hour);
+			this.selectedHourChange.emit(this.selectedHour);
 		}
 	}
 
@@ -109,7 +109,7 @@ export class TimeComponent implements OnInit {
         this.selectedMinute = now.getMinutes();
         this.selectedMinuteChange.emit(this.selectedMinute);
 
-        this.selectedClock = this.selectedHour <= 11 ? 'am' : 'pm';
+        this.selectedClock = this.selectedHour >= 12 ? 'pm' : 'am';
 
         if (!this.doNotCloseOnDateSet) {
             this.closePicker();
