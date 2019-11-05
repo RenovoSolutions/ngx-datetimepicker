@@ -1,21 +1,53 @@
 <div class="time-picker">
-	<button type="button" class="ngx-picker--btn ngx-picker--btn__hour" (click)="toggleHourMenu()" [class.ngx-picker--btn__24h]="use24HourClock">{{ formatSelectedHour }}</button>
-	<button type="button" class="ngx-picker--btn ngx-picker--btn__minute" (click)="toggleMinuteMenu()" [class.ngx-picker--btn__24h]="use24HourClock">{{ formatSelectedMinute }}</button>
-	<div class="time--periods" *ngIf="!use24HourClock">
-		<button type="button" class="ngx-picker--btn ngx-picker--btn__am" (click)="selectClockChange('am')" [class.ngx-picker--btn__selected]="selectedHour < 12">AM</button>
-		<button type="button" class="ngx-picker--btn ngx-picker--btn__pm" (click)="selectClockChange('pm')" [class.ngx-picker--btn__selected]="selectedHour >= 12">PM</button>
+	<button type="button" class="ngx-picker--btn ngx-picker--btn__hour"
+            (click)="toggleHourMenu()"
+            [class.ngx-picker--btn__24h]="use24HourClock">
+        {{ formatSelectedHour }}
+    </button>
+
+	<button type="button" class="ngx-picker--btn ngx-picker--btn__minute"
+            (click)="toggleMinuteMenu()"
+            [class.ngx-picker--btn__24h]="use24HourClock">
+        {{ formatSelectedMinute }}
+    </button>
+
+	<div *ngIf="!use24HourClock"
+         class="time--periods">
+		<button type="button"
+                class="ngx-picker--btn ngx-picker--btn__am"
+                (click)="selectClockChange('am')"
+                [class.ngx-picker--btn__selected]="selectedHour < 12">
+            AM
+        </button>
+
+		<button type="button"
+                class="ngx-picker--btn ngx-picker--btn__pm"
+                (click)="selectClockChange('pm')"
+                [class.ngx-picker--btn__selected]="selectedHour >= 12">
+            PM
+        </button>
 	</div>
-	<div class="time--selection__hours" [hidden]="!hoursOpen">
+	<div class="time--selection__hours"
+         [hidden]="!hoursOpen">
 		<div class="time--values">
-			<div class="time--value" [class.time--value__selected]="selectedHour == hour" (click)="selectHourChange(hour)"
-				*ngFor="let hour of hours">{{ hour }}</div>
+			<div *ngFor="let hour of hours"
+                 class="time--value"
+                 [class.time--value__selected]="selectedHour == hour"
+                 (click)="selectHourChange(hour)">
+                {{ hour }}
+            </div>
 		</div>
 	</div>
 
-	<div class="time--selection__minutes" [hidden]="!minutesOpen">
+	<div class="time--selection__minutes"
+         [hidden]="!minutesOpen">
 		<div class="time--values">
-			<div class="time--value" [class.time--value__selected]="selectedMinute == minute" (click)="selectMinuteChange(minute)"
-				*ngFor="let minute of minutes">{{ minute }}</div>
+			<div *ngFor="let minute of minutes"
+                 class="time--value"
+                 [class.time--value__selected]="selectedMinute == minute"
+                 (click)="selectMinuteChange(minute)">
+                {{ minute }}
+            </div>
 		</div>
 	</div>
 </div>
