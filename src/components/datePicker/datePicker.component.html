@@ -1,4 +1,5 @@
-<div [ngSwitch]="isMobile" [class.invalid]="invalid">
+<div [ngSwitch]="isMobile"
+     [class.invalid]="invalid">
 	<div *ngSwitchCase="true">
 		<input type="date" #input [disabled]="disableInput || disablePicker" [placeholder]="placeholder" [value]="mobileFormattedDate" (change)="setDate($event.target.value)" [tabindex]="inputTabIndex" [min]="min" [max]="max" />
 	</div>

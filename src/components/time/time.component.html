@@ -16,14 +16,14 @@
 		<button type="button"
                 class="ngx-picker--btn ngx-picker--btn__am"
                 (click)="selectClockChange('am')"
-                [class.ngx-picker--btn__selected]="selectedHour < 12">
+                [class.ngx-picker--btn__selected]="selectedClock === 'am'">
             AM
         </button>
 
 		<button type="button"
                 class="ngx-picker--btn ngx-picker--btn__pm"
                 (click)="selectClockChange('pm')"
-                [class.ngx-picker--btn__selected]="selectedHour >= 12">
+                [class.ngx-picker--btn__selected]="selectedClock === 'pm'">
             PM
         </button>
 	</div>
