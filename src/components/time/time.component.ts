@@ -55,8 +55,10 @@ export class TimeComponent implements OnInit {
 		}
 	}
 
-	selectHourChange(hour: number): void {
-		hour = this.selectedClock == 'pm' ? parseInt(<any>hour) + 12 : hour ;
+	selectHourChange(selected: string): void {
+        let hour = parseInt(selected);
+		hour = this.selectedClock == 'pm' ? hour + 12 : hour;
+
 		this.selectedHourChange.emit(hour);
 		this.selectedHour = hour;
 		//if there isnt' a minute selected defautl to 0
@@ -68,7 +70,9 @@ export class TimeComponent implements OnInit {
 		this.hoursOpen = false;
 	}
 
-	selectMinuteChange(minute: number): void {
+	selectMinuteChange(selected: string): void {
+	    const minute = parseInt(selected);
+
 		this.selectedMinuteChange.emit(minute);
 		this.selectedMinute = minute;
 
