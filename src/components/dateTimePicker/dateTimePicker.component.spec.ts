@@ -12,7 +12,7 @@ describe('a input component', () => {
         mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
-		dateTimePickerComponent = new DateTimePickerComponent(<any>{}, mockDateService, <any>{});
+		dateTimePickerComponent = new DateTimePickerComponent(<any>{}, mockDateService);
 	});
 
 	it('should have an instance', () => {
