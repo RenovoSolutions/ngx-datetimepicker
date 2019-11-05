@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ElementRef, forwardRef} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ElementRef, forwardRef, HostListener} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../../services/isMobile.service';
 import { DateService } from '../../services/date.service';
@@ -34,6 +34,13 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 
     @Output() selectedDateTimeChange = new EventEmitter<Date>();
 
+    @HostListener('document:click', ['$event'])
+    offClick(event) {
+        if (!this.eRef.nativeElement.contains(event.target)) {
+            this.pickerVisible = false;
+        }
+    }
+
     get formattedDate() {
         if (this.use24HourClock) {
             return this.dateService.formatMMDDYYYY_HHMM(this.selectedDateTime);
@@ -47,7 +54,8 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 
     constructor(
         private isMobileService: IsMobileService,
-        private dateService: DateService
+        private dateService: DateService,
+        private eRef: ElementRef
     ) {
         this.isMobile = isMobileService.isMobile;
         this.placeholder = this.placeholder || '';

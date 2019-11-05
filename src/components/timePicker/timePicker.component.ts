@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, EventEmitter, Input, Output, forwardRef, ElementRef} from '@angular/core';
+import {Component, ViewEncapsulation, EventEmitter, Input, Output, forwardRef, ElementRef, HostListener} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {IsMobileService} from '../../services/isMobile.service';
 import {DateService} from '../../services/date.service';
@@ -27,6 +27,13 @@ export class TimePickerComponent implements ControlValueAccessor {
 	@Input() use24HourClock:boolean = false;
 
 	@Output() selectedTimeChange:EventEmitter<string>;
+
+    @HostListener('document:click', ['$event'])
+    offClick(event) {
+        if (!this.eRef.nativeElement.contains(event.target)) {
+            this.pickerVisible = false;
+        }
+    }
 
 	public pickerVisible:boolean = false;
 	public isMobile:boolean;
@@ -80,7 +87,8 @@ export class TimePickerComponent implements ControlValueAccessor {
 
 	constructor(
 	  private isMobileService:IsMobileService,
-      private dateService:DateService
+      private dateService:DateService,
+      private eRef:ElementRef
     ) {
 	  this.selectedTimeChange = new EventEmitter<string>();
 
