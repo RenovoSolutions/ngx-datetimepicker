@@ -22,6 +22,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     @Input() disableInput:boolean = false;
     @Input() disableButton:boolean = false;
     @Input() disablePicker: boolean = false;
+    @Input() doNotCloseOnDateSet: boolean = false;
     @Input() styles: StyleObject = new StyleObject();
 	@Input() use24HourClock:boolean = false;
 
@@ -117,7 +118,9 @@ export class TimePickerComponent implements ControlValueAccessor {
     this.selectedHour = now.getHours();
     this.selectedMinute = now.getMinutes();
 
-
+    if (!this.doNotCloseOnDateSet) {
+      this.setPickerVisible(false);
+    }
   }
 
   setHourNow(hour:any):void {

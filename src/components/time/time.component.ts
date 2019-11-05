@@ -12,6 +12,7 @@ export class TimeComponent implements OnInit {
 	@Input() selectedMinute: number;
 	@Output() selectedMinuteChange = new EventEmitter<number>();
 
+	@Input() doNotCloseOnDateSet: boolean = false;
 	@Input() use24HourClock: boolean = false;
 
 	public selectedClock: string;

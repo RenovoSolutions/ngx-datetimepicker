@@ -33,6 +33,7 @@
 				<ngx-time [selectedHour]="selectedHour"
                           [selectedMinute]="selectedMinute"
                           [use24HourClock]="use24HourClock"
+                          [doNotCloseOnDateSet]="doNotCloseOnDateSet"
                           (selectedHourChange)="setHourNow($event)"
                           (selectedMinuteChange)="setMinuteNow($event)">
                 </ngx-time>
