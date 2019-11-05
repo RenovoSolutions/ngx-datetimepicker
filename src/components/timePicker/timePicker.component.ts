@@ -79,8 +79,7 @@ export class TimePickerComponent implements ControlValueAccessor {
 
 	constructor(
 	  private isMobileService:IsMobileService,
-      private dateService:DateService,
-      private eRef:ElementRef
+      private dateService:DateService
     ) {
 	  this.selectedTimeChange = new EventEmitter<string>();
 
@@ -117,6 +116,8 @@ export class TimePickerComponent implements ControlValueAccessor {
     this.selectedTimeChange.emit(this.selectedTime);
     this.selectedHour = now.getHours();
     this.selectedMinute = now.getMinutes();
+
+
   }
 
   setHourNow(hour:any):void {

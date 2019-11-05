@@ -100,8 +100,6 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
     setPickerVisible(close: boolean): void {
         this.pickerVisible = close;
-
-        console.log('close=' + close);
     }
 
     focus():void {

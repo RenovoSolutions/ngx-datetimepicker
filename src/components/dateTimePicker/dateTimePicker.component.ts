@@ -47,8 +47,7 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 
     constructor(
         private isMobileService: IsMobileService,
-        private dateService: DateService,
-        private eRef: ElementRef
+        private dateService: DateService
     ) {
         this.isMobile = isMobileService.isMobile;
         this.placeholder = this.placeholder || '';
@@ -89,6 +88,5 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 
     setPickerVisible(close: boolean): void {
         this.pickerVisible = close;
-        console.log('close=' + close);
     }
 }
