@@ -22,7 +22,7 @@ describe('a input component', () => {
 	it('should hide the picker', () => {
 		let visibility = false;
 
-		dateTimePickerComponent.closePicker(visibility);
+		dateTimePickerComponent.setPickerVisible(visibility);
 
 		expect(dateTimePickerComponent.pickerVisible).toBe(false);
 	});

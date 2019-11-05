@@ -24,7 +24,7 @@ describe('a input component', () => {
 	it('should hide the picker', () => {
 		let visibility = false;
 
-		datePickerComponent.closePicker(visibility);
+		datePickerComponent.setPickerVisible(visibility);
 
 		expect(datePickerComponent.pickerVisible).toBe(false);
 	});

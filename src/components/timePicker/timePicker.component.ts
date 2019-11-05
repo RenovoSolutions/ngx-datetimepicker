@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, EventEmitter, Input, Output, forwardRef} from '@angular/core';
+import {Component, ViewEncapsulation, EventEmitter, Input, Output, forwardRef, ElementRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {IsMobileService} from '../../services/isMobile.service';
 import {DateService} from '../../services/date.service';
@@ -79,7 +79,8 @@ export class TimePickerComponent implements ControlValueAccessor {
 
 	constructor(
 	  private isMobileService:IsMobileService,
-      private dateService:DateService
+      private dateService:DateService,
+      private eRef:ElementRef
     ) {
 	  this.selectedTimeChange = new EventEmitter<string>();
 
@@ -140,7 +141,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     this.selectedTimeChange.emit(this.selectedTime);
   }
 
-  closePicker(close:boolean):void {
+  setPickerVisible(close:boolean):void {
     this.pickerVisible = close;
   }
 }

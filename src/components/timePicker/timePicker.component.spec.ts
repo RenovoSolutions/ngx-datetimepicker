@@ -48,10 +48,10 @@ describe('a timePicker component', () => {
 	});
 
 	it('should hide the picker when closed', () => {
-		timePickerComponent.closePicker();
+		timePickerComponent.setPickerVisible(false);
 
 		expect(timePickerComponent.pickerVisible).toBe(false);
-	})
+	});
 
 	it('should set the selected hour accordingly, upon user select', () => {
 		timePickerComponent.mobileFormattedTime = '04:15';

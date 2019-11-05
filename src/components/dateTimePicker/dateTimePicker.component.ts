@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ElementRef, forwardRef } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ElementRef, forwardRef} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IsMobileService } from '../../services/isMobile.service';
 import { DateService } from '../../services/date.service';
@@ -47,7 +47,8 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
 
     constructor(
         private isMobileService: IsMobileService,
-        private dateService: DateService
+        private dateService: DateService,
+        private eRef: ElementRef
     ) {
         this.isMobile = isMobileService.isMobile;
         this.placeholder = this.placeholder || '';
@@ -86,7 +87,8 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
         this.selectedDateTime = date;
     }
 
-    closePicker(close: boolean): void {
+    setPickerVisible(close: boolean): void {
         this.pickerVisible = close;
+        console.log('close=' + close);
     }
 }
