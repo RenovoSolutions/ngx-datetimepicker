@@ -11,6 +11,8 @@ export * from './components/datePicker/datePicker.component';
 export * from './components/dateTimePicker/dateTimePicker.component';
 export * from './components/timePicker/timePicker.component';
 
+export * from './services/date.service';
+
 import { DateService } from './services/date.service';
 import { IsMobileService } from './services/isMobile.service';
 import { Renderer } from './services/renderer.service';

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
+import {DateService} from 'ngx-datetime-picker';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,13 @@ export class AppComponent {
 
   title = 'ngx-datetime-picker';
 
+  constructor(
+    private dateService: DateService
+  ) { }
+
   setToNow(): void {
     this.dateExample = new Date();
-    this.timeExample = `${this.dateExample.getHours()}:${this.dateExample.getMinutes()} ${(this.dateExample.getHours() > 11 ? 'am' : 'pm')}`;
+    this.timeExample = this.dateService.formatHHMM_AMPM(this.dateExample.getHours(), this.dateExample.getMinutes());
     this.dateTimeExample = new Date();
   }
 }

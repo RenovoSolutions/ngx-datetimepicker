@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
-import { DateTimePickerModule } from 'ngx-datetime-picker';
+import {DateService, DateTimePickerModule} from 'ngx-datetime-picker';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,9 @@ import { DateTimePickerModule } from 'ngx-datetime-picker';
     FormsModule,
     DateTimePickerModule
   ],
-  providers: [],
+  providers: [
+    DateService
+  ],
   bootstrap: [
     AppComponent
   ]
