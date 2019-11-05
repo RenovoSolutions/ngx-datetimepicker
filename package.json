@@ -12,7 +12,7 @@
     "setup": "cd ngx-datetimepicker && npm install",
     "demo": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetime-picker && ng serve",
     "demo.build": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng build",
-    "demo.run": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng serve"
+    "demo.run": "npm run build && cd demo && npm install && cp -r ../dist/* node_modules/ngx-datetime-picker && ng serve"
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
