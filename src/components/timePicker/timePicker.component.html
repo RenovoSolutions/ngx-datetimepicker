@@ -16,8 +16,7 @@
                    [placeholder]="placeholder"
                    [value]="formattedTime"
                    (change)="setFormattedTime($event.target.value)"
-                   (focusin)="setPickerVisible(true)"
-			/>
+                   (focusin)="setPickerVisible(true)"/>
 
 			<button type="button"
                     [ngStyle]="styles.button"
@@ -34,23 +33,9 @@
                           [selectedMinute]="selectedMinute"
                           [use24HourClock]="use24HourClock"
                           [doNotCloseOnDateSet]="doNotCloseOnDateSet"
+                          (closeDatePicker)="setPickerVisible(!$event)"
                           (selectedHourChange)="setHourNow($event)"
-                          (selectedMinuteChange)="setMinuteNow($event)">
-                </ngx-time>
-
-				<div class="calendar--footer">
-					<button type="button"
-                            class="ngx-picker--btn ngx-picker--btn__now"
-                            (click)="setTimeToNow()">
-                        Now
-                    </button>
-
-					<button type="button"
-                            class="ngx-picker--btn ngx-picker--btn__close"
-                            (click)="setPickerVisible(false)">
-                        Close
-                    </button>
-				</div>
+                          (selectedMinuteChange)="setMinuteNow($event)"></ngx-time>
 			</div>
 		</div>
 	</div>

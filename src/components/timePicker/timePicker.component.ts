@@ -73,7 +73,7 @@ export class TimePickerComponent implements ControlValueAccessor {
 	  	this.selectedMinute = 0;
 	  }
 
-	  this.selectedTime = `${hour}:${minute} ${parseInt(hour) > 11 ? 'am' : 'pm'}`
+	  this.selectedTime = `${hour}:${minute} ${parseInt(hour) <= 11 ? 'am' : 'pm'}`
 	}
 	public selectedHour: number;
 	public selectedMinute: number;
@@ -110,26 +110,13 @@ export class TimePickerComponent implements ControlValueAccessor {
     this.selectedTimeChange.emit(formattedTime);
   }
 
-  setTimeToNow():void {
-    const now = new Date();
-
-    this.selectedTime = `${now.getHours()}:${now.getMinutes()} ${(now.getHours() > 11 ? 'am' : 'pm')}`;
-    this.selectedTimeChange.emit(this.selectedTime);
-    this.selectedHour = now.getHours();
-    this.selectedMinute = now.getMinutes();
-
-    if (!this.doNotCloseOnDateSet) {
-      this.setPickerVisible(false);
-    }
-  }
-
   setHourNow(hour:any):void {
     if (this.selectedTime == null || this.selectedTime === '') {
-      this.selectedTime = `${hour}:00 ${hour > 11 ? 'am' : 'pm'}`
+      this.selectedTime = `${hour}:00 ${hour <= 11 ? 'am' : 'pm'}`
     } else {
       const prevMinute = parseInt(this.selectedTime.split(':')[1]);
 
-      this.selectedTime = `${hour}:${prevMinute} ${hour > 11 ? 'am' : 'pm'}`
+      this.selectedTime = `${hour}:${prevMinute} ${hour <= 11 ? 'am' : 'pm'}`
     }
     this.selectedTimeChange.emit(this.selectedTime);
   }
@@ -140,7 +127,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     } else {
       const prevHour = parseInt(this.selectedTime.split(':')[0]);
 
-      this.selectedTime = `${prevHour}:${minute} ${prevHour > 11 ? 'am' : 'pm'}`
+      this.selectedTime = `${prevHour}:${minute} ${prevHour <= 11 ? 'am' : 'pm'}`
     }
     this.selectedTimeChange.emit(this.selectedTime);
   }

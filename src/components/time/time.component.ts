@@ -15,6 +15,8 @@ export class TimeComponent implements OnInit {
 	@Input() doNotCloseOnDateSet: boolean = false;
 	@Input() use24HourClock: boolean = false;
 
+    @Output() closeDatePicker = new EventEmitter<boolean>();
+
 	public selectedClock: string;
 
 	public hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
@@ -58,7 +60,7 @@ export class TimeComponent implements OnInit {
 
 	selectHourChange(selected: string): void {
         let hour = parseInt(selected);
-		hour = this.selectedClock == 'pm' ? hour + 12 : hour;
+		hour = this.selectedClock === 'pm' ? hour + 12 : hour;
 
 		this.selectedHourChange.emit(hour);
 		this.selectedHour = hour;
@@ -82,15 +84,37 @@ export class TimeComponent implements OnInit {
 	}
 
 	selectClockChange(clock: string): void {
-		if (this.selectedClock != clock) {
+		if (this.selectedClock !== clock) {
 			this.selectedClock = clock;
 
-			const hour = this.selectedClock == 'pm' ? this.selectedHour + 12 : this.selectedHour - 12;
+			let hour = this.selectedHour;
+			// if (this.use24HourClock) {
+                hour = this.selectedClock == 'pm' ? this.selectedHour + 12 : this.selectedHour - 12;
+            // }
 
 			this.selectedHour = hour;
 			this.selectedHourChange.emit(hour);
 		}
 	}
+
+    closePicker():void {
+        this.closeDatePicker.emit(true);
+    }
+
+    setTimeToNow():void {
+        const now = new Date();
+
+        this.selectedHour = now.getHours();
+        this.selectedHourChange.emit(this.selectedHour);
+        this.selectedMinute = now.getMinutes();
+        this.selectedMinuteChange.emit(this.selectedMinute);
+
+        this.selectedClock = this.selectedHour <= 11 ? 'am' : 'pm';
+
+        if (!this.doNotCloseOnDateSet) {
+            this.closePicker();
+        }
+    }
 
     public toggleHourMenu(): void {
         this.minutesOpen = false;
