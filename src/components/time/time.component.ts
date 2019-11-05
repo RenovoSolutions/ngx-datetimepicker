@@ -25,8 +25,8 @@ export class TimeComponent implements OnInit {
 	public minutesOpen: boolean;
 	public hoursOpen: boolean;
 
-	get formatSelectedMinute(): string {
-		return <string>(this.selectedMinute <= 9 ? '0' + this.selectedMinute : this.selectedMinute)
+	get formatSelectedMinute():string {
+		return this.selectedMinute <= 9 ? '0' + this.selectedMinute : '' + this.selectedMinute;
 	}
 
 	get formatSelectedHour():string {
@@ -58,9 +58,11 @@ export class TimeComponent implements OnInit {
 		}
 	}
 
-	selectHourChange(selected: string): void {
+	selectHourChange(selected:string):void {
         let hour = parseInt(selected);
-		hour = this.selectedClock === 'pm' ? hour + 12 : hour;
+        if (!this.use24HourClock) {
+            hour = this.selectedClock === 'pm' ? hour + 12 : hour;
+        }
 
 		this.selectedHourChange.emit(hour);
 		this.selectedHour = hour;
@@ -73,7 +75,7 @@ export class TimeComponent implements OnInit {
 		this.hoursOpen = false;
 	}
 
-	selectMinuteChange(selected: string): void {
+	selectMinuteChange(selected:string):void {
 	    const minute = parseInt(selected);
 
 		this.selectedMinuteChange.emit(minute);
