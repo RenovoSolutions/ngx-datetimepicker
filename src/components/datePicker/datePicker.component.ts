@@ -1,9 +1,21 @@
-import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef, ViewChild} from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input,
+    Output,
+    EventEmitter,
+    ViewEncapsulation,
+    ElementRef,
+    forwardRef,
+    ViewChild,
+    HostListener
+} from '@angular/core';
+
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {IsMobileService} from '../services/isMobile.service';
-import {DateService} from '../services/date.service';
-import {StyleObject} from '../models/styleObject.model';
-import {Renderer} from '../services/renderer.service';
+import {IsMobileService} from '../../services/isMobile.service';
+import {DateService} from '../../services/date.service';
+import {StyleObject} from '../../models/styleObject.model';
+import {Renderer} from '../../services/renderer.service';
 
 @Component({
 	selector: 'ngx-date-picker',
@@ -15,9 +27,8 @@ import {Renderer} from '../services/renderer.service';
 			useExisting: forwardRef(() => DatePickerComponent),
 			multi: true,
 		},
-	],
+	]
 })
-
 export class DatePickerComponent implements OnInit, ControlValueAccessor {
     @Input() selectedDate: Date;
     @Input() min: string;
@@ -32,12 +43,12 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
     @Output() selectedDateChange = new EventEmitter<Date>();
 
-    @ViewChild('input') input: ElementRef;
+    @ViewChild('input') input:ElementRef;
 
     @HostListener('document:click', ['$event'])
     offClick(event) {
         if (!this.eRef.nativeElement.contains(event.target)) {
-          this.pickerVisible = false;
+            this.pickerVisible = false;
         }
     }
 
@@ -55,7 +66,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
     constructor(
         private isMobileService: IsMobileService,
-        public dateService: DateService,
+        private dateService: DateService,
         private eRef: ElementRef,
         private renderer: Renderer
     ) {
@@ -97,7 +108,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
         this.selectedDate = date;
     }
 
-    closePicker(close: boolean): void {
+    setPickerVisible(close: boolean): void {
         this.pickerVisible = close;
     }
 

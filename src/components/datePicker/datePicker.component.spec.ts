@@ -15,7 +15,7 @@ describe('a input component', () => {
         renderer = jasmine.createSpyObj('renderer', ['invokeElementMethod']);
 
 		mockDateService.getDateList.and.returnValue([]);
-		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, <any>{}, renderer);
+		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, renderer);
 	});
 
 	it('should have an instance', () => {
@@ -24,7 +24,7 @@ describe('a input component', () => {
 	it('should hide the picker', () => {
 		let visibility = false;
 
-		datePickerComponent.closePicker(visibility);
+		datePickerComponent.setPickerVisible(visibility);
 
 		expect(datePickerComponent.pickerVisible).toBe(false);
 	});

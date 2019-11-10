@@ -6,31 +6,29 @@
     "url": "https://github.com/RenovoSolutions/ngx-datetimepicker"
   },
   "scripts": {
-    "build": "ng-packagr -p package.json",
-    "start": "npm run serve",
-    "serve": "ng serve",
+    "build": "ng-packagr -p package.json && sass src/scss/date.component.scss dist/ngx-datetime-picker.css",
     "test": "npm test",
     "test.once": "npm test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
-    "dist": "./node_modules/.bin/ngc --p tsconfig.json && gulp copy-html-css-and-inline",
-    "demo": "npm run dist && cd dist && npm pack && cd .. && cd demo && npm install && npm remove ngx-datetimepicker && npm install ../dist/ngx-datetime-picker-2.1.0.tgz && ng serve",
-    "demo.build": "npm run dist && cd demo && npm remove ngx-datetimepicker && npm install ../ && ng build"
+    "demo": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetime-picker && ng serve",
+    "demo.build": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng build",
+    "demo.run": "npm run build && cd demo && npm install && cp -r ../dist/* node_modules/ngx-datetime-picker && ng serve"
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
+    "@angular/cli": "6.x",
     "@angular/common": "6.x",
     "@angular/compiler": "6.x",
     "@angular/compiler-cli": "6.x",
     "@angular/core": "6.x",
-    "@angular/cli": "6.x",
     "@angular/forms": "6.x",
     "@angular/http": "6.x",
     "@angular/platform-browser": "6.x",
     "@angular/platform-browser-dynamic": "6.x",
-    "ng-packagr": "^5.7.0",
+    "ng-packagr": "^5.7.1",
     "rxjs": "6.5.3",
     "typescript": "2.9.2",
     "zone.js": "~0.8.26"
@@ -42,10 +40,10 @@
   },
   "ngPackage": {
     "lib": {
-      "cssUrl": "inline",
-      "entryFile": "src/main.ts",
+      "cssUrl": "none",
+      "entryFile": "src/index.ts",
       "styleIncludePaths": [
-        "./sass"
+        "./src/scss"
       ]
     }
   }

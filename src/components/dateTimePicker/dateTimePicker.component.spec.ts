@@ -12,7 +12,7 @@ describe('a input component', () => {
         mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
-		dateTimePickerComponent = new DateTimePickerComponent(<any>{}, mockDateService, <any>{});
+		dateTimePickerComponent = new DateTimePickerComponent(<any>{}, mockDateService);
 	});
 
 	it('should have an instance', () => {
@@ -22,7 +22,7 @@ describe('a input component', () => {
 	it('should hide the picker', () => {
 		let visibility = false;
 
-		dateTimePickerComponent.closePicker(visibility);
+		dateTimePickerComponent.setPickerVisible(visibility);
 
 		expect(dateTimePickerComponent.pickerVisible).toBe(false);
 	});

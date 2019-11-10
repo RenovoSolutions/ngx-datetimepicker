@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, HostListener, ElementRef, forwardRef } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, ElementRef, forwardRef, HostListener} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IsMobileService } from '../services/isMobile.service';
-import { DateService } from '../services/date.service';
-import { StyleObject } from '../models/styleObject.model';
+import { IsMobileService } from '../../services/isMobile.service';
+import { DateService } from '../../services/date.service';
+import { StyleObject } from '../../models/styleObject.model';
 
 @Component({
     selector:    'ngx-datetime-picker',
@@ -52,7 +52,11 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
         return this.dateService.formatMobileYYYYMMDDTHHMM(this.selectedDateTime);
     }
 
-    constructor(private isMobileService: IsMobileService, public dateService: DateService, private eRef: ElementRef) {
+    constructor(
+        private isMobileService: IsMobileService,
+        private dateService: DateService,
+        private eRef: ElementRef
+    ) {
         this.isMobile = isMobileService.isMobile;
         this.placeholder = this.placeholder || '';
 
@@ -90,7 +94,7 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
         this.selectedDateTime = date;
     }
 
-    closePicker(close: boolean): void {
+    setPickerVisible(close: boolean): void {
         this.pickerVisible = close;
     }
 }

@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
+import {DateService} from 'ngx-datetime-picker';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	public dateTimeExample = null
-	public dateExample = null
-	public timeExample = null
+  public dateTimeExample = null;
+  public dateExample = null;
+  public timeExample = null;
 
-	title = 'ngx-datetime-picker';
+  title = 'ngx-datetime-picker';
 
-	setToNow(): void{
-		this.dateExample = new Date();
-		this.timeExample = `${this.dateExample.getHours()}:${this.dateExample.getMinutes()} ${(this.dateExample.getHours() > 11 ? 'am' : 'pm')}`;
-		this.dateTimeExample = new Date();
-	}
+  constructor(
+    private dateService: DateService
+  ) { }
+
+  setToNow(): void {
+    this.dateExample = new Date();
+    this.timeExample = this.dateService.formatHHMM_AMPM(this.dateExample.getHours(), this.dateExample.getMinutes());
+    this.dateTimeExample = new Date();
+  }
 }
