@@ -15,6 +15,7 @@
     "demo.run": "npm run build && cd demo && npm install && cp -r ../dist/* node_modules/ngx-datetime-picker && ng serve"
   },
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
+  "github": "https://github.com/RenovoSolutions/ngx-datetimepicker",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
