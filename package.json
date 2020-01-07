@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.8.0",
+    "@angular-devkit/build-angular": "^0.803.21",
     "@angular/cli": "6.x",
     "@angular/common": "6.x",
     "@angular/compiler": "6.x",
