@@ -10,7 +10,7 @@
                    [ngStyle]="styles.input"
                    [disabled]="disableInput || disablePicker"
                    [placeholder]="placeholder"
-                   (focusin)="setPickerVisible(true)"
+                   (click)="setPickerVisible(true)"
                    [value]="formattedDate"
                    (change)="setDate($event.target.value)"
                    [tabindex]="inputTabIndex"
