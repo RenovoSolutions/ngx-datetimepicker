@@ -62,6 +62,8 @@ export class TimeComponent implements OnInit {
         let hour = parseInt(selected);
         if (this.use24HourClock) {
             hour = this.selectedClock === 'pm' ? hour + 12 : hour;
+        } else if (hour > 12) {
+            hour -= 12;
         }
 
 		this.selectedHourChange.emit(hour);
