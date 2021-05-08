@@ -28,7 +28,7 @@
     "@angular/http": "6.x",
     "@angular/platform-browser": "6.x",
     "@angular/platform-browser-dynamic": "6.x",
-    "ng-packagr": "^5.7.1",
+    "ng-packagr": "^10.1.1",
     "rxjs": "6.5.3",
     "typescript": "2.9.2",
     "zone.js": "~0.8.26"
