@@ -4,7 +4,7 @@
                style="{{ styles }}"
                [disabled]="disableInput || disablePicker" [placeholder]="placeholder"
                [value]="mobileFormattedDate"
-               (change)="setDateTime($event.target.value)"
+               (change)="setDateTime($any($event.target).value)"
 		/>
 	</div>
 	<div *ngSwitchDefault>
@@ -15,7 +15,7 @@
                    [placeholder]="placeholder"
                    (focusin)="setPickerVisible(true)"
                    [value]="formattedDate"
-                   (change)="setDateTime($event.target.value)"
+                   (change)="setDateTime($any($event.target).value)"
 			/>
 
 			<button type="button"
@@ -29,7 +29,7 @@
 
 			<ngx-date [hidden]="!pickerVisible"
                       [ngStyle]="styles.date"
-                      includeTime="true"
+                      [includeTime]="true"
                       [doNotCloseOnDateSet]="doNotCloseOnDateSet"
                       (closeDatePicker)="setPickerVisible($event)"
                       (selectedDateChange)="newDatePicked($event)"

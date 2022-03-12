@@ -61,3 +61,5 @@ bash.exe.stackdump
 package-lock.json
 
 !/dist/package.json
+/.vs
+/demo/.angular/cache/13.2.6

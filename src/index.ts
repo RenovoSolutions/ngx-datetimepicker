@@ -40,7 +40,7 @@ import { Renderer } from './services/renderer.service';
     ],
 })
 export class DateTimePickerModule {
-    static forRoot():ModuleWithProviders {
+    static forRoot():ModuleWithProviders<DateTimePickerModule> {
         return {
             ngModule: DateTimePickerModule,
             providers: []

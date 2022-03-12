@@ -4,7 +4,7 @@
                [disabled]="disableInput || disablePicker"
                [placeholder]="placeholder"
                [value]="mobileFormattedTime"
-               (change)="setMobileFormattedTime($event.target.value)"
+               (change)="setMobileFormattedTime($any($event.target).value)"
 		/>
 	</div>
 
@@ -15,7 +15,7 @@
                    [disabled]="disableInput || disablePicker"
                    [placeholder]="placeholder"
                    [value]="formattedTime"
-                   (change)="setFormattedTime($event.target.value)"
+                   (change)="setFormattedTime($any($event.target).value)"
                    (focusin)="setPickerVisible(true)"/>
 
 			<button type="button"

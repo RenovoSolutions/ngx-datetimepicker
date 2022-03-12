@@ -60,7 +60,7 @@ _If_ you are using angular-cli the css can be added to your angular-cli.json
 ### Work flow
 
 - Clone repository to your machine.
-- Run `npm run setup` to prepare the project
+- Run `npm install --force` in both root and demo directories.
 - Live edit mode with `npm run serve`.
 - Run tests with watcher with `npm run test`.
 - Run tests without a watcher with `npm run test.once`.

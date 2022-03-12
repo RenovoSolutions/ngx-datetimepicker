@@ -32,7 +32,7 @@
 		<div class="time--values">
 			<div *ngFor="let hour of hours"
                  class="time--value"
-                 [class.time--value__selected]="selectedHour == hour"
+                 [class.time--value__selected]="selectedHour.toString() == hour"
                  (click)="selectHourChange(hour)">
                 {{ hour }}
             </div>
@@ -44,7 +44,7 @@
 		<div class="time--values">
 			<div *ngFor="let minute of minutes"
                  class="time--value"
-                 [class.time--value__selected]="selectedMinute == minute"
+                 [class.time--value__selected]="selectedMinute.toString() == minute"
                  (click)="selectMinuteChange(minute)">
                 {{ minute }}
             </div>
