@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./src/app/",
+    "importHelpers": true,
     "outDir": "./dist",
     "sourceMap": false,
     "declaration": true,

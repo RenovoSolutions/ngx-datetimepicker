@@ -15,7 +15,7 @@ export * from './services/date.service';
 
 import { DateService } from './services/date.service';
 import { IsMobileService } from './services/isMobile.service';
-import { Renderer } from './services/renderer.service';
+import { Renderer2 } from './services/renderer.service';
 
 @NgModule({
     declarations: [
@@ -36,7 +36,7 @@ import { Renderer } from './services/renderer.service';
     providers: [
         DateService,
         IsMobileService,
-        Renderer
+        Renderer2
     ],
 })
 export class DateTimePickerModule {

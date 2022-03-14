@@ -61,3 +61,6 @@ bash.exe.stackdump
 package-lock.json
 
 !/dist/package.json
+/.vs/ngx-datetimepicker/v17
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
