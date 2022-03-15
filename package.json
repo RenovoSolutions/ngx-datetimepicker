@@ -29,9 +29,9 @@
     "@angular/platform-browser-dynamic": "7.2.16",
     "ng-packagr": "^5.7.1",
     "rxjs": "6.6.7",
+    "rxjs-tslint": "^0.1.8",
     "typescript": "3.2.4",
-    "zone.js": "~0.8.26",
-    "rxjs-tslint": "^0.1.8"
+    "zone.js": "~0.8.26"
   },
   "peerDependencies": {},
   "ngPackage": {

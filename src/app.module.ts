@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {DateService} from './services/date.service';
 
-import {Renderer2} from './services/renderer.service';
+import {Renderer} from './services/renderer.service';
 
 @NgModule({
 	imports: [
@@ -15,7 +15,7 @@ import {Renderer2} from './services/renderer.service';
 	],
 	providers: [
 		DateService,
-        Renderer2
+        Renderer
 	]
 })
 export class DateTimePickerModule {}

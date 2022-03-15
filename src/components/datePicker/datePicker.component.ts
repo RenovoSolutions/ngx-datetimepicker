@@ -15,7 +15,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {IsMobileService} from '../../services/isMobile.service';
 import {DateService} from '../../services/date.service';
 import {StyleObject} from '../../models/styleObject.model';
-import {Renderer2} from '../../services/renderer.service';
+import {Renderer} from '../../services/renderer.service';
 
 @Component({
 	selector: 'ngx-date-picker',
@@ -68,7 +68,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
         private isMobileService: IsMobileService,
         private dateService: DateService,
         private eRef: ElementRef,
-        private renderer: Renderer2
+        private renderer: Renderer
     ) {
         this.isMobile = isMobileService.isMobile;
         this.placeholder = this.placeholder || '';
