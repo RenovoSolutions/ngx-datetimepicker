@@ -19,8 +19,8 @@ export class DateComponent implements OnInit {
 	@Output() selectedDateChange = new EventEmitter<Date>();
 	@Output() closeDatePicker = new EventEmitter<boolean>();
 
-	@ViewChild('yearSelect') yearSelect: ElementRef;
-	@ViewChild('monthSelect') monthSelect: ElementRef;
+	@ViewChild('yearSelect', {static: false}) yearSelect: ElementRef;
+	@ViewChild('monthSelect', {static: false}) monthSelect: ElementRef;
 
 	public availableDays: dayOfTheMonth[];
 	public months: string[];
