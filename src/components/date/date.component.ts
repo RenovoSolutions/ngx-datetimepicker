@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
-
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { DateService } from '../../services/date.service';
 import { dayOfTheMonth } from '../../models/dayOfTheMonth.interface';
 
@@ -8,7 +7,7 @@ import { dayOfTheMonth } from '../../models/dayOfTheMonth.interface';
 	templateUrl: './date.component.html',
 	encapsulation: ViewEncapsulation.None,
 })
-export class DateComponent implements OnInit {
+export class DateComponent implements OnInit, AfterViewInit {
 	@Input() selectedDate: Date;
 	@Input() includeTime: boolean;
 	@Input() doNotCloseOnDateSet: boolean = false;
@@ -19,8 +18,8 @@ export class DateComponent implements OnInit {
 	@Output() selectedDateChange = new EventEmitter<Date>();
 	@Output() closeDatePicker = new EventEmitter<boolean>();
 
-	@ViewChild('yearSelect') yearSelect: ElementRef;
-	@ViewChild('monthSelect') monthSelect: ElementRef;
+	@ViewChild('yearSelect', {static: false}) yearSelect: ElementRef;
+	@ViewChild('monthSelect', {static: false}) monthSelect: ElementRef;
 
 	public availableDays: dayOfTheMonth[];
 	public months: string[];
@@ -168,15 +167,6 @@ export class DateComponent implements OnInit {
 		this.months = this.dateService.getMonths();
 		this.years = this.dateService.getAvailableYears();
 
-		// subscribing to it's own event emitter to set the selected year position
-		this.selectedDateChange.subscribe(
-            () => {
-                this.scrollToMonth();
-                this.scrollToYear();
-            }
-        );
-
-
 		//If no date is selected then default to today's date.
 		if (!this.selectedDate) {
 			if (this.min && new Date(this.min) > new Date()) {
@@ -200,7 +190,16 @@ export class DateComponent implements OnInit {
 		}
 		this.highlightedDate = this.selectedDate;
 		this.availableDays = [...this.dateService.getDateList(this.selectedMonth, this.selectedYear)];
-
+	}
+	
+	ngAfterViewInit() {
+		// subscribing to it's own event emitter to set the selected year position
+		this.selectedDateChange.subscribe(
+            () => {
+                this.scrollToMonth();
+                this.scrollToYear();
+            }
+        );
 	}
 
 	public canSelectYear(year: number): boolean {

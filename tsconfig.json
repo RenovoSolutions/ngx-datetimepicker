@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./src/app/",
+    "downlevelIteration": true,
     "importHelpers": true,
     "outDir": "./dist",
     "sourceMap": false,
@@ -8,7 +9,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -21,7 +22,7 @@
         "./ngx-datetimepicker/node_modules/@angular/*"
       ]
     },
-    "module": "es2015"
+    "module": "esnext"
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true

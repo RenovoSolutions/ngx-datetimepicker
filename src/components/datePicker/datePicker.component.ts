@@ -43,7 +43,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
     @Output() selectedDateChange = new EventEmitter<Date>();
 
-    @ViewChild('input') input:ElementRef;
+    @ViewChild('input', {static: false}) input:ElementRef;
 
     @HostListener('document:click', ['$event'])
     offClick(event) {
