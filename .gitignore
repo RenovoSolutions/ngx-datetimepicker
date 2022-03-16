@@ -65,3 +65,4 @@ package-lock.json
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
 /.vs/ngx-datetimepicker/config
+/.vs/slnx.sqlite-journal

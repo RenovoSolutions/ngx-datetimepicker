@@ -18,22 +18,36 @@
   "license": "ISC",
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "7.3.10",
-    "@angular/common": "7.2.16",
-    "@angular/compiler": "7.2.16",
-    "@angular/compiler-cli": "7.2.16",
-    "@angular/core": "7.2.16",
-    "@angular/forms": "7.2.16",
-    "@angular/http": "7.2.16",
-    "@angular/platform-browser": "7.2.16",
-    "@angular/platform-browser-dynamic": "7.2.16",
-    "ng-packagr": "^5.7.1",
-    "rxjs": "6.6.7",
-    "rxjs-tslint": "^0.1.8",
-    "typescript": "3.2.4",
-    "zone.js": "~0.8.26"
+    "@angular/cli": "7.x",
+    "@angular/common": "7.x",
+    "@angular/compiler": "7.x",
+    "@angular/compiler-cli": "7.x",
+    "@angular/core": "7.x",
+    "@angular/forms": "7.x",
+    "@angular/platform-browser": "7.x",
+    "@angular/platform-browser-dynamic": "7.x",
+    "ng-packagr": "5.x",
+    "rxjs": "6.x",
+    "rxjs-tslint": "0.1.x",
+    "typescript": "3.x",
+    "zone.js": "0.8.x"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "7.x",
+    "@angular/common": "7.x",
+    "@angular/compiler": "7.x",
+    "@angular/compiler-cli": "7.x",
+    "@angular/core": "7.x",
+    "@angular/forms": "7.x",
+    "@angular/platform-browser": "7.x",
+    "@angular/platform-browser-dynamic": "7.x",
+    "ng-packagr": "5.x",
+    "rxjs": "6.x",
+    "rxjs-tslint": "0.1.x",
+    "typescript": "3.x",
+    "zone.js": "0.8.x"
+  },
   "ngPackage": {
     "lib": {
       "cssUrl": "none",
@@ -42,8 +56,5 @@
         "./src/scss"
       ]
     }
-  },
-  "dependencies": {
-    "tslib": "^1.9.0"
   }
 }
