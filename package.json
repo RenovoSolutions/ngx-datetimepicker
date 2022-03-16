@@ -33,20 +33,9 @@
     "zone.js": "0.9.x"
   },
   "peerDependencies": {
-    "@angular-devkit/build-angular": "~0.803.29",
-    "@angular/cli": "8.x",
     "@angular/common": "8.x",
-    "@angular/compiler": "8.x",
-    "@angular/compiler-cli": "8.x",
     "@angular/core": "8.x",
-    "@angular/forms": "8.x",
-    "@angular/platform-browser": "8.x",
-    "@angular/platform-browser-dynamic": "8.x",
-    "ng-packagr": "5.x",
-    "rxjs": "7.x",
-    "rxjs-tslint": "0.1.x",
-    "typescript": "3.x",
-    "zone.js": "0.9.x"
+    "@angular/forms": "8.x"
   },
   "ngPackage": {
     "lib": {
