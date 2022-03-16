@@ -45,8 +45,5 @@
         "./src/scss"
       ]
     }
-  },
-  "dependencies": {
-    "tslib": "^1.9.0"
   }
 }
