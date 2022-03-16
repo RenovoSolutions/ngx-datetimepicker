@@ -28,7 +28,6 @@
     "@angular/platform-browser-dynamic": "8.x",
     "ng-packagr": "5.x",
     "rxjs": "7.x",
-    "rxjs-tslint": "0.1.x",
     "typescript": "3.x",
     "zone.js": "0.9.x"
   },
