@@ -33,7 +33,11 @@
     "typescript": "4.0.8",
     "zone.js": "0.10.3"
   },
-  "peerDependencies": {},
+    "peerDependencies": {
+        "@angular/common": "10.2.5",
+        "@angular/core": "10.2.5",
+        "@angular/forms": "10.2.5"
+    },
   "ngPackage": {
     "lib": {
       "cssUrl": "none",
