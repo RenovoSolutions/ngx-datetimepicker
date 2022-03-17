@@ -31,7 +31,12 @@
     "typescript": "3.8.3",
     "zone.js": "0.10.3"
   },
-  "peerDependencies": {},
+    "peerDependencies": {
+        "tslib": "^1.10.0",
+        "@angular/common": "9.x",
+        "@angular/core": "9.x",
+        "@angular/forms": "9.x"
+    },
   "ngPackage": {
     "lib": {
       "cssUrl": "none",
@@ -40,8 +45,5 @@
         "./src/scss"
       ]
     }
-  },
-  "dependencies": {
-    "tslib": "^1.10.0"
   }
 }
