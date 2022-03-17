@@ -26,7 +26,7 @@
     "@angular/forms": "9.1.13",
     "@angular/platform-browser": "9.1.13",
     "@angular/platform-browser-dynamic": "9.1.13",
-    "ng-packagr": "^9.1.5",
+    "ng-packagr": "^10.1.1",
     "rxjs": "6.x",
     "typescript": "3.8.3",
     "zone.js": "0.10.3"
