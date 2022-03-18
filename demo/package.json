@@ -12,24 +12,24 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "11.x",
-    "@angular/compiler": "11.x",
-    "@angular/core": "11.x",
-    "@angular/forms": "11.x",
-    "@angular/platform-browser": "11.x",
-    "@angular/platform-browser-dynamic": "11.x",
-    "@angular/router": "11.x",
+    "@angular/common": "12.x",
+    "@angular/compiler": "12.x",
+    "@angular/core": "12.x",
+    "@angular/forms": "12.x",
+    "@angular/platform-browser": "12.x",
+    "@angular/platform-browser-dynamic": "12.x",
+    "@angular/router": "12.x",
     "core-js": "3.x",
     "ngx-datetime-picker": "2.x",
     "rxjs": "6.x",
     "rxjs-compat": "6.x",
     "tslib": "2.x",
-    "zone.js": "0.10.x"
+    "zone.js": "0.11.x"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.18",
-    "@angular/cli": "11.x",
-    "@angular/compiler-cli": "11.x",
+    "@angular-devkit/build-angular": "12.x",
+    "@angular/cli": "12.x",
+    "@angular/compiler-cli": "12.x",
     "@types/jasmine": "3.x",
     "@types/node": "12.x",
     "jasmine-core": "3.x",
@@ -42,6 +42,6 @@
     "protractor": "7.x",
     "ts-node": "8.x",
     "tslint": "6.x",
-    "typescript": "4.x"
+    "typescript": "4.3.x"
   }
 }
