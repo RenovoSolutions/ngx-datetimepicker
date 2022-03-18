@@ -17,27 +17,27 @@
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1002.4",
-    "@angular/cli": "10.2.4",
-    "@angular/common": "10.2.5",
-    "@angular/compiler": "10.2.5",
-    "@angular/compiler-cli": "10.2.5",
-    "@angular/core": "10.2.5",
-    "@angular/forms": "10.2.5",
-    "@angular/localize": "^10.2.5",
-    "@angular/platform-browser": "10.2.5",
-    "@angular/platform-browser-dynamic": "10.2.5",
-    "ng-packagr": "^10.1.2",
+    "@angular-devkit/build-angular": "~0.1102.18",
+    "@angular/cli": "11.x",
+    "@angular/common": "11.x",
+    "@angular/compiler": "11.x",
+    "@angular/compiler-cli": "11.x",
+    "@angular/core": "11.x",
+    "@angular/forms": "11.x",
+    "@angular/localize": "11.x",
+    "@angular/platform-browser": "11.x",
+    "@angular/platform-browser-dynamic": "11.x",
+    "ng-packagr": "11.x",
     "rxjs": "6.x",
-    "sass": "^1.49.9",
-    "typescript": "4.0.8",
-    "zone.js": "0.10.3"
+    "sass": "^1.x",
+    "typescript": "4.x",
+    "zone.js": "0.10.x"
   },
-    "peerDependencies": {
-        "@angular/common": "10.2.5",
-        "@angular/core": "10.2.5",
-        "@angular/forms": "10.2.5"
-    },
+  "peerDependencies": {
+    "@angular/common": "11.x",
+    "@angular/core": "11.x",
+    "@angular/forms": "11.x"
+  },
   "ngPackage": {
     "lib": {
       "cssUrl": "none",
@@ -48,6 +48,6 @@
     }
   },
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "2.x"
   }
 }
