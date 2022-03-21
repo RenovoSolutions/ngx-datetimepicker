@@ -28,10 +28,9 @@
     "skipTemplateCodegen": true
   },
   "include": [
-    "./src/app/"
+    "./src/"
   ],
   "exclude": [
-    "**/**.spec.ts",
     "**/app.module.ts",
     "**/app.component.ts"
   ]

@@ -80,6 +80,7 @@
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
+			"tsConfig": "src/tsconfig.json",
             "scripts": [],
             "styles": [
               "node_modules/ngx-datetime-picker/ngx-datetime-picker.css",

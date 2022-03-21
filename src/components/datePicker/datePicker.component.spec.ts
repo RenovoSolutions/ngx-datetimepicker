@@ -1,9 +1,9 @@
 import { DatePickerComponent } from './datePicker.component';
-import { beforeEach, describe, expect, it } from '@angular/core/testing/src/testing_internal';
 
-describe('a input component', () => {
+describe('an input component', () => {
 	let datePickerComponent: DatePickerComponent;
 	let mockDateService: any;
+	let eRef: any;
 	let renderer: any;
 
 
@@ -15,7 +15,7 @@ describe('a input component', () => {
         renderer = jasmine.createSpyObj('renderer', ['invokeElementMethod']);
 
 		mockDateService.getDateList.and.returnValue([]);
-		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, renderer);
+		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, eRef, renderer);
 	});
 
 	it('should have an instance', () => {
@@ -36,7 +36,7 @@ describe('a input component', () => {
 		datePickerComponent.focus();
 
 		expect(renderer.invokeElementMethod).toHaveBeenCalledTimes(1);
-		expect(renderer.invokeElementMethod).toHaveBeenCalledWith(nativeInput, 'focus', []);
+		expect(renderer.invokeElementMethod).toHaveBeenCalledWith(nativeInput, 'focus');
 	});
 
 });

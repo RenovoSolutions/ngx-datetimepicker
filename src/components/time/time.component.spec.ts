@@ -1,5 +1,4 @@
 import { TimeComponent } from './time.component';
-import { beforeEach, describe, expect, it } from '@angular/core/testing/src/testing_internal';
 
 describe('a time component', () => {
 	let timeComponent: TimeComponent;

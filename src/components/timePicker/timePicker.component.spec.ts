@@ -1,16 +1,17 @@
 import { TimePickerComponent } from './timePicker.component';
-import { beforeEach, describe, expect, it } from '@angular/core/testing/src/testing_internal';
 
 describe('a timePicker component', () => {
 	let timePickerComponent: TimePickerComponent;
 	let mockDateService: any;
+	let eRef: any;
+	
 	// register all needed dependencies
 	beforeEach(() => {
 		// @ts-ignore
         mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
-		timePickerComponent = new TimePickerComponent(<any>{}, mockDateService);
+		timePickerComponent = new TimePickerComponent(<any>{}, mockDateService, eRef);
 	});
 
 	it('should have an instance', () => {
@@ -41,7 +42,9 @@ describe('a timePicker component', () => {
 	it('should set the selected hour and minute to now', () => {
 		const now = new Date();
 
-		timePickerComponent.setTimeToNow();
+		timePickerComponent.setHourNow(now.getHours());
+		timePickerComponent.setMinuteNow(now.getMinutes());
+		timePickerComponent.mobileFormattedTime;
 
 		expect(timePickerComponent.selectedHour).toBe(now.getHours());
 		expect(timePickerComponent.selectedMinute).toBe(now.getMinutes());
@@ -59,10 +62,9 @@ describe('a timePicker component', () => {
 		timePickerComponent.setHourNow(6);
 		timePickerComponent.mobileFormattedTime;
 
-
 		expect(timePickerComponent.selectedHour).toBe(6);
 		expect(timePickerComponent.selectedMinute).toBe(15);
-		expect(timePickerComponent.selectedTime).toBe('6:15 pm');
+		expect(timePickerComponent.selectedTime).toBe('6:15 am');
 	});
 
 	it('should set the selected minute accordingly, upon user select', () => {
@@ -74,6 +76,6 @@ describe('a timePicker component', () => {
 
 		expect(timePickerComponent.selectedHour).toBe(4);
 		expect(timePickerComponent.selectedMinute).toBe(30);
-		expect(timePickerComponent.selectedTime).toBe('4:30 pm');
+		expect(timePickerComponent.selectedTime).toBe('4:30 am');
 	});
 });
