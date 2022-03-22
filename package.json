@@ -8,7 +8,7 @@
   "scripts": {
     "build": "ng-packagr -p package.json && sass src/scss/date.component.scss dist/ngx-datetime-picker.css",
     "test": "ng test",
-    "test.once": "npm test --watch=false",
+    "test.once": "ng test --watch=false",
     "setup": "cd ngx-datetimepicker && npm install",
     "demo": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetime-picker && ng serve",
     "demo.build": "npm run build && cd demo && npm install && cp -fr ../dist/* node_modules/ngx-datetimepicker/ && ng build",
@@ -32,11 +32,11 @@
     "sass": "1.x",
     "typescript": "4.3.x",
     "zone.js": "0.11.x",
-    "@types/jest": "^27.4.1",
-    "karma": "^6.3.17",
-    "karma-chrome-launcher": "^3.1.1",
-    "karma-jasmine": "^4.0.1",
-    "karma-remap-istanbul": "^0.6.0"
+    "@types/jest": "27.x",
+    "karma": "6.x",
+    "karma-chrome-launcher": "3.x",
+    "karma-jasmine": "4.x",
+    "karma-remap-istanbul": "0.6.x"
   },
   "peerDependencies": {
     "@angular/common": "12.x",
