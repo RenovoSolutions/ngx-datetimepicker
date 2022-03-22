@@ -1,40 +1,56 @@
 <div class="calendar">
-    <button type="button" class="ngx-picker--btn ngx-picker--btn__month"
-        (click)="toggleMonthMenu(); showYearSelection = false">
+	<button type="button"
+            class="ngx-picker--btn ngx-picker--btn__month"
+            (click)="toggleMonthMenu(); showYearSelection = false">
         {{ selectedMonthText }}
     </button>
 
-    <button type="button" class="ngx-picker--btn ngx-picker--btn__year"
-        (click)="toggleYearMenu(); showMonthSelection = false">
+	<button type="button"
+            class="ngx-picker--btn ngx-picker--btn__year"
+            (click)="toggleYearMenu(); showMonthSelection = false">
         {{ selectedYear }}
     </button>
 
-    <span class="calendar--previous-and-next">
-        <button type="button" class="ngx-picker--btn ngx-picker--btn__previous" (click)="previousMonth()">
+	<span class="calendar--previous-and-next">
+		<button type="button"
+                class="ngx-picker--btn ngx-picker--btn__previous"
+			(click)="previousMonth()">
             &lt;
         </button>
 
-        <button type="button" class="ngx-picker--btn ngx-picker--btn__next" (click)="nextMonth()">
+		<button type="button"
+                class="ngx-picker--btn ngx-picker--btn__next"
+                (click)="nextMonth()">
             &gt;
         </button>
-    </span>
+	</span>
 
-    <div class="calendar--months-select" #monthSelect [hidden]="!showMonthSelection">
-        <span *ngFor="let month of months; let i = index ;" class="calendar--month"
-            [class.calendar--month__selected]="i + 1 == selectedMonth"
-            [class.calendar--month__disabled]="!canSelectMonth(i)" (click)="setMonth(i + 1)">
+	<div class="calendar--months-select"
+         #monthSelect
+         [hidden]="!showMonthSelection">
+		<span *ngFor="let month of months; let i = index ;"
+              class="calendar--month"
+			  [class.calendar--month__selected]="i + 1 == selectedMonth"
+			  [class.calendar--month__disabled]="!canSelectMonth(i)"
+			  (click)="setMonth(i + 1)">
             {{ month }}
         </span>
-    </div>
+	</div>
 
-    <div class="calendar--years-select" #yearSelect [hidden]="!showYearSelection">
-        <span *ngFor="let year of years" class="calendar--year" [class.calendar--year__selected]="selectedYear == year"
-            [class.calendar--year__disabled]="!canSelectYear(year)" (click)="this.setYear(year)">
+	<div class="calendar--years-select"
+         #yearSelect
+         [hidden]="!showYearSelection">
+		<span *ngFor="let year of years"
+              class="calendar--year"
+			  [class.calendar--year__selected]="selectedYear == year"
+			  [class.calendar--year__disabled]="!canSelectYear(year)"
+			  (click)="this.setYear(year)">
             {{ year }}
-        </span>
-    </div>
+		</span>
+	</div>
 
-    <div *ngIf="showMonthSelection == false && showYearSelection == false" class="calendar--days-and-weeks">
+	<div *ngIf="showMonthSelection == false && showYearSelection == false"
+         class="calendar--days-and-weeks">
         <div class="calendar--days-of-week">
             <span class="calendar--day-of-week">Su</span>
             <span class="calendar--day-of-week">Mo</span>
@@ -46,20 +62,26 @@
         </div>
 
         <div class="calendar--days-select">
-            <span *ngFor="let day of availableDays" class="calendar--day"
-                [class.calendar--day__muted]="day.month != selectedMonth" [class.calendar--day__selected]="(
+            <span *ngFor="let day of availableDays"
+                  class="calendar--day"
+                  [class.calendar--day__muted]="day.month != selectedMonth"
+                  [class.calendar--day__selected]="(
                       day.date.getDate() == highlightedDate?.getDate()
                       && day.date.getFullYear() == highlightedDate?.getFullYear()
                       && day.date.getMonth() == highlightedDate?.getMonth()
-                  )" [class.calendar--day__disabled]="!canSelectDay(day.day, day.date.getMonth())"
-                (click)="setSelectedDate(day.date)">
+                  )"
+                  [class.calendar--day__disabled]="!canSelectDay(day.day, day.date.getMonth())"
+                  (click)="setSelectedDate(day.date)">
                 {{ day.day}}
             </span>
         </div>
-    </div>
+	</div>
 
-    <ngx-time *ngIf="includeTime" [selectedHour]="selectedHour" [selectedMinute]="selectedMinute"
-        (selectedHourChange)="setSelectedDate(highlightedDate,$event)"
-        (selectedMinuteChange)="setSelectedDate(highlightedDate,null, $event)" (closeDatePicker)="closePicker()"
-        [use24HourClock]="use24HourClock"></ngx-time>
+	<ngx-time *ngIf="includeTime"
+			  [selectedHour]="selectedHour"
+			  [selectedMinute]="selectedMinute"
+			  (selectedHourChange)="setSelectedDate(highlightedDate,$event)"
+			  (selectedMinuteChange)="setSelectedDate(highlightedDate,null, $event)"
+              (closeDatePicker)="closePicker()"
+			  [use24HourClock]="use24HourClock"></ngx-time>
 </div>
