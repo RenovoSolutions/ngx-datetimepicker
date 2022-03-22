@@ -1,8 +1,8 @@
 /* tslint:disable:no-unused-variable */
-import {DateService} from 'ngx-datetime-picker';
+import { DateService } from 'ngx-datetime-picker';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 describe('AppComponent', () => {
@@ -11,12 +11,12 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-	  providers: [
-    DateService
-	  ],
-	  schemas: [
-	  CUSTOM_ELEMENTS_SCHEMA
-	  ]
+      providers: [
+        DateService
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     });
     TestBed.compileComponents();
   });

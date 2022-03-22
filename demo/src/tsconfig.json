@@ -3,7 +3,10 @@
     "baseUrl": "",
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "mapRoot": "./",
     "module": "es2020",
     "moduleResolution": "node",
@@ -13,7 +16,7 @@
     "typeRoots": [
       "../node_modules/@types"
     ]
-  },
+  },
   "include": [
     "**/*"
   ],

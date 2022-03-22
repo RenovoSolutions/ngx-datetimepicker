@@ -4,11 +4,11 @@ describe('a timePicker component', () => {
 	let timePickerComponent: TimePickerComponent;
 	let mockDateService: any;
 	let eRef: any;
-	
+
 	// register all needed dependencies
 	beforeEach(() => {
 		// @ts-ignore
-        mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
+		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
 		timePickerComponent = new TimePickerComponent(<any>{}, mockDateService, eRef);

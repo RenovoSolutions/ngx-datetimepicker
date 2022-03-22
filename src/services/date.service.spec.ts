@@ -111,7 +111,7 @@ describe('AppComponent', () => {
 	});
 
 	it('should return the string value of 2013-10-09T15:38 when supplied that datetime', () => {
-		const formattedDate = dateService.formatMobileYYYYMMDDTHHMM(new Date(2013,9,9,15,38));
+		const formattedDate = dateService.formatMobileYYYYMMDDTHHMM(new Date(2013, 9, 9, 15, 38));
 
 		expect(formattedDate).toBe('2013-10-09T15:38');
 	});

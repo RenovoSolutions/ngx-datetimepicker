@@ -9,10 +9,10 @@ describe('an input component', () => {
 
 	// register all needed dependencies
 	beforeEach(() => {
-        // @ts-ignore
-        mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
-        // @ts-ignore
-        renderer = jasmine.createSpyObj('renderer', ['invokeElementMethod']);
+		// @ts-ignore
+		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
+		// @ts-ignore
+		renderer = jasmine.createSpyObj('renderer', ['invokeElementMethod']);
 
 		mockDateService.getDateList.and.returnValue([]);
 		datePickerComponent = new DatePickerComponent(<any>{}, mockDateService, eRef, renderer);

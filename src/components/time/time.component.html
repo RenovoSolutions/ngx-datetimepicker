@@ -1,67 +1,50 @@
 <div class="time-picker">
-	<button type="button" class="ngx-picker--btn ngx-picker--btn__hour"
-            (click)="toggleHourMenu()"
-            [class.ngx-picker--btn__24h]="use24HourClock">
+    <button type="button" class="ngx-picker--btn ngx-picker--btn__hour" (click)="toggleHourMenu()"
+        [class.ngx-picker--btn__24h]="use24HourClock">
         {{ formatSelectedHour }}
     </button>
 
-	<button type="button" class="ngx-picker--btn ngx-picker--btn__minute"
-            (click)="toggleMinuteMenu()"
-            [class.ngx-picker--btn__24h]="use24HourClock">
+    <button type="button" class="ngx-picker--btn ngx-picker--btn__minute" (click)="toggleMinuteMenu()"
+        [class.ngx-picker--btn__24h]="use24HourClock">
         {{ formatSelectedMinute }}
     </button>
 
-	<div *ngIf="!use24HourClock"
-         class="time--periods">
-		<button type="button"
-                class="ngx-picker--btn ngx-picker--btn__am"
-                (click)="selectClockChange('am')"
-                [class.ngx-picker--btn__selected]="selectedClock === 'am'">
+    <div *ngIf="!use24HourClock" class="time--periods">
+        <button type="button" class="ngx-picker--btn ngx-picker--btn__am" (click)="selectClockChange('am')"
+            [class.ngx-picker--btn__selected]="selectedClock === 'am'">
             AM
         </button>
 
-		<button type="button"
-                class="ngx-picker--btn ngx-picker--btn__pm"
-                (click)="selectClockChange('pm')"
-                [class.ngx-picker--btn__selected]="selectedClock === 'pm'">
+        <button type="button" class="ngx-picker--btn ngx-picker--btn__pm" (click)="selectClockChange('pm')"
+            [class.ngx-picker--btn__selected]="selectedClock === 'pm'">
             PM
         </button>
-	</div>
-	<div class="time--selection__hours"
-         [hidden]="!hoursOpen">
-		<div class="time--values">
-			<div *ngFor="let hour of hours"
-                 class="time--value"
-                 [class.time--value__selected]="selectedHour == hour"
-                 (click)="selectHourChange(hour)">
+    </div>
+    <div class="time--selection__hours" [hidden]="!hoursOpen">
+        <div class="time--values">
+            <div *ngFor="let hour of hours" class="time--value" [class.time--value__selected]="selectedHour == hour"
+                (click)="selectHourChange(hour)">
                 {{ hour }}
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 
-	<div class="time--selection__minutes"
-         [hidden]="!minutesOpen">
-		<div class="time--values">
-			<div *ngFor="let minute of minutes"
-                 class="time--value"
-                 [class.time--value__selected]="selectedMinute == minute"
-                 (click)="selectMinuteChange(minute)">
+    <div class="time--selection__minutes" [hidden]="!minutesOpen">
+        <div class="time--values">
+            <div *ngFor="let minute of minutes" class="time--value"
+                [class.time--value__selected]="selectedMinute == minute" (click)="selectMinuteChange(minute)">
                 {{ minute }}
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
 <div class="calendar--footer">
-    <button type="button"
-            class="ngx-picker--btn ngx-picker--btn__now"
-            (click)="setTimeToNow()">
+    <button type="button" class="ngx-picker--btn ngx-picker--btn__now" (click)="setTimeToNow()">
         Now
     </button>
 
-    <button type="button"
-            class="ngx-picker--btn ngx-picker--btn__close"
-            (click)="closePicker()">
+    <button type="button" class="ngx-picker--btn ngx-picker--btn__close" (click)="closePicker()">
         Close
     </button>
 </div>

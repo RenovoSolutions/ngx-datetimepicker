@@ -1,6 +1,6 @@
 import { NgxDatetimepickerPage } from './app.po';
 
-describe('ngx-datetimepicker App', function() {
+describe('ngx-datetimepicker App', function () {
   let page: NgxDatetimepickerPage;
 
   beforeEach(() => {

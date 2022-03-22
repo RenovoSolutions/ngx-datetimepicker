@@ -1,11 +1,11 @@
-import {Component, ViewEncapsulation, EventEmitter, Input, Output, forwardRef, ElementRef, HostListener} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {IsMobileService} from '../../services/isMobile.service';
-import {DateService} from '../../services/date.service';
-import {StyleObject} from '../../models/styleObject.model';
+import { Component, ViewEncapsulation, EventEmitter, Input, Output, forwardRef, ElementRef, HostListener } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { IsMobileService } from '../../services/isMobile.service';
+import { DateService } from '../../services/date.service';
+import { StyleObject } from '../../models/styleObject.model';
 
 @Component({
-  selector:    'ngx-time-picker',
+  selector: 'ngx-time-picker',
   templateUrl: './timePicker.component.html',
   encapsulation: ViewEncapsulation.None,
   providers: [
@@ -17,16 +17,16 @@ import {StyleObject} from '../../models/styleObject.model';
   ],
 })
 export class TimePickerComponent implements ControlValueAccessor {
-  @Input() selectedTime:string;
-  @Input() placeholder:string;
-  @Input() disableInput:boolean = false;
-  @Input() disableButton:boolean = false;
+  @Input() selectedTime: string;
+  @Input() placeholder: string;
+  @Input() disableInput: boolean = false;
+  @Input() disableButton: boolean = false;
   @Input() disablePicker: boolean = false;
   @Input() doNotCloseOnDateSet: boolean = false;
   @Input() styles: StyleObject = new StyleObject();
-  @Input() use24HourClock:boolean = false;
+  @Input() use24HourClock: boolean = false;
 
-  @Output() selectedTimeChange:EventEmitter<string>;
+  @Output() selectedTimeChange: EventEmitter<string>;
 
   @HostListener('document:click', ['$event'])
   offClick(event) {
@@ -35,10 +35,10 @@ export class TimePickerComponent implements ControlValueAccessor {
     }
   }
 
-  public pickerVisible:boolean = false;
-  public isMobile:boolean;
+  public pickerVisible: boolean = false;
+  public isMobile: boolean;
 
-  get formattedTime():string {
+  get formattedTime(): string {
     if (this.selectedTime == null) {
       return '';
     }
@@ -53,7 +53,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     return this.dateService.formatHHMM_AMPM(this.selectedHour, this.selectedMinute);
   }
 
-  get mobileFormattedTime():string {
+  get mobileFormattedTime(): string {
     if (this.selectedTime == null) {
       return '';
     }
@@ -64,7 +64,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     return `${(this.selectedHour < 10 ? '0' + this.selectedHour : this.selectedHour)}:${(this.selectedMinute < 10 ? '0' + this.selectedMinute : this.selectedMinute)}`
   }
 
-  set mobileFormattedTime(value:string) {
+  set mobileFormattedTime(value: string) {
     const hour = value.split(':')[0];
     const minute = value.split(':')[1];
 
@@ -86,9 +86,9 @@ export class TimePickerComponent implements ControlValueAccessor {
   public selectedMinute: number;
 
   constructor(
-    private isMobileService:IsMobileService,
-    private dateService:DateService,
-    private eRef:ElementRef
+    private isMobileService: IsMobileService,
+    private dateService: DateService,
+    private eRef: ElementRef
   ) {
     this.selectedTimeChange = new EventEmitter<string>();
 
@@ -96,29 +96,29 @@ export class TimePickerComponent implements ControlValueAccessor {
     this.placeholder = this.placeholder || '';
   }
 
-  writeValue(value:string):void {
+  writeValue(value: string): void {
     this.selectedTime = value;
   }
 
-  registerOnChange(handler):void {
+  registerOnChange(handler): void {
     this.selectedTimeChange.subscribe(handler);
   }
 
-  registerOnTouched():void {
+  registerOnTouched(): void {
 
   }
 
-  setMobileFormattedTime(time:string) {
+  setMobileFormattedTime(time: string) {
     this.selectedTimeChange.emit(time);
     this.selectedTime = time;
   }
 
-  setFormattedTime(formattedTime:string) {
+  setFormattedTime(formattedTime: string) {
     this.selectedTime = formattedTime;
     this.selectedTimeChange.emit(formattedTime);
   }
 
-  setHourNow(hour:any):void {
+  setHourNow(hour: any): void {
     const clock = hour <= 11 ? 'am' : 'pm';
 
     if (this.selectedTime == null || this.selectedTime === '') {
@@ -132,7 +132,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     this.selectedTimeChange.emit(this.selectedTime);
   }
 
-  setMinuteNow(minute:any):void {
+  setMinuteNow(minute: any): void {
     if (this.selectedTime == null || this.selectedTime === '') {
       this.selectedTime = `12:${minute} pm`
     } else {
@@ -143,7 +143,7 @@ export class TimePickerComponent implements ControlValueAccessor {
     this.selectedTimeChange.emit(this.selectedTime);
   }
 
-  setPickerVisible(close:boolean):void {
+  setPickerVisible(close: boolean): void {
     this.pickerVisible = close;
   }
 }

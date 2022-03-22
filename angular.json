@@ -71,7 +71,7 @@
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
-			"tsConfig": "./tsconfig.json",
+            "tsConfig": "./tsconfig.json",
             "scripts": [],
             "styles": [
               "src/scss/date.component.scss"

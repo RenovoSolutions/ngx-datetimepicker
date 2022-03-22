@@ -1,3 +1,3 @@
 declare module 'ismobilejs' {
-	 var any:boolean;
+	var any: boolean;
 }

@@ -3,7 +3,7 @@ import { DateService } from '../../services/date.service';
 import { dayOfTheMonth } from '../../models/dayOfTheMonth.interface';
 
 @Component({
-	selector:    'ngx-date',
+	selector: 'ngx-date',
 	templateUrl: './date.component.html',
 	encapsulation: ViewEncapsulation.None,
 })
@@ -18,8 +18,8 @@ export class DateComponent implements OnInit, AfterViewInit {
 	@Output() selectedDateChange = new EventEmitter<Date>();
 	@Output() closeDatePicker = new EventEmitter<boolean>();
 
-	@ViewChild('yearSelect', {static: false}) yearSelect: ElementRef;
-	@ViewChild('monthSelect', {static: false}) monthSelect: ElementRef;
+	@ViewChild('yearSelect', { static: false }) yearSelect: ElementRef;
+	@ViewChild('monthSelect', { static: false }) monthSelect: ElementRef;
 
 	public availableDays: dayOfTheMonth[];
 	public months: string[];
@@ -30,10 +30,10 @@ export class DateComponent implements OnInit, AfterViewInit {
 	public selectedHour: number;
 	public selectedMinute: number;
 
-    public alreadySpecifiedMonth: boolean = false;
-    public alreadySpecifiedYear: boolean = false;
+	public alreadySpecifiedMonth: boolean = false;
+	public alreadySpecifiedYear: boolean = false;
 
-    public showMonthSelection: boolean = false;
+	public showMonthSelection: boolean = false;
 	public showYearSelection: boolean = false;
 
 	get selectedMonth(): number {
@@ -87,21 +87,21 @@ export class DateComponent implements OnInit, AfterViewInit {
 	}
 
 	constructor(
-	    private dateService:DateService
-    ) {
+		private dateService: DateService
+	) {
 
-    }
+	}
 
-	setMonth(i:number):void {
-	    this.selectedMonth = i;
+	setMonth(i: number): void {
+		this.selectedMonth = i;
 
-	    this.showMonthSelection = false;
-	    this.alreadySpecifiedMonth = true;
+		this.showMonthSelection = false;
+		this.alreadySpecifiedMonth = true;
 
-        if (!this.alreadySpecifiedYear) {
-            this.showYearSelection = true;
-        }
-    }
+		if (!this.alreadySpecifiedYear) {
+			this.showYearSelection = true;
+		}
+	}
 
 	setSelectedDate(date: Date, hour?: number, minutes?: number): void {
 		if (this.includeTime && !!date && !!this.selectedDate) {
@@ -140,16 +140,16 @@ export class DateComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-    setYear(year:number):void {
-        this.selectedYear = year;
+	setYear(year: number): void {
+		this.selectedYear = year;
 
-        this.showYearSelection = false;
-        this.alreadySpecifiedYear = true;
+		this.showYearSelection = false;
+		this.alreadySpecifiedYear = true;
 
-        if (!this.alreadySpecifiedMonth) {
-            this.showMonthSelection = true;
-        }
-    }
+		if (!this.alreadySpecifiedMonth) {
+			this.showMonthSelection = true;
+		}
+	}
 
 	private loadCalendarMonth(date: Date) {
 		if (date == null) {
@@ -191,15 +191,15 @@ export class DateComponent implements OnInit, AfterViewInit {
 		this.highlightedDate = this.selectedDate;
 		this.availableDays = [...this.dateService.getDateList(this.selectedMonth, this.selectedYear)];
 	}
-	
+
 	ngAfterViewInit() {
 		// subscribing to it's own event emitter to set the selected year position
 		this.selectedDateChange.subscribe(
-            () => {
-                this.scrollToMonth();
-                this.scrollToYear();
-            }
-        );
+			() => {
+				this.scrollToMonth();
+				this.scrollToYear();
+			}
+		);
 	}
 
 	public canSelectYear(year: number): boolean {
@@ -237,7 +237,7 @@ export class DateComponent implements OnInit, AfterViewInit {
 	}
 
 	public previousMonth(): void {
-	    this.alreadySpecifiedMonth = false;
+		this.alreadySpecifiedMonth = false;
 
 		let previousMonth = new Date(this.selectedDate);
 		//because javascript sets months based on a 0 index need to jump back 2 to go to the previous month.
@@ -246,7 +246,7 @@ export class DateComponent implements OnInit, AfterViewInit {
 	}
 
 	public nextMonth(): void {
-        this.alreadySpecifiedMonth = false;
+		this.alreadySpecifiedMonth = false;
 
 		let nextMonth = new Date(this.selectedDate);
 		/// same as above but since selected month is 1-12 the index is already the next month.
@@ -266,8 +266,8 @@ export class DateComponent implements OnInit, AfterViewInit {
 	}
 
 	public closePicker(): void {
-	    this.alreadySpecifiedMonth = false;
-	    this.alreadySpecifiedYear = false;
+		this.alreadySpecifiedMonth = false;
+		this.alreadySpecifiedYear = false;
 
 		this.closeDatePicker.emit(false);
 	}

@@ -1,10 +1,10 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import {AppComponent} from './app.component';
+import { AppComponent } from './app.component';
 
-import {DateService, DateTimePickerModule} from 'ngx-datetime-picker';
+import { DateService, DateTimePickerModule } from 'ngx-datetime-picker';
 
 @NgModule({
   declarations: [
@@ -22,4 +22,4 @@ import {DateService, DateTimePickerModule} from 'ngx-datetime-picker';
     AppComponent
   ]
 })
-export class AppModule {}
+export class AppModule { }
