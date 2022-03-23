@@ -3,7 +3,10 @@
     "baseUrl": "",
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "mapRoot": "./",
     "module": "es2020",
     "moduleResolution": "node",
@@ -13,12 +16,12 @@
     "typeRoots": [
       "../node_modules/@types"
     ]
-  },
-  "files": [
-    "main.ts",
-    "polyfills.ts"
-  ],
+  },
   "include": [
-    "src/**/*.d.ts"
+    "**/*"
+  ],
+  "exclude": [
+    "**/app.module.ts",
+    "**/app.component.ts"
   ]
 }

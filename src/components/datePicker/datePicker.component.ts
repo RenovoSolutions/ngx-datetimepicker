@@ -11,23 +11,23 @@ import {
     HostListener
 } from '@angular/core';
 
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {IsMobileService} from '../../services/isMobile.service';
-import {DateService} from '../../services/date.service';
-import {StyleObject} from '../../models/styleObject.model';
-import {Renderer} from '../../services/renderer.service';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { IsMobileService } from '../../services/isMobile.service';
+import { DateService } from '../../services/date.service';
+import { StyleObject } from '../../models/styleObject.model';
+import { Renderer } from '../../services/renderer.service';
 
 @Component({
-	selector: 'ngx-date-picker',
-	templateUrl: './datePicker.component.html',
-	encapsulation: ViewEncapsulation.None,
+    selector: 'ngx-date-picker',
+    templateUrl: './datePicker.component.html',
+    encapsulation: ViewEncapsulation.None,
     providers: [
-		{
-			provide: NG_VALUE_ACCESSOR,
-			useExisting: forwardRef(() => DatePickerComponent),
-			multi: true,
-		},
-	]
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => DatePickerComponent),
+            multi: true,
+        },
+    ]
 })
 export class DatePickerComponent implements OnInit, ControlValueAccessor {
     @Input() selectedDate: Date;
@@ -43,7 +43,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
 
     @Output() selectedDateChange = new EventEmitter<Date>();
 
-    @ViewChild('input', {static: false}) input:ElementRef;
+    @ViewChild('input', { static: false }) input: ElementRef;
 
     @HostListener('document:click', ['$event'])
     offClick(event) {
@@ -82,7 +82,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
         this.selectedDateChange.subscribe(handler);
     }
 
-    registerOnTouched() {}
+    registerOnTouched() { }
 
     // for use with the native html5 element. only emit's new valid dates.
     setDate(date: string) {
@@ -112,7 +112,7 @@ export class DatePickerComponent implements OnInit, ControlValueAccessor {
         this.pickerVisible = close;
     }
 
-    focus():void {
+    focus(): void {
         this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
     }
 }

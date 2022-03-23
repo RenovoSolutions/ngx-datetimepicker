@@ -1,5 +1,4 @@
 import { DateComponent } from './date.component';
-import { beforeEach, describe, expect, it } from '@angular/core/testing/src/testing_internal';
 
 describe('a date component', () => {
 	let dateComponent: DateComponent;
@@ -9,7 +8,7 @@ describe('a date component', () => {
 	// register all needed dependencies
 	beforeEach(() => {
 		// @ts-ignore
-        mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
+		mockDateService = jasmine.createSpyObj('mockDateService', ['getDateList', 'getMonths', 'getAvailableYears']);
 
 		mockDateService.getDateList.and.returnValue([]);
 
@@ -115,24 +114,24 @@ describe('a date component', () => {
 		it('should change the selected time to 8pm', (done) => {
 			dateComponent.ngOnInit();
 
-			dateComponent.selectedDateChange.subscribe((selectedDate:Date) => {
+			dateComponent.selectedDateChange.subscribe((selectedDate: Date) => {
 				expect(selectedDate.getHours()).toBe(8);
 				done();
 			});
 
-			dateComponent.setSelectedDate(dateComponent.highlightedDate,8);
+			dateComponent.setSelectedDate(dateComponent.highlightedDate, 8);
 
 		});
 
 		it('should change the selected time to 45 mins', (done) => {
 			dateComponent.ngOnInit();
 
-			dateComponent.selectedDateChange.subscribe((selectedDate:Date) => {
+			dateComponent.selectedDateChange.subscribe((selectedDate: Date) => {
 				expect(selectedDate.getMinutes()).toBe(45);
 				done();
 			});
 
-			dateComponent.setSelectedDate(dateComponent.highlightedDate,null,45);
+			dateComponent.setSelectedDate(dateComponent.highlightedDate, null, 45);
 		});
 
 	});

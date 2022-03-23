@@ -3,38 +3,44 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-remap-istanbul'),
-      require('@angular-devkit/build-angular/plugins/karma')
-    ],
-    files: [
-      
-    ],
-    preprocessors: {
-      
-    },
-    mime: {
-      'text/x-typescript': ['ts','tsx']
-    },
-    remapIstanbulReporter: {
-      dir: require('path').join(__dirname, 'coverage'), reports: {
-        html: 'coverage',
-        lcovonly: './coverage/coverage.lcov'
-      }
-    },
-    
-    reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'karma-remap-istanbul']
-              : ['progress'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+      basePath: '',
+      frameworks: ['jasmine', '@angular-devkit/build-angular'],
+      plugins: [
+          require('karma-jasmine'),
+          require('karma-chrome-launcher'),
+          require('karma-jasmine-html-reporter'),
+          require('karma-coverage'),
+          require('@angular-devkit/build-angular/plugins/karma')
+      ],
+      client: {
+          clearContext: false // leave Jasmine Spec Runner output visible in browser
+      },
+      mime: {
+          'text/x-typescript': ['ts', 'tsx']
+      },
+      coverageReporter: {
+          reporters: [
+              { type: 'html' },
+              { type: 'text-summary' }
+          ],
+          check: {
+              global: {
+                  statements: 50,
+                  branches: 50,
+                  functions: 50,
+                  lines: 50
+              }
+          }
+      },
+
+      reporters: config.angularCli && config.angularCli.codeCoverage
+          ? ['progress', 'kjhtml', 'coverage']
+          : ['progress', 'kjhtml'],
+      port: 9876,
+      colors: true,
+      logLevel: config.LOG_INFO,
+      autoWatch: true,
+      browsers: ['Chrome'],
+      singleRun: false
   });
 };

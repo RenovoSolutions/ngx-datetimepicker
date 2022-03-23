@@ -9,7 +9,7 @@ export class Renderer {
 
     }
 
-    invokeElementMethod(eleRef: ElementRef, method: string):void {
+    invokeElementMethod(eleRef: ElementRef, method: string): void {
         if (isPlatformBrowser(this.platformId)) {
             eleRef.nativeElement[method]();
         }

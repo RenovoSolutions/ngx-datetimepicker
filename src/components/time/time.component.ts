@@ -15,7 +15,7 @@ export class TimeComponent implements OnInit {
 	@Input() doNotCloseOnDateSet: boolean = false;
 	@Input() use24HourClock: boolean = false;
 
-    @Output() closeDatePicker = new EventEmitter<boolean>();
+	@Output() closeDatePicker = new EventEmitter<boolean>();
 
 	public selectedClock: string;
 
@@ -25,11 +25,11 @@ export class TimeComponent implements OnInit {
 	public minutesOpen: boolean;
 	public hoursOpen: boolean;
 
-	get formatSelectedMinute():string {
+	get formatSelectedMinute(): string {
 		return this.selectedMinute <= 9 ? '0' + this.selectedMinute : '' + this.selectedMinute;
 	}
 
-	get formatSelectedHour():string {
+	get formatSelectedHour(): string {
 		if (!this.use24HourClock) {
 			if (this.selectedHour === 12 || this.selectedHour === 0) {
 				return '12';
@@ -58,11 +58,11 @@ export class TimeComponent implements OnInit {
 		}
 	}
 
-	selectHourChange(selected:string):void {
-        let hour = parseInt(selected);
-        if (!this.use24HourClock) {
-            hour = this.selectedClock === 'pm' ? hour + 12 : hour;
-        }
+	selectHourChange(selected: string): void {
+		let hour = parseInt(selected);
+		if (!this.use24HourClock) {
+			hour = this.selectedClock === 'pm' ? hour + 12 : hour;
+		}
 
 		this.selectedHourChange.emit(hour);
 		this.selectedHour = hour;
@@ -75,8 +75,8 @@ export class TimeComponent implements OnInit {
 		this.hoursOpen = false;
 	}
 
-	selectMinuteChange(selected:string):void {
-	    const minute = parseInt(selected);
+	selectMinuteChange(selected: string): void {
+		const minute = parseInt(selected);
 
 		this.selectedMinuteChange.emit(minute);
 		this.selectedMinute = minute;
@@ -85,46 +85,46 @@ export class TimeComponent implements OnInit {
 		this.hoursOpen = false;
 	}
 
-	selectClockChange(clock:string):void {
+	selectClockChange(clock: string): void {
 		if (this.selectedClock !== clock) {
 			this.selectedClock = clock;
 
 			if (this.selectedClock === 'pm' && this.selectedHour <= 11) {
-                this.selectedHour = this.selectedHour + 12;
-            } else if (this.selectedClock === 'am' && this.selectedHour >= 12) {
-                this.selectedHour = this.selectedHour - 12;
-            }
+				this.selectedHour = this.selectedHour + 12;
+			} else if (this.selectedClock === 'am' && this.selectedHour >= 12) {
+				this.selectedHour = this.selectedHour - 12;
+			}
 
 			this.selectedHourChange.emit(this.selectedHour);
 		}
 	}
 
-    closePicker():void {
-        this.closeDatePicker.emit(true);
-    }
+	closePicker(): void {
+		this.closeDatePicker.emit(true);
+	}
 
-    setTimeToNow():void {
-        const now = new Date();
+	setTimeToNow(): void {
+		const now = new Date();
 
-        this.selectedHour = now.getHours();
-        this.selectedHourChange.emit(this.selectedHour);
-        this.selectedMinute = now.getMinutes();
-        this.selectedMinuteChange.emit(this.selectedMinute);
+		this.selectedHour = now.getHours();
+		this.selectedHourChange.emit(this.selectedHour);
+		this.selectedMinute = now.getMinutes();
+		this.selectedMinuteChange.emit(this.selectedMinute);
 
-        this.selectedClock = this.selectedHour >= 12 ? 'pm' : 'am';
+		this.selectedClock = this.selectedHour >= 12 ? 'pm' : 'am';
 
-        if (!this.doNotCloseOnDateSet) {
-            this.closePicker();
-        }
-    }
+		if (!this.doNotCloseOnDateSet) {
+			this.closePicker();
+		}
+	}
 
-    public toggleHourMenu(): void {
-        this.minutesOpen = false;
-        this.hoursOpen = !this.hoursOpen;
-    }
+	public toggleHourMenu(): void {
+		this.minutesOpen = false;
+		this.hoursOpen = !this.hoursOpen;
+	}
 
-    public toggleMinuteMenu(): void {
-        this.hoursOpen = false;
-        this.minutesOpen = !this.minutesOpen;
-    }
+	public toggleMinuteMenu(): void {
+		this.hoursOpen = false;
+		this.minutesOpen = !this.minutesOpen;
+	}
 }

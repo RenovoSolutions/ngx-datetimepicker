@@ -12,7 +12,9 @@
     "curly": true,
     "eofline": true,
     "forin": true,
-    "import-blacklist": [true],
+    "import-blacklist": [
+      true
+    ],
     "import-spacing": true,
     "indent": [
       true,
@@ -97,8 +99,12 @@
       "check-separator",
       "check-type"
     ],
-
-    "directive-selector": [true, "attribute", "app", "camelCase"],
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
     "no-inputs-metadata-property": true,
     "no-outputs-metadata-property": true,
     "no-host-metadata-property": true,

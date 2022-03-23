@@ -68,12 +68,14 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverage": true,
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
+            "tsConfig": "./tsconfig.json",
             "scripts": [],
             "styles": [
-              "scss/date.component.scss"
+              "src/scss/date.component.scss"
             ],
             "assets": [
               "src/assets",

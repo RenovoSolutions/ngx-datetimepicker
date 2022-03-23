@@ -1,5 +1,5 @@
 export class StyleObject {
-    public button? = {};
-    public date? = {};
-    public input? = {};
+    public button?= {};
+    public date?= {};
+    public input?= {};
 }

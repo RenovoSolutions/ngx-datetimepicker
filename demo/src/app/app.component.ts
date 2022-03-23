@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {DateService} from 'ngx-datetime-picker';
+import { DateService } from 'ngx-datetime-picker';
 
 @Component({
   selector: 'app-root',

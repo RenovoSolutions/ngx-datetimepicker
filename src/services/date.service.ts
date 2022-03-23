@@ -56,20 +56,20 @@ export class DateService {
 		return `${this.formatMMDDYYYY(date)} ${this.formatHHMM(hours, minutes)}`;
 	}
 
-	formatHHMM_AMPM(hour: number, minute: number, clock?:string): string {
+	formatHHMM_AMPM(hour: number, minute: number, clock?: string): string {
 		if (hour == null || minute == null) {
 			return '';
 		}
 
 		if (typeof clock === 'undefined') {
-            clock = hour >= 12 ? 'pm' : 'am';
-        }
+			clock = hour >= 12 ? 'pm' : 'am';
+		}
 
 		if (hour > 12) {
-		    hour = hour - 12;
-        } else if (hour === 0) {
-		    hour = 12;
-        }
+			hour = hour - 12;
+		} else if (hour === 0) {
+			hour = 12;
+		}
 
 		let formattedMinute = (!minute ? '00' : (minute <= 9 ? `0${minute}` : minute));
 
