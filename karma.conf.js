@@ -9,7 +9,7 @@ module.exports = function (config) {
             require('karma-jasmine'),
             require('karma-chrome-launcher'),
             require('karma-jasmine-html-reporter'),
-            require('karma-coverage-istanbul-reporter'),
+            require('karma-coverage'),
             require('@angular-devkit/build-angular/plugins/karma')
         ],
         client: {
@@ -18,23 +18,23 @@ module.exports = function (config) {
         mime: {
             'text/x-typescript': ['ts', 'tsx']
         },
-        coverageIstanbulReporter: {
-            reports: ['text-summary', 'html'],
-            fixWebpackSourcePaths: true,
-            skipFilesWithNoCoverage: false,
-            thresholds: {
-                emitWarning: false,
+        coverageReporter: {
+            reporters: [
+                { type: 'html' },
+                { type: 'text-summary' }
+            ],
+            check: {
                 global: {
                     statements: 50,
-                    lines: 50,
                     branches: 50,
-                    functions: 50
+                    functions: 50,
+                    lines: 50
                 }
             }
         },
 
         reporters: config.angularCli && config.angularCli.codeCoverage
-            ? ['progress', 'kjhtml', 'coverage-istanbul']
+            ? ['progress', 'kjhtml', 'coverage']
             : ['progress', 'kjhtml'],
         port: 9876,
         colors: true,
