@@ -38,7 +38,6 @@
     "karma-chrome-launcher": "3.x",
     "karma-cli": "2.x",
     "karma-jasmine": "4.x",
-    "karma-remap-istanbul": "0.6.x",
     "protractor": "7.x",
     "ts-node": "8.x",
     "tslint": "6.x",

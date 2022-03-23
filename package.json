@@ -27,16 +27,17 @@
     "@angular/localize": "12.x",
     "@angular/platform-browser": "12.x",
     "@angular/platform-browser-dynamic": "12.x",
+    "@types/jest": "27.x",
+    "karma": "6.x",
+    "karma-chrome-launcher": "3.x",
+    "karma-coverage-istanbul-reporter": "3.x",
+    "karma-jasmine": "4.x",
+    "karma-jasmine-html-reporter": "1.x",
     "ng-packagr": "12.x",
     "rxjs": "6.x",
     "sass": "1.x",
     "typescript": "4.3.x",
-    "zone.js": "0.11.x",
-    "@types/jest": "27.x",
-    "karma": "6.x",
-    "karma-chrome-launcher": "3.x",
-    "karma-jasmine": "4.x",
-    "karma-remap-istanbul": "0.6.x"
+    "zone.js": "0.11.x"
   },
   "peerDependencies": {
     "@angular/common": "12.x",
