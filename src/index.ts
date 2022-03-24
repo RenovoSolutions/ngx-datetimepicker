@@ -26,6 +26,8 @@ import { Renderer } from './services/renderer.service';
         TimePickerComponent
     ],
     exports: [
+        TimeComponent,
+        DateComponent,
         DatePickerComponent,
         DateTimePickerComponent,
         TimePickerComponent
