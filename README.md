@@ -17,6 +17,7 @@
 Date formats are called at datePicker.component.ts - functions formattedDate() and mobileFormattedDate().  
 Time formats are called at timePicker.component.ts - functions formattedTime() and mobileFormattedTime().  
 DateTime formats are called at dateTimePicker.component.ts - functions formattedDate() and mobileFormattedDate().
+Change these calls to a different format to get different results.
 All formats are defined in date.service.ts.
 
 ## Usage

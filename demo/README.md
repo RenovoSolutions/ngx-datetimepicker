@@ -21,7 +21,11 @@ Before running the tests make sure you are serving the app via `ng serve`.
 Run `ng github-pages:deploy` to deploy to GitHub Pages.
 
 ## DateTime formats
-Date formats are called at datePicker.component.ts - functions formattedDate() and mobileFormattedDate().  Time formats are called at timePicker.component.ts - functions formattedTime() and mobileFormattedTime().  DateTime formats are called at dateTimePicker.component.ts - functions formattedDate() and mobileFormattedDate().  All formats are defined in date.service.ts.
+Date formats are called at datePicker.component.ts - functions formattedDate() and mobileFormattedDate().  
+Time formats are called at timePicker.component.ts - functions formattedTime() and mobileFormattedTime().  
+DateTime formats are called at dateTimePicker.component.ts - functions formattedDate() and mobileFormattedDate().
+Change these calls to a different format to get different results.
+All formats are defined in date.service.ts.
 
 ## Further help
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
