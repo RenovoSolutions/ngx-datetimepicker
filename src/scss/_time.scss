@@ -1,12 +1,21 @@
 // Time
 .time-picker {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 	max-width: 16em;
 	min-width: 16em;
 	background-color: $time-picker-header-bg;
+}
+
+.time-picker--footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: $header-footer-bg;
+    padding: 0;
+    border-radius: $base-border-radius;
+    width: 100%;
 }
 
 .time--values {
@@ -20,18 +29,20 @@
 }
 
 .time--value {
-	width: 2.66em;
-	font-size: 1em;
-	padding: .5em 0;
-	text-align: center;
-	color: $time-value-text;
-	&__selected {
-		color: $time-value-text-selected;
-		background-color: $time-value-text-selected-bg;
-	}
-	&:hover {
-		transition: .25s ease;
-		cursor: pointer;
-		background-color: $time-value-text-hover-bg;
-	}
+    width: 2.66em;
+    font-size: 1em;
+    padding: .5em 0;
+    text-align: center;
+    color: $time-value-text;
+
+    &__selected {
+        color: $time-value-text-selected;
+        background-color: $time-value-text-selected-bg;
+    }
+
+    &:hover {
+        transition: .25s ease;
+        cursor: pointer;
+        background-color: $time-value-text-hover-bg;
+    }
 }

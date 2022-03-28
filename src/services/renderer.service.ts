@@ -5,9 +5,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class Renderer {
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object
-    ) {
-
-    }
+    ) {}
 
     invokeElementMethod(eleRef: ElementRef, method: string): void {
         if (isPlatformBrowser(this.platformId)) {

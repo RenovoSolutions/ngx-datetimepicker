@@ -74,6 +74,19 @@
                   (click)="setSelectedDate(day.date)">
                 {{ day.day}}
             </span>
+            <div class="calendar--footer">
+                <button type="button"
+                        class="ngx-picker--btn ngx-picker--btn__now"
+                        (click)="setDateToNow()">
+                    Now
+                </button>
+
+                <button type="button"
+                        class="ngx-picker--btn ngx-picker--btn__close"
+                        (click)="closePicker()">
+                    Close
+                </button>
+            </div>
         </div>
 	</div>
 
@@ -85,3 +98,4 @@
               (closeDatePicker)="closePicker()"
 			  [use24HourClock]="use24HourClock"></ngx-time>
 </div>
+
