@@ -13,6 +13,12 @@
 
 ## [Live Demo](https://renovosolutions.github.io/ngx-datetimepicker/)
 
+## DateTime formats
+Date formats are called at datePicker.component.ts - functions formattedDate() and mobileFormattedDate().  
+Time formats are called at timePicker.component.ts - functions formattedTime() and mobileFormattedTime().  
+DateTime formats are called at dateTimePicker.component.ts - functions formattedDate() and mobileFormattedDate().
+All formats are defined in date.service.ts.
+
 ## Usage
 
 ```typescript
@@ -81,8 +87,8 @@ _If_ you are using angular-cli the css can be added to your angular-cli.json
 
 ### Requirements
 
-- angular-cli 1.0.0-beta.28.3 or higher
-- node 6.9.0 or higher
+- angular-cli 12.2.16 or higher, known issues with version 13.
+- node 10 or higher
 
 ### Contributors
 
