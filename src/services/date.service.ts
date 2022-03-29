@@ -26,7 +26,21 @@ export class DateService {
 			return '';
 		}
 		return `${this.formatMobileYYYYMMDD(date)}T${this.addLeadingZero(date.getHours())}:${this.addLeadingZero(date.getMinutes())}`;
-	}
+    }
+
+    formatMobileDDMMMYYYY(date: Date): string {
+        if (!date || typeof date == 'string') {
+            return '';
+        }
+        return `${this.addLeadingZero(date.getDate())}-${this.months[date.getMonth() + 1].substr(0, 3).toUpperCase()}-${date.getFullYear()}`;
+    }
+
+    formatMobileDDMMMYYYYTHHMM(date: Date): string {
+        if (!date || typeof date == 'string') {
+            return '';
+        }
+        return `${this.formatMobileDDMMMYYYY(date)}T${this.addLeadingZero(date.getHours())}:${this.addLeadingZero(date.getMinutes())}`;
+    }
 
 	formatMMDDYYYY(date: Date): string {
 		if (!date || typeof date == 'string') {
@@ -34,7 +48,6 @@ export class DateService {
 		}
 		return `${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()}`;
 	}
-
 
 	formatMMDDYYYY_HHMM_AMPM(date: Date): string {
 		if (!date || typeof date == 'string') {
@@ -54,7 +67,35 @@ export class DateService {
 		const minutes = date.getMinutes();
 
 		return `${this.formatMMDDYYYY(date)} ${this.formatHHMM(hours, minutes)}`;
-	}
+    }
+
+    formatDDMMMYYYY(date: Date): string {
+        if (!date || typeof date == 'string') {
+            return '';
+        }
+        return `${date.getDate()}/${this.months[date.getMonth() + 1].substr(0, 3).toUpperCase()}/${date.getFullYear()}`;
+
+    }
+
+    formatDDMMMYYYY_HHMM_AMPM(date: Date): string {
+        if (!date || typeof date == 'string') {
+            return '';
+        }
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
+        return `${this.formatDDMMMYYYY(date)} ${this.formatHHMM_AMPM(hours, minutes)}`;
+    }
+
+    formatDDMMMYYYY_HHMM(date: Date): string {
+        if (!date || typeof date == 'string') {
+            return '';
+        }
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
+        return `${this.formatDDMMMYYYY(date)} ${this.formatHHMM(hours, minutes)}`;
+    }
 
 	formatHHMM_AMPM(hour: number, minute: number, clock?: string): string {
 		if (hour == null || minute == null) {
