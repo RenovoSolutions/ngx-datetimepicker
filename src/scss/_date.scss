@@ -1,100 +1,111 @@
 // Calendar
 .calendar {
-	position: absolute;
-	background-color: $header-footer-bg;
-  max-width: 16em;
-  min-width: 16em;
-  font-size: $calendar-size-ratio;
-  font-family: $font-family;
-	border-radius: $base-border-radius;
-	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    position: absolute;
+    background-color: $header-footer-bg;
+    max-width: 16em;
+    min-width: 16em;
+    font-size: $calendar-size-ratio;
+    font-family: $font-family;
+    border-radius: $base-border-radius;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .calendar--previous-and-next {
-	position: absolute;
-	right: 0;
-	top: 0;
-	display: flex;
-	justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .calendar--footer {
-	display: flex;
-	justify-content: space-between;
-  background-color: $header-footer-bg;
-  padding: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: $header-footer-bg;
+    padding: 0;
+    border-radius: $base-border-radius;
+    width: 100%;
+}
 
-	border-radius: $base-border-radius;
+.ngx-datetime-picker .calendar--footer {
+    content-visibility: hidden;
 }
 
 .calendar--years-select,
 .calendar--months-select {
-	overflow-y: auto;
-	overflow-x: hidden;
-	max-height: $calendar-menu-height;
-	background-color: $menu-background;
-	width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: $calendar-menu-height;
+    background-color: $menu-background;
+    width: 100%;
 }
 
 .calendar--year,
 .calendar--month {
-	display: block;
-	padding: .5em 1em;
-	width: 100%;
-	overflow: hidden;
-	color: $month-and-year-text;
-	&__selected {
-		color: $month-and-year-text-selected;
-		font-weight: bold;
-		background-color: $month-and-year-text-selected-bg;
-	}
-	&:hover {
-		cursor: pointer;
-		background-color: $month-and-year-text-hover-bg;
-		font-weight: 400;
-		color: $month-and-year-text-hover;
-	}
+    display: block;
+    padding: .5em 1em;
+    width: 100%;
+    overflow: hidden;
+    color: $month-and-year-text;
+
+    &__selected {
+        color: $month-and-year-text-selected;
+        font-weight: bold;
+        background-color: $month-and-year-text-selected-bg;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: $month-and-year-text-hover-bg;
+        font-weight: 400;
+        color: $month-and-year-text-hover;
+    }
 }
 
 // Days of the week (Su - Sa)
 .calendar--days-of-week {
-  display: flex;
-  justify-content: space-around;
-	background-color: $week-bg;
+    display: flex;
+    justify-content: space-around;
+    background-color: $week-bg;
 }
 
 .calendar--day-of-week {
-  position: relative;
-  padding: .5em;
-  text-align: center;
-  text-transform: uppercase;
-	color: $week-text;
-  font-size: .9em;
+    position: relative;
+    padding: .5em;
+    text-align: center;
+    text-transform: uppercase;
+    color: $week-text;
+    font-size: .9em;
 }
 
 // Individual day selection (1 - 31)
 .calendar--days-select {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-	justify-content: space-between;
-	background-color: $days-select-bg;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $days-select-bg;
 }
 
 .calendar--day {
-  text-align: center;
-  width: 2.25em;
-  padding: .5em 0;
-  font-weight: 500;
-	color: $day-text;
-	&__muted { color: $day-text-muted; }
-	&__selected {
-		background-color: $day-text-selected-bg;
-		color: $day-text-selected;
-	}
-	&:hover {
-		cursor: pointer;
-		color: $day-text-hover;
-		background-color: $day-text-hover-bg;
-	}
+    text-align: center;
+    width: 2.25em;
+    padding: .5em 0;
+    font-weight: 500;
+    color: $day-text;
+
+    &__muted {
+        color: $day-text-muted;
+    }
+
+    &__selected {
+        background-color: $day-text-selected-bg;
+        color: $day-text-selected;
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: $day-text-hover;
+        background-color: $day-text-hover-bg;
+    }
 }

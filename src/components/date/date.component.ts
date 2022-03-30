@@ -270,5 +270,9 @@ export class DateComponent implements OnInit, AfterViewInit {
 		this.alreadySpecifiedYear = false;
 
 		this.closeDatePicker.emit(false);
-	}
+    }
+
+    public setDateToNow(): void {
+        this.setSelectedDate(new Date());
+    }
 }

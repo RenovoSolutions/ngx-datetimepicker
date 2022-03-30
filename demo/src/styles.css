@@ -2,7 +2,6 @@
 
 body {
 	margin: 0;
-
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 }
@@ -11,7 +10,6 @@ body {
 	width: 100%;
 	padding: 1em;
 	margin-bottom: .5em;
-
 	font-size: 2em;
 	color: #fff;
 	background-color: #222651;
@@ -22,6 +20,7 @@ body {
 	color: #f41875;
 	text-decoration: none;
 }
+
 .header--subtitle a:hover {
 	transition: .25s ease;
 	color: #ff6fac;
@@ -39,7 +38,6 @@ body {
 .demo-section--label {
 	display: inline-block;
 	margin: 1.5em 0 .5em 0;
-
 	font-size: 1.25em;
 }
 
@@ -47,9 +45,7 @@ body {
 	position: absolute;
 	margin-top: .5em;
 	padding: .5em;
-
 	background-color: #f1f1f1;
-
 	transition: .25s ease;
 }
 
@@ -60,12 +56,9 @@ body {
 .btn-demo {
 	padding: 1em 1.5em;
 	cursor: pointer;
-
 	background-color: #fff;
-
 	border: .2em solid #222651;
 	border-radius: .2em;
-
 	color: #222651;
 	font-weight: bold;
 }

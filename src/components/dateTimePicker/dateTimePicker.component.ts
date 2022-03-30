@@ -87,11 +87,10 @@ export class DateTimePickerComponent implements OnInit, ControlValueAccessor {
         }
     }
 
-    newDatePicked(date: Date): void {
+    newDatePicked(date) {
         this.invalid = false;
-
-        this.selectedDateTimeChange.emit(date);
-        this.selectedDateTime = date;
+        this.selectedDateTime = new Date(date);
+        this.selectedDateTimeChange.emit(this.selectedDateTime);
     }
 
     setPickerVisible(close: boolean): void {
