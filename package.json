@@ -17,7 +17,7 @@
   "author": "Josh Sommer <joshdsommer@gmail.com> (https://twitter.com/_JoshSommer)",
   "license": "ISC",
   "devDependencies": {
-    "@angular-devkit/build-angular": "12.x",
+    "@angular-devkit/build-angular": "15.x",
     "@angular/cli": "12.x",
     "@angular/common": "12.x",
     "@angular/compiler": "12.x",
