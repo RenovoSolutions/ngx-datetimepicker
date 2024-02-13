@@ -1,11 +1,7 @@
-<p align="center">
-  <p align="center">
-      <img src="https://cloud.githubusercontent.com/assets/13574057/24919884/1d00adac-1eb3-11e7-85b6-d221058d0b03.png">
-  </p>
-  <p align="center">
-    Date time picker that falls back to native HTML5 components on mobile
-  </p>
-</p>
+> [!NOTE]  
+> This project is no longer actively maintained.
+>
+> We want to thank everyone for their contributions and hope we've helped you in your coding journey.
 
 # ngx-datetime-picker
 
@@ -19,6 +15,15 @@
 ## Demo
 
 Live demo can be found at <https://renovosolutions.github.io/ngx-datetimepicker/>.
+
+<p align="center">
+  <p align="center">
+      <img src="https://cloud.githubusercontent.com/assets/13574057/24919884/1d00adac-1eb3-11e7-85b6-d221058d0b03.png">
+  </p>
+  <p align="center">
+    Date time picker that falls back to native HTML5 components on mobile
+  </p>
+</p>
 
 ## DateTime formats
 
